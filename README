@@ -1,0 +1,77 @@
+== Welcome to SproutCore Builder
+
+This is an application package for building a SproutCore application.  To get
+started, edit your JavaScript application in the clients directory (we've 
+already created one for you.)
+
+Then, start the SproutCore Dev Server by running from this directory:
+
+sc_server 
+
+This takes all the same arguments as mongrel.  You can now visit your app
+by going to:
+
+http://localhost:3000/contacts
+
+== What Goes Where
+
+Here is a brief description of the various parts of the SproutCore app:
+
+* *clients:*  Each folder in the clients directory contains a single-page 
+  application you can load in your web browser.  By default the URL to reach 
+  each application is the /directory-name.  You will do most of your editing 
+  here.
+  
+* *frameworks:* Each folder in the frameworks directory is a SproutCore
+  library that your client applications can use.  No HTML will be generated
+  for these frameworks, but any JavaScript, CSS or other images you place
+  in here will be accessible through your web browser.
+  
+* *public:* This directory contains any other static resources your other 
+  apps needs to be able to use.  If you have static HTML or other basic 
+  files you want to have access to.  If you start your server in production
+  mode, cached output will also be saved into this directory.
+  
+* *lib:* Any ruby files you place in this directory will be automatically 
+  loaded when the sproutcore server start or when you do a static build.
+  If you write any custom view helpers, you can place them here.
+  
+* *setup.yaml:* This is a config file that you can use to set various load
+  options for the clients and frameworks in your app.  The default options are
+  specified in the default: group.  You can override the default for specific
+  frameworks or clients by naming them.
+  
+== Using Frameworks
+
+Frameworks are automatically automatically available in your app.  You can
+also name frameworks available anywhere in your load path (including those
+installed in gems).  
+
+The SproutCore gem comes with the latest versions of prototype, sproutcore,
+and sproutapp frameworks installed.  All you need to do is indicate that
+you require them.
+
+== Deploying your SproutCore App
+
+Normally you will use the sc_server to host your application while you are 
+developing your code.  Once you are ready to deploy, however, there are two
+ways you can do it:
+
+==== 1. Use sc_server in production.  
+
+The SproutCore server can be run in a production mode that will simply generate and cache web-optimized versions of all of your resources upon request.  For a low-traffic or newer site, this approach is an easy way to get your code into production.  You just replace your directory with your latest files and the sc_server will start serving the new resources.
+
+==== 2. Do a static build
+
+In general, however, loading all of your resources through a Ruby-app is not the best, especially when you could use a high-speed server such as lighttpd that is optimized for serving static content.
+
+If you want real speed, do a static build of your content and serve it through
+lighttpd or apache.  Do the static build, just run:
+
+sc_build all
+
+This will place a directory in tmp/build that contains all of your resources 
+pre-compiled and ready for static serving.
+
+
+
