@@ -3,6 +3,7 @@
 	http://localhost:4020/static/sample_controls/en/_cache/body-1205801813.css
 	http://localhost:4020/static/sample_controls/en/_cache/body-1205802236.css
 	http://localhost:4020/static/sample_controls/en/_cache/body-1205802865.css
+	http://localhost:4020/static/sample_controls/en/_cache/body-1206750453.css
 */
 
 /* @group General */
@@ -74,7 +75,7 @@
 	right: 20px;
 }
 
-.collections_tab .list_view {
+.collections_tab .list_scroll_view {
 	position: absolute ;
 	left: 12px;
 	top: 40px;
@@ -83,6 +84,14 @@
 	overflow-y: auto;
 	overflow-x: hidden ;
 	border: 1px #aaa solid;
+}
+
+.collections_tab .list_view {
+	position: absolute ;
+	left:  0;
+	right:  0;
+	top:  0;
+	border:  1px red dotted;
 }
 
 .collections_tab .grid_view {
