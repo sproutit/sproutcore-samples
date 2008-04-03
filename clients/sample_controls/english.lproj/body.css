@@ -86,15 +86,15 @@
 	border: 1px #aaa solid;
 }
 
-.collections_tab .list_view {
+.collections_tab .list_view,
+.collections_tab .grid_view {
 	position: absolute ;
 	left:  0;
 	right:  0;
 	top:  0;
-	border:  1px red dotted;
 }
 
-.collections_tab .grid_view {
+.collections_tab .grid_scroll_view {
 	position: absolute ;
 	left: 220px;
 	top: 40px;
