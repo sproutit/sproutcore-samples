@@ -17,6 +17,7 @@ SampleControls.sourceListController = SC.ArrayController.create(
 /** @scope SampleControls.sourceListController */ {
   
   // TODO: Add your own code here.
-  allowsEmptySelection: NO
+  allowsEmptySelection: NO,
+  allowsMultipleSelection: NO
   
 }) ;
