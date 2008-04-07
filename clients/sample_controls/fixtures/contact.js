@@ -150,7 +150,7 @@ SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
   static_url('photos/DSCN3901.jpg')] ;
   
   var ret = [];
-  var idx = 4000; //text.length/2 ;
+  var idx = text.length/2 ;
   while(--idx >= 0) {
     
     var photoUrlIdx = idx % photoUrls.length ;

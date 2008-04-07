@@ -1,12 +1,13 @@
 /* @override 
-	http://localhost:4020/static/sample_controls/en/_cache/body-1205777296.css
-	http://localhost:4020/static/sample_controls/en/_cache/body-1205801813.css
-	http://localhost:4020/static/sample_controls/en/_cache/body-1205802236.css
-	http://localhost:4020/static/sample_controls/en/_cache/body-1205802865.css
-	http://localhost:4020/static/sample_controls/en/_cache/body-1206750453.css
+	http://localhost:4020/static/sample_controls/en/_cache/body-1207527892.css
+	http://localhost:4020/static/sample_controls/en/_cache/body-1207528931.css
 */
 
 /* @group General */
+
+body {
+	 overflow: hidden ;
+}
 
 #control_tabs {
 	position: absolute ;
@@ -59,6 +60,42 @@
 
 /* @end */
 
+/* @group Collections 2 */
+
+/* Note: Ideally these styles will simply position the views on the screen.  The SC-Theme should take care of the rest.  */
+
+.collections2_tab .source_list_label {
+	position: absolute ;
+	left: 14px;
+	top: 20px;
+	width: 200px;
+}
+
+.collections2_tab .table-view-label {
+	position: absolute ;
+	left: 220px;
+	top: 20px;
+	right: 20px;
+}
+
+.collections2_tab .source_list_scroll_view {
+	position: absolute ;
+	left: 12px;
+	top: 40px;
+	bottom: 12px;
+	width: 200px;
+}
+
+.collections2_tab .table_scroll_view {
+	position: absolute ;
+	left: 220px;
+	top: 40px;
+	bottom: 12px;
+	right: 12px;
+}
+
+/* @end */
+
 /* @group Collections */
 
 .collections_tab .list-view-label {
@@ -81,17 +118,6 @@
 	top: 40px;
 	bottom: 12px;
 	width: 200px;
-	overflow-y: auto;
-	overflow-x: hidden ;
-	border: 1px #aaa solid;
-}
-
-.collections_tab .list_view,
-.collections_tab .grid_view {
-	position: absolute ;
-	left:  0;
-	right:  0;
-	top:  0;
 }
 
 .collections_tab .grid_scroll_view {
@@ -100,9 +126,6 @@
 	top: 40px;
 	bottom: 12px;
 	right: 12px;
-	overflow-y: auto;
-	overflow-x: hidden ;
-	border: 1px #aaa solid;
 }
 
 /* @end */
