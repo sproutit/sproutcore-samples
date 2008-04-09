@@ -4,7 +4,7 @@
 <% scroll_view :list_scroll_view, :outlet => true do %>
   <%= list_view :list_view, 
       :outlet => true, 
-      :display_property => 'fullName', 
+      :content_value_property => 'fullName', 
       :can_reorder_content => true,
       :bind => { 
         :content => 'SampleControls.contentController.arrangedObjects', 
@@ -16,7 +16,7 @@
 <% scroll_view :grid_scroll_view, :outlet => true do %>
   <%= grid_view :grid_view, :outlet => true, 
       :example_view => 'SC.ImageCellView', 
-      :display_property => 'photoUrl', 
+      :content_value_property => 'photoUrl', 
       :can_reorder_content => true,
       :row_height => 120, 
       :column_width => 160,

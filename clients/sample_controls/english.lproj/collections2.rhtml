@@ -6,8 +6,7 @@
   <%= source_list_view :source_list_view, :outlet => true, 
     :can_reorder_content => true,
     :group => :group,
-    :example_view => 'SC.TextCellView',
-    :display_property => 'name',
+    :content_value_property => 'name',
     :bind => { 
       :content => 'SampleControls.sourceListController.arrangedObjects', 
       :selection => 'SampleControls.sourceListController.selection' 
@@ -19,7 +18,7 @@
   <%= collection_view :table_view, :outlet => true, 
     :can_order_content => true, 
     :bind => { 
-      :content => 'SampleControls.contentController.arrangedObjectsXX', :selection => 'SampleControls.contentController.selectionXX' 
+      :content => 'SampleControls.contentController.arrangedObjects', :selection => 'SampleControls.contentController.selection' 
     } %>
 <% end %>
 
