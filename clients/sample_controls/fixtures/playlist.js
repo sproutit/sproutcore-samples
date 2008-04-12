@@ -12,20 +12,22 @@ SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
   var playlists ='Shuffle,Christmas,Blues,Classical,Electronic,Jazz,New Music,Top 50 Most Played,Unrated,Chillout'.split(',');
   
   var ret = [] ;
-  var fadd = function(group, names) {
+  var fadd = function(group, names, iconClassName) {
     for(var idx =0;idx<names.length;idx++) {
       ret.push({
         guid: (group + idx).toString(),
         type: "Playlist",
         group: group,
-        name: names[idx]
+        name: names[idx],
+        unreadCount: (idx % 4 > 2) ? 1000 : (idx % 4 > 1) ? 100 : (idx % 4 > 0) ? 1 : 0,
+        iconClassName: iconClassName
       }) ;
     }
   } ;
 
-  fadd('library', library) ;
-  fadd('store', store) ;
-  fadd('playlists', playlists) ;
+  fadd('library', library, 'sc-icon-history-16') ;
+  fadd('store', store, 'sc-icon-cart-16') ;
+  fadd('playlists', playlists, 'sc-icon-favs-16') ;
   
   return ret ;
 }()) ;
