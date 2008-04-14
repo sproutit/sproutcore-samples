@@ -25,9 +25,9 @@ SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
     }
   } ;
 
-  fadd('library', library, 'sc-icon-history-16') ;
-  fadd('store', store, 'sc-icon-cart-16') ;
-  fadd('playlists', playlists, 'sc-icon-favs-16') ;
+  fadd('library', library, 'sc-icon-folder-16') ;
+  fadd('store', store, 'sc-icon-bookmark-16') ;
+  fadd('playlists', playlists, 'sc-icon-favorite-16') ;
   
   return ret ;
 }()) ;
