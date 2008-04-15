@@ -79,20 +79,6 @@
 </div>
 
 <div class="demo_box">
-<h1>Back Buttons</h1>
-<p><code>
-  &lt;%= button_view :label =&gt; &apos;Button Name&apos;, :theme =&gt; :back %&gt;
-</code></p>
-
-  <div class="buttons">
-    <%= back_button_view :outlet => true, :label => 'Home' %>
-    <%= back_button_view :outlet => true, :selected => true, :label => "Home" %>
-    <%= button_view :outlet => true, :label => 'Home', :enabled => false, :theme => :back %>
-    <%= button_view :outlet => true, :selected => true, :label => 'Home', :enabled => false, :theme => :back %>
-  </div>
-</div>
-
-<div class="demo_box">
 <h1>Segments</h1>
 <p><code>
   &lt;%= segmented_view :segments =&gt; [:one, :two, :three], :enabled =&gt; true|false %&gt;
