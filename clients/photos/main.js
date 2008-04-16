@@ -26,12 +26,8 @@ function main() {
   // need to show the app in the first place, to speed things up.
   SC.page.awake() ;
 
-  // Step 3. Set the content property on your primary controller.  
-  // This will make your app come alive!
-  
-  // TODO: Set the content property on your primary controller
-  // ex: Photos.contactsController.set('content',Photos.contacts);
-  
+  var albums = Photos.Album.findAll() ;
+  Photos.masterController.set('content', albums) ;
 } ;
 
 

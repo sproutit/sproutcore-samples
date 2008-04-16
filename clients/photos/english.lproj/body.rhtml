@@ -1,18 +1,34 @@
 <% content_for('body') do %>
-<div class="sc-welcome">
-  <img class="logo" src="<%= static_url('images/sproutcore-logo') %>" />
-  <div class="message">
-    <h1>Welcome!</h1>
-    <h3>You are now running SproutCore.</h3>
-    <div class="sticky-note">
-      <p>Things to do:</p>
-      <ul>
-        <li>Add a model:<br/>sc-gen model contacts/my_model</li>
-        <li>Add a controller:<br/>sc-gen controller contacts/my_controller</li>
-        <li>Edit english.lproj/body.rhtml</li>
-        <li>Build for deployment:<br />sc-build</li>
-      </ul>
-    </div>
-  </div>
+<div class="toolbar">
+<div class="shaddow"></div>
 </div>
+<% view :workspace do %>  
+  <% view :sidebar, :outlet => true do %>
+    <% scroll_view :source_list, :outlet => true do %>
+      <%= source_list_view :outlet => true, 
+        :group => :albumType,
+        :content_value_key => :name,
+        :group_visible_key => true,
+        :content_icon_key => :icon,
+        :bind => {
+          :content => 'Photos.masterController.arrangedObjects',
+          :selection => 'Photos.masterController.selection'
+        } %>
+    <% end %>
+  <% end %>
+  
+  <% scroll_view :grid_view, :outlet => true do %>
+    <%= grid_view :outlet => true,
+      :example_view => 'SC.ImageCellView',
+      :content_value_key => 'url',
+      :can_reorder_content => true,
+      :row_height => 120,
+      :column_width => 160,
+      :bind => {
+        :content => 'Photos.detailController.arrangedObjects',
+        :selection => 'Photos.detailController.selection'
+      } %>
+  <% end %>
+<% end %>
+
 <% end %>

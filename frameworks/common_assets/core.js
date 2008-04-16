@@ -1,21 +1,20 @@
 // ==========================================================================
-// Photos
+// CommonAssets Framework
 // ==========================================================================
 
-Photos = SC.Object.create({
-
-  // This will create the server for your application.  Add any namespaces
-  // your model objects are defined in to the prefix array.
-  server: SC.Server.create({ prefix: ['Photos'] }),
-
+CommonAssets = SC.Object.create({
+  
   // When you are in development mode, this array will be populated with 
   // any fixtures you create for testing and loaded automatically in your
   // main method.  When in production, this will be an empty array.
+  //
+  // You will use this most often when running unit tests in dev mode.
+  //
   FIXTURES: [],
-
-  // Any keys in this array will be instantiated automatically from main.
-  controllers: [],
   
-}) ;
+  // Add any global constants or other properties used by the entire
+  // framework:
+  // CONSTANT_NAME:  'some-value'
 
-PHOTO_COUNT = 130 ;
+
+}) ;

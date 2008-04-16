@@ -14,7 +14,5 @@ require('core');
 */  
 Photos.Photo = SC.Record.extend(
 /** @scope Photos.Photo.prototype */ {
-  
-  // TODO: Add your own code here.
-  
+
 }) ;

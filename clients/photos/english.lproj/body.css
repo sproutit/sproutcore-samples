@@ -1,75 +1,70 @@
-/* Default CSS for welcome page.  Delete this styling and replace it with your own. */
+/* @override 
+	http://localhost:4020/static/photos/en/_cache/body-1208305764.css
+	http://localhost:4020/static/photos/en/_cache/body-1208344721.css
+*/
 
-.sc-welcome {
+/* @group Core */
+
+body {
 	position: absolute ;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	background-color: white ;
-}
-
-.sc-welcome img.logo {
-	position: absolute ;
-	bottom: 80px;
-	left: 50%;
-	margin-left: -20px;	
-}
-
-/* @group Message */
-
-
-
-.sc-welcome .message {
-	max-width: 800px;
-	margin-left: auto ;
-	margin-right: auto;
-	margin-top: 100px;
-	position: relative;
-}
-
-.sc-welcome h1 {
-	border: none ;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
 	padding: 0;
 	margin: 0;
-	letter-spacing: -3px;
-	font: normal 6.4em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	overflow: hidden ;
 }
 
-.sc-welcome h3 {
-	margin: 8px 12px;
-	padding: 0;
-	font: 1.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-	color: #808080;
-}
-
-/* @end */
-
-/* @group Sticky Note */
-
-.sc-welcome .sticky-note {
+.toolbar {
+	border-top: 1px #aaa solid;
 	position: absolute ;
+	bottom: 0;
+	height: 48px;
+	left: 0;
 	right: 0;
-	top: -70px;
-	width: 320px;
-	height: 300px;
-	padding: 60px;
-	padding-right: 20px;
-	background: static_url('sticky-note') no-repeat center center;
-	font: 1.3em "Comic Sans MS", "Comic Sans", Arial, Helvetica, Geneva, sans-serif;
-	color: #5f4700;
+	background-color: #dedede;
+	z-index: 2;
 }
 
-.sc-welcome .sticky-note p {
-	font-weight: bold ;
+.workspace {
+	position: absolute ;
+	left: 0;
+	right: 0;
+	top:  0;
+	bottom: 48px;
 }
 
-.sc-welcome .sticky-note ul {
-	padding: 0 10px ;
+.workspace .sidebar {
+	position: absolute;
+	left:  0;
+	top:  0;
+	width: 200px;
+	bottom: 0;
 }
 
-.sc-welcome .sticky-note li {
-	margin: 8px 0 ;
+.workspace .grid_view {
+	position: absolute;	
+	left: 200px;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border: none ;
+	border-left: 1px #aaa solid;
 }
 
 /* @end */
+
+/* @group Sidebar */
+
+.sidebar .source_list {
+	position: absolute ;
+	top: 0;
+	left:  0;
+	right: 0;
+	bottom: 0;
+	border: none ;
+}
+
+/* @end */
+

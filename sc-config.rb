@@ -18,7 +18,7 @@ config :all do |c|
   # Name any other frameworks your bundles depend upon.  The stylesheets and
   # JavaScript for required bundles will be loaded before your bundle on your
   # page.
-  c[:required] = [:sproutcore, :sprout_debug]
+  c[:required] = [:sproutcore, :common_assets]
 
   # This string will be prepended before any URLs that reference JavaScript,
   # CSS or images in your files.
