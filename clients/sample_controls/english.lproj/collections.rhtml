@@ -5,6 +5,7 @@
   <%= list_view :list_view, 
       :outlet => true, 
       :content_value_key => 'fullName', 
+      :content_icon_key => 'icon',
       :can_reorder_content => true,
       :bind => { 
         :content => 'SampleControls.contentController.arrangedObjects', 

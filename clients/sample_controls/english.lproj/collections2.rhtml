@@ -9,6 +9,7 @@
     :content_value_key => 'name',
     :content_unread_count_key => 'unreadCount',
     :content_icon_key => 'iconClassName',
+    :group_visible_key => true,
     :bind => { 
       :content => 'SampleControls.sourceListController.arrangedObjects', 
       :selection => 'SampleControls.sourceListController.selection' 
@@ -20,7 +21,7 @@
   <%= collection_view :table_view, :outlet => true, 
     :can_order_content => true, 
     :bind => { 
-      :content => 'SampleControls.contentController.arrangedObjects', :selection => 'SampleControls.contentController.selection' 
+      :content => 'SampleControls.contentController.arrangedObjectsXX', :selection => 'SampleControls.contentController.selectionXX' 
     } %>
 <% end %>
 

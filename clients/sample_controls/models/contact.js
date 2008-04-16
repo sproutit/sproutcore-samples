@@ -18,6 +18,8 @@ SampleControls.Contact = SC.Record.extend(
   // TODO: Add your own code here.
   fullName: function() {
     return this.getEach('itemIndex', 'photoName').compact().join(' ');
-  }.property('photoName', 'itemIndex')
+  }.property('photoName', 'itemIndex'),
+  
+  icon: 'sc-icon-document-16'
   
 }) ;
