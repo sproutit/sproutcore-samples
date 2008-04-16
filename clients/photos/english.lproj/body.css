@@ -55,7 +55,7 @@
 	height: 300px;
 	padding: 60px;
 	padding-right: 20px;
-	background: url(/static/sproutcore/_src/english.lproj/images/sticky-note.png) no-repeat center center;
+	background: static_url('sticky-note') no-repeat center center;
 	font: 1.3em "Comic Sans MS", "Comic Sans", Arial, Helvetica, Geneva, sans-serif;
 	color: #5f4700;
 }
