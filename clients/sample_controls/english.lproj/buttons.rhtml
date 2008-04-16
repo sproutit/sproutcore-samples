@@ -17,6 +17,21 @@
 </div>
 
 <div class="demo_box">
+<h1>Disclosure Triangle</h1>
+<p><code>
+  &lt;%= disclosure_view :label =&gt; &apos;Label Name&apos;, :enabled =&gt; true|false, :value =&gt; true|false %&gt;
+</code></p>
+
+  <div class="buttons">
+    <%= disclosure_view :outlet => true, :value => true, :label => 'Open Disclosure' %> 
+    <%= disclosure_view :outlet => true, :label => 'Closed Disclosure', :value => false %>
+    <%= disclosure_view :outlet => true, :label => 'Disabled Open Disclosure', :value => false, :enabled => false %>
+    <%= disclosure_view :outlet => true, :label => 'Disabled Open Disclosure', :value => true, :enabled => false %>
+    No Label: <%= disclosure_view :outlet => true, :value => true %>
+  </div>
+</div>
+
+<div class="demo_box">
 <h1>Checkboxes</h1>
 <p><code>
   &lt;%= checkbox_view :label =&gt; &apos;Label Name&apos;, :enabled =&gt; true|false, :selected =&gt; true|false|:mixed %&gt;
@@ -53,6 +68,7 @@
 </div>
 
 </div>
+
 
 <div class="demo_box">
 <h1>Square Buttons</h1>
