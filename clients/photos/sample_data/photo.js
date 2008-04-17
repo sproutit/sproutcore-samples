@@ -152,7 +152,7 @@ Photos.FIXTURES = Photos.FIXTURES.concat(function() {
 
     var photoUrlIdx = idx % photoUrls.length ;
     ret[ret.length] = { 
-      guid: idx, 
+      guid: idx+1, 
       type: 'Photo',
       url: photoUrls[photoUrlIdx],
       name: photoUrls[photoUrlIdx].split('/').last()

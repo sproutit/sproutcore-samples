@@ -25,6 +25,9 @@ body {
 	right: 0;
 	background-color: #dedede;
 	z-index: 2;
+	line-height: 48px ;
+	font-weight: bold;
+	text-align: center;
 }
 
 .workspace {

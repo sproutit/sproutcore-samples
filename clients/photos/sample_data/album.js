@@ -71,7 +71,7 @@ Photos.FIXTURES = Photos.FIXTURES.concat(function() {
     var photoCount= (rec.albumType == 'Subscription') ? PHOTO_COUNT : Math.floor(Math.random() * (PHOTO_COUNT/2)) ;
     var guids = [] ;
     while(--photoCount >= 0) {
-      guids.push(Math.floor(Math.random() * (PHOTO_COUNT-1))) ;
+      guids.push(Math.floor(Math.random() * (PHOTO_COUNT))+1) ;
     }
     guids = guids.uniq().compact() ;
     rec.photos = guids ;

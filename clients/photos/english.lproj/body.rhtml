@@ -1,5 +1,7 @@
 <% content_for('body') do %>
 <div class="toolbar">
+  <%= label_view :photo_count, :bind => { :value => 'Photos.detailController.countLabel' } %>
+  
 <div class="shaddow"></div>
 </div>
 <% view :workspace do %>  

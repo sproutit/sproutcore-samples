@@ -18,4 +18,4 @@ Photos = SC.Object.create({
   
 }) ;
 
-PHOTO_COUNT = 130 ;
+PHOTO_COUNT = 250 ;

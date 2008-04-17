@@ -19,6 +19,10 @@ Photos.Album = SC.Record.extend(
     return (this.get('albumType') == 'Subscription') ? 'sc-icon-user-16' : 'sc-icon-folder-16' ;
   }.property('albumType'),
   
-  photosType: 'Photos.Photo'
+  photosType: 'Photos.Photo',
+  
+  photoCount: function() {
+    return this.get('photos').get('length') ;
+  }.property('photos')
   
 }) ;
