@@ -17,6 +17,12 @@ Photos.masterController = SC.ArrayController.create(
 /** @scope Photos.masterController */ {
 
   allowsMultipleSelection: NO,
-  allowsEmptySelection: NO
+  allowsEmptySelection: NO,
+  
+  albumsVisible: YES,
+  
+  albumsVisibleObserver: function() {
+    SC.page.workspace.layout() ; // update layout for splitview.
+  }.observes('albumsVisible') 
   
 }) ;

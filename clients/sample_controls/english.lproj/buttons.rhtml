@@ -14,21 +14,36 @@
     <%= button_view :outlet => true, :label => 'Cancel', :enabled => false, :width => 80 %>
     <%= button_view :outlet => true, :selected => true, :label => 'OK', :enabled => false, :width => 80 %>
   </div>
+  <br />
+
+  <div class="buttons sc-square-theme">
+    <%= button_view :outlet => true, :label => 'Show Preferences' %>
+    <%= button_view :outlet => true, :label => 'Default', :default => true %>
+    <%= button_view :outlet => true, :label => 'Cancel', :enabled => false, :width => 80 %>
+    <%= button_view :outlet => true, :selected => true, :label => 'OK', :enabled => false, :width => 80 %>
+  </div>
+
 </div>
 
 <div class="demo_box">
-<h1>Disclosure Triangle</h1>
+<h1>Segments</h1>
 <p><code>
-  &lt;%= disclosure_view :label =&gt; &apos;Label Name&apos;, :enabled =&gt; true|false, :value =&gt; true|false %&gt;
+  &lt;%= segmented_view :segments =&gt; [:one, :two, :three], :enabled =&gt; true|false %&gt;
 </code></p>
+<br />
+<div class="buttons">
+  <%= segmented_view :outlet => true, :segments => [:one, :two, :three] %><br />
+  <%= segmented_view :disabled_segment, :outlet => true, :segments => [:one, :two, :three], :enabled => false %>
+  
+</div>
 
-  <div class="buttons">
-    <%= disclosure_view :outlet => true, :value => true, :label => 'Open Disclosure' %> 
-    <%= disclosure_view :outlet => true, :label => 'Closed Disclosure', :value => false %>
-    <%= disclosure_view :outlet => true, :label => 'Disabled Open Disclosure', :value => false, :enabled => false %>
-    <%= disclosure_view :outlet => true, :label => 'Disabled Open Disclosure', :value => true, :enabled => false %>
-    No Label: <%= disclosure_view :outlet => true, :value => true %>
-  </div>
+<br />
+<div class="buttons sc-square-theme">
+  <%= segmented_view :outlet => true, :segments => [:one, :two, :three] %><br />
+  <%= segmented_view :disabled_square_segment, :outlet => true, :segments => [:one, :two, :three], :enabled => false %>
+  
+</div>
+
 </div>
 
 <div class="demo_box">
@@ -69,6 +84,20 @@
 
 </div>
 
+<div class="demo_box">
+<h1>Disclosure Triangle</h1>
+<p><code>
+  &lt;%= disclosure_view :label =&gt; &apos;Label Name&apos;, :enabled =&gt; true|false, :value =&gt; true|false %&gt;
+</code></p>
+
+  <div class="buttons">
+    <%= disclosure_view :outlet => true, :value => true, :label => 'Open Disclosure' %> 
+    <%= disclosure_view :outlet => true, :label => 'Closed Disclosure', :value => false %>
+    <%= disclosure_view :outlet => true, :label => 'Disabled Open Disclosure', :value => false, :enabled => false %>
+    <%= disclosure_view :outlet => true, :label => 'Disabled Open Disclosure', :value => true, :enabled => false %>
+    No Label: <%= disclosure_view :outlet => true, :value => true %>
+  </div>
+</div>
 
 <div class="demo_box">
 <h1>Square Buttons</h1>
@@ -94,18 +123,7 @@
   </div>
 </div>
 
-<div class="demo_box">
-<h1>Segments</h1>
-<p><code>
-  &lt;%= segmented_view :segments =&gt; [:one, :two, :three], :enabled =&gt; true|false %&gt;
-</code></p>
 
-<div class="buttons">
-  <%= segmented_view :outlet => true, :segments => [:one, :two, :three] %><br />
-  <%= segmented_view :disabled_segment, :outlet => true, :segments => [:one, :two, :three], :enabled => false %>
-  
-</div>
-</div>
 
 <div class="demo_box">
 <h1>Toggle Buttons</h1>

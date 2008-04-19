@@ -16,28 +16,6 @@ body {
 	overflow: hidden ;
 }
 
-.toolbar {
-	border-top: 1px #aaa solid;
-	position: absolute ;
-	bottom: 0;
-	height: 48px;
-	left: 0;
-	right: 0;
-	background-color: #dedede;
-	z-index: 2;
-	line-height: 48px ;
-	font-weight: bold;
-	text-align: center;
-}
-
-.workspace {
-	position: absolute ;
-	left: 0;
-	right: 0;
-	top:  0;
-	bottom: 48px;
-}
-
 .workspace .sidebar {
 	position: absolute;
 	left:  0;
@@ -46,14 +24,20 @@ body {
 	bottom: 0;
 }
 
+.workspace .sc-split-divider-view {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  bottom: 0;
+}
+
 .workspace .grid_view {
 	position: absolute;	
-	left: 200px;
+	left: 205px;
 	right: 0;
 	top: 0;
 	bottom: 0;
 	border: none ;
-	border-left: 1px #aaa solid;
 }
 
 /* @end */
