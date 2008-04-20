@@ -17,5 +17,6 @@ SampleControls.contentController = SC.ArrayController.create(
 /** @scope SampleControls.contentController */ {
   
   // TODO: Add your own code here.
+  sliderValue: 50
   
 }) ;

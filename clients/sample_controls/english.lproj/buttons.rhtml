@@ -85,6 +85,34 @@
 </div>
 
 <div class="demo_box">
+<h1>Slider View</h1>
+<p><code>
+  &lt;%= slider_view :value =&gt; 100, :minimum =&gt; 50, :maximum =&gt; 250, :step =&gt; 10 %&gt;
+</code></p>
+  <div class="buttons">
+    <%= label_view :outlet => true, :tag => 'label',
+      :bind => { :value => 'SampleControls.contentController.sliderValue' } %>
+    <%= slider_view :outlet => true,
+      :minimum => 50, :step => 10,
+      :maximum => 250,
+      :bind => { :value => 'SampleControls.contentController.sliderValue' } 
+    %> 
+  </div>
+    
+  <div class="buttons">
+    <%= label_view :outlet => true, :tag => 'label',
+      :bind => { :value => 'SampleControls.contentController.sliderValue' } %>
+    <%= slider_view :outlet => true, :enabled => false,
+      :minimum => 50, :width => 200,
+      :maximum => 250, :step => 1,
+      :bind => { :value => 'SampleControls.contentController.sliderValue' } 
+    %> 
+  </div>
+
+</div>
+
+
+<div class="demo_box">
 <h1>Disclosure Triangle</h1>
 <p><code>
   &lt;%= disclosure_view :label =&gt; &apos;Label Name&apos;, :enabled =&gt; true|false, :value =&gt; true|false %&gt;
