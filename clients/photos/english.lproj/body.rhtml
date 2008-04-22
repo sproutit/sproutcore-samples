@@ -1,6 +1,6 @@
 <% content_for('body') do %>
 
-<% split_view :workspace, :class => 'sc-app-workspace', :direction => :horizontal do %>  
+<% split_view :workspace, :class => 'sc-app-workspace footer', :direction => :horizontal do %>  
   <% view :sidebar, :outlet => true, :max_thickness => 400, :min_thickness => 100, :bind => { :is_collapsed => 'SC.Binding.Not("Photos.masterController.albumsVisible")' } do %>
     <% scroll_view :source_list, :outlet => true do %>
       <%= source_list_view :outlet => true, 
