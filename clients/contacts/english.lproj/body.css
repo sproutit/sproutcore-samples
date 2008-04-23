@@ -1,92 +1,70 @@
-/* @override 
-	http://localhost:4020/static/contacts/en/_cache/body-1205347283.css
-	http://localhost:4020/static/contacts/en/_cache/body-1205347673.css
-*/
-
-.content {
-	margin-left: auto;
-	margin-right: auto;
-	width: 640px;
-	height: 320px ;
-	border: 1px #ccc solid ;
-	background-color: #e0e0e0;
-	position: relative ;
-}
-
-/* @group General */
-
-.content .master {
+body {
 	position: absolute ;
-	width: 180px;
-	background-color: white ;
+	left: 0;
+	right: 0;
 	top: 0;
 	bottom: 0;
-	border-right: 1px #ccc solid ;
-	overflow: auto ;
+	padding: 0;
+	margin: 0;
+	overflow: hidden ;
 }
 
-.content .detail {
-	position: absolute ;
-	left: 181px;
-	right: 0;
+.workspace .sidebar {
+	position: absolute;
+	left:  0;
 	top:  0;
-	bottom:0;
-	padding: 30px 20px;
+	width: 200px;
+	bottom: 0;
 }
 
-.content .detail .buttons {
-	text-align: right ;
-	position: absolute ;
-	bottom: 20px;
-	right:  20px;
-	left: 20px;
+.workspace .sidebar .master_list {
+	position: absolute;
+	left:  0;
+	top:  0;
+	right: 0;
+	bottom: 0;
 }
 
-.content .detail .input-row {
-	margin: 4px 0;
-	position: relative ;
-	height: 28px;
+.workspace .sc-split-divider-view {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  bottom: 0;
 }
 
-.content .detail .input-row label {
-	line-height: 28px;	
-	position: absolute ;
-	width:  70px;
-	text-align: right ;
+.workspace .detail_view {
+	position: absolute;	
+	left: 205px;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	border: none ;
+	background-color: #aaa;
 }
 
-.content .detail .input-row input {
-	position: absolute ;
-	font-size: 1.2em;
-	right: 0px;
-	left: 80px;
-	top: 0px;
+.workspace .detail_view .card-detail {
+  margin-left: auto;
+  margin-right: auto;
+  top: 100px;
+  position: relative;
+  border: 4px #888 solid;
+  background: #f0f0f0;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-
-
-/* @end */
-
-/* @group List Item */
-
-div.list-item {
-	padding: 4px 8px;
-	cursor: pointer ;
+.workspace .detail_view .card-detail td {
+  padding: 0 10px;
 }
 
-div.list-item.sel {
-	background-color: blue ;
-	color: white ;
+.workspace .detail_view .card-detail .buttons {
+  text-align: right;
+  padding-top: 10px;
 }
 
-div.list-item.sel:active {
-	background-color: #110086;
-	color: white ;
+.workspace .detail_view .card-detail input {
+  font-size: 14px;
+  width: 300px;
 }
 
-div.list-item:active {
-	background-color: #e6e6e6;
-}
-
-/* @end */
 

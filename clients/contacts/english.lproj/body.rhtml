@@ -2,8 +2,9 @@
 
 <% split_view :workspace, :class => 'sc-app-workspace', :direction => :horizontal do %>  
   <% view :sidebar, :outlet => true do %>
-    <% scroll_view :source_list, :outlet => true do %>
+    <% scroll_view :master_list, :outlet => true do %>
       <%= list_view :outlet => true, 
+        :content_value_key => 'fullName',
         :bind => {
           :content => 'Contacts.masterController.arrangedObjects',
           :selection => 'Contacts.masterController.selection'
@@ -14,32 +15,46 @@
   <%= split_divider_view :outlet => true, :width => 5 %>
   
   <% view :detail_view, :outlet => true do %>
-    <div class="detail-pane">
-      <h1>Detail Pane</h1>
-    </div>
+    <table class="card-detail">
+      <tr>
+        <td><label>First Name:</label></td>
+        <td>
+          <%= text_field_view :outlet => true, :hint => "First Name",
+            :bind => {
+              :value => 'Contacts.detailController.firstName'
+            } %>
+        </td>
+      </tr>
+
+      <tr>
+        <td><label>Last Name:</label></td>
+        <td>
+          <%= text_field_view :outlet => true, :hint => "Last Name",
+            :bind => {
+              :value => 'Contacts.detailController.lastName'
+            } %>
+        </td>
+      </tr>
+      
+      <tr>
+        <td colspan="2" class="buttons">
+          <%= button_view :outlet => true, 
+            :title => "Cancel",
+            :action => 'Contacts.detailController.discardChanges',
+            :bind => {
+              :enabled => 'Contacts.detailController.hasChanges'
+            } %>
+          <%= button_view :outlet => true, 
+            :title => "Save Changes", :default => true,
+            :action => 'Contacts.detailController.commitChanges',
+            :bind => {
+              :enabled => "Contacts.detailController.hasChanges"
+            } %>
+        </td>
+      </tr>
+    </table>
+      
   <% end %>
 <% end %>
-
-<% view :footer, :class => 'sc-footer sc-square-theme' do %>
-  <div class="left">
-    <%= button_view :outlet => true, 
-        :title => 'Add', 
-        :action => 'Contacts.masterController.newObject' %>
-    <%= button_view :outlet => true, 
-        :title => 'Delete', 
-        :action => 'Contacts.masterController.deleteObject', 
-        :bind => { :enabled => 'Contacts.masterController.hasSelection' } %>
-  </div>
-  <div class="center">
-    <%= label_view :outlet => true, 
-        :bind => { :value => 'Contacts.masterController.contactCount' } %>
-  </div>
-  <div class="right">
-    <%= text_field_view :outlet => true, 
-        :hint => "Search", 
-        :bind => { :value => 'Contacts.masterController.searchValue' }%>
-  </div>
-<% end %>
-
 
 <% end %>
