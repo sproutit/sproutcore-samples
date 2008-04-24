@@ -25,7 +25,7 @@ function main() {
   SC.Benchmark.end('SampleControls.contentController.content') ;
 
   SC.Benchmark.start('SampleControls.sourceListController.content') ;
-  var playlists = SampleControls.Playlist.findAll()// .sort(function(a,b) {
+  var playlists = SampleControls.Playlist.findAll();// .sort(function(a,b) {
   //     var aGroup = a.get('group') ;
   //     var bGroup = b.get('group') ;
   //     if (aGroup < bGroup) return -1; 
@@ -40,7 +40,7 @@ function main() {
   SC.Benchmark.end('SampleControls.sourceListController.content') ;
 
   SC.Benchmark.start('SC.page.controlTabs.nowShowing = collections2') ;
-  SC.page.get('controlTabs').set('nowShowing', 'buttons') ;
+  SC.page.get('controlTabs').set('nowShowing', 'collections2') ;
   SC.Benchmark.end('SC.page.controlTabs.nowShowing = collections2') ;
   
   SC.page.get('footer') ;

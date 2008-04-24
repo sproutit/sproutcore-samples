@@ -1,3 +1,15 @@
 <% view :menus_tab do %>
 <h1>Menus</h1>
+<style>
+ .labels .sc-label-view { 
+   border: 1px #aaa solid; 
+   position: relative; 
+   width: 50%; 
+   margin-left: auto; 
+   margin-right: auto; 
+}
+</style>
+<div class="labels" style="width: 400px; border: 4px #aaa solid; margin-left: auto; margin-right: auto; top: 40px; position: relative; padding: 10px;">
+  <%= label_view :outlet => :label, :value => "Label", :editable => true %>
+</div>
 <% end %>

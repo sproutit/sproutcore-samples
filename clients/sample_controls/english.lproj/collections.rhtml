@@ -4,8 +4,9 @@
 <% scroll_view :list_scroll_view, :outlet => true do %>
   <%= list_view :list_view, 
       :outlet => true, 
-      :content_value_key => 'fullName', 
+      :content_value_key => 'photoName', 
       :content_icon_key => 'icon',
+      :content_value_editable => true,
       :can_reorder_content => true,
       :bind => { 
         :content => 'SampleControls.contentController.arrangedObjects', 
