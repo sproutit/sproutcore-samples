@@ -14,6 +14,6 @@ SampleControls = SC.Object.create({
   FIXTURES: [],
 
   // Any keys in this array will be instantiated automatically from main.
-  controllers: [],
+  controllers: []
   
 }) ;
