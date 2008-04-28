@@ -21,7 +21,11 @@
   Dialogs should be used for system alert messages that need to block all other interaction with the application such as when the user's connection to the internet is down or simple OK/Cancel type messages.
 </p>
 <div class="buttons">
-  <%= button_view :outlet => true, :title => "Close", :action => 'SampleControls.paneController.hideDialog' %>
+  <%= button_view :outlet => true, 
+    :title => "Close", 
+    :width => 60,
+    :default => true, 
+    :action => 'SampleControls.paneController.hideDialog' %>
 </div>
 <% end %>
 
@@ -31,7 +35,11 @@
   Panels are used to present modal parts of the application such as preferences.  Unlike dialogs, you typically expect the user to interact with the controls on a panel for awhile and then exit.
 </p>
 <div class="buttons">
-  <%= button_view :outlet => true, :title => "Close", :action => 'SampleControls.paneController.hidePanel' %>
+  <%= button_view :outlet => true, 
+    :title => "Close", 
+    :default => true, 
+    :width => 60,
+    :action => 'SampleControls.paneController.hidePanel' %>
 </div>
 <% end %>
 

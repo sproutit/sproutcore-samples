@@ -29,7 +29,7 @@ body {
 }
 
 #control_tabs .segments {
-	z-index: 10000;
+	z-index: 99;
 }
 
 #control_tabs .root h1 {
