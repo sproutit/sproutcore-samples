@@ -31,6 +31,18 @@ body {
 #control_tabs .segments {
 	z-index: 10000;
 }
+
+#control_tabs .root h1 {
+  margin: 25px; 
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+
+#control_tabs .root p {
+  margin-left: 25px; 
+  margin-right: 25px;
+}
+
 /* @end */
 
 /* @group Welcome */

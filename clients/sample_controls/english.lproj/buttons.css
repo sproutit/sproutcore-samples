@@ -9,7 +9,7 @@
 	background-color: #fff;
 }
 
-.buttons_tab .demo_box h1 {
+.buttons_tab .demo_box h2 {
 	font-size: 14px;
 	padding: 0;
 	margin:  0;
@@ -20,7 +20,7 @@
 	margin-top: 10px;
 }
 
-.buttons_tab .demo_box .tab.segmented .root h1 {
+.buttons_tab .demo_box .tab.segmented .root h2 {
 	border: 1px #888 dotted ;
 	padding:  10px;
 	margin:  0;

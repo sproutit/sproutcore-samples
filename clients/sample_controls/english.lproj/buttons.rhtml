@@ -1,10 +1,16 @@
 <% view :buttons_tab do %>
 
-<h1 style="margin: 25px; margin-top: 0;">SproutCore Built-In Widgets</h1>
-<p style="margin-left: 25px; margin-right: 25px;">The widgets below can be created easily using view helpers.  The helper examples show you the specific options accepted by the view.  Unless the options is in bold, all options are optional.  Helpers also take the standard options accepted by all views such as :outlet, :field, :width, etc.</p>
+<h1>Built-In Buttons & Widgets</h1>
+<p>
+  The widgets below can be created easily using view helpers.  The helper 
+  examples show you the specific options accepted by the view.  Unless the 
+  options is in bold, all options are optional.  Helpers also take the 
+  standard options accepted by all views such as :outlet, :field, :width, 
+  etc.
+</p>
 
 <div class="demo_box">
-<h1>Regular Push Button</h1>
+<h2>Regular Push Button</h2>
 <p><code>
   &lt;%= button_view :label =&gt; &apos;Label Name&apos;, :action =&gt; &apos;Appname.someController.methodName&apos;, :default =&gt; true|false, :enabled =&gt; true|false %&gt;
 </code></p>
@@ -26,7 +32,7 @@
 </div>
 
 <div class="demo_box">
-<h1>Segments</h1>
+<h2>Segments</h2>
 <p><code>
   &lt;%= segmented_view :segments =&gt; [:one, :two, :three], :enabled =&gt; true|false %&gt;
 </code></p>
@@ -47,7 +53,7 @@
 </div>
 
 <div class="demo_box">
-<h1>Checkboxes</h1>
+<h2>Checkboxes</h2>
 <p><code>
   &lt;%= checkbox_view :label =&gt; &apos;Label Name&apos;, :enabled =&gt; true|false, :selected =&gt; true|false|:mixed %&gt;
 </code></p>
@@ -62,7 +68,7 @@
 </div>
 
 <div class="demo_box">
-<h1>Radio Buttons</h1>
+<h2>Radio Buttons</h2>
 <p><code>
   &lt;%= radio_view :label =&gt; &apos;Label Name&apos;, :enabled=&gt; true|false, :selected =&gt; true|false|:mixed %&gt;
 </code></p>
@@ -85,7 +91,7 @@
 </div>
 
 <div class="demo_box">
-<h1>Slider View</h1>
+<h2>Slider View</h2>
 <p><code>
   &lt;%= slider_view :value =&gt; 100, :minimum =&gt; 50, :maximum =&gt; 250, :step =&gt; 10 %&gt;
 </code></p>
@@ -113,7 +119,7 @@
 
 
 <div class="demo_box">
-<h1>Disclosure Triangle</h1>
+<h2>Disclosure Triangle</h2>
 <p><code>
   &lt;%= disclosure_view :label =&gt; &apos;Label Name&apos;, :enabled =&gt; true|false, :value =&gt; true|false %&gt;
 </code></p>
@@ -128,7 +134,7 @@
 </div>
 
 <div class="demo_box">
-<h1>Square Buttons</h1>
+<h2>Square Buttons</h2>
 <p><code>
   &lt;%= button_view :label =&gt; &apos;Label Name&apos;, :theme =&gt; :square %&gt;
 </code></p>
@@ -141,7 +147,7 @@
 </div>
 
 <div class="demo_box">
-<h1>Popup and Drop Down Menus Buttons</h1>
+<h2>Popup and Drop Down Menus Buttons</h2>
 <p><code>
   &lt;%= button_view :label =&gt; &apos;Label Name&apos;, :theme =&gt; :popup|:dropdown %&gt;
 </code></p>
@@ -154,7 +160,7 @@
 
 
 <div class="demo_box">
-<h1>Toggle Buttons</h1>
+<h2>Toggle Buttons</h2>
 <p><code>
   &lt;%= button_view :label =&gt; &apos;Label Name&apos;, :behavior =&gt; :toggle|:on|:off %&gt;
 </code></p>
@@ -165,11 +171,11 @@
   </div>
 </div>
 
-<h1 style="margin: 25px; margin-top: 0;">Native Widgets</h1>
+<h2 style="margin: 25px; margin-top: 0;">Native Widgets</h2>
 <p style="margin-left: 25px; margin-right: 25px;">SproutCore also supports rendering native UI components.  In general these can be bound to SproutCore values, just like the SprouCore widgets above:</p>
 
 <div class="demo_box">
-<h1>Checkbox</h1>
+<h2>Checkbox</h2>
 <p><code>
   &lt;%= checkbox_field_view :outlet =&gt; true, :label =&gt; &apos;Label Name&apos;, :enabled =&gt; true|false, :selected =&gt; true|false %&gt;
 </code></p>

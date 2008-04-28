@@ -40,10 +40,9 @@ function main() {
   SC.Benchmark.end('SampleControls.sourceListController.content') ;
 
   SC.Benchmark.start('SC.page.controlTabs.nowShowing = collections2') ;
-  SC.page.get('controlTabs').set('nowShowing', 'collections2') ;
+  SC.page.get('controlTabs').set('nowShowing', 'panes') ;
   SC.Benchmark.end('SC.page.controlTabs.nowShowing = collections2') ;
   
-  SC.page.get('footer') ;
-  
+  SC.page.get('pickerPane') ;
 } ;
 
