@@ -5,6 +5,8 @@
     <% scroll_view :source_list, :outlet => true do %>
       <%= source_list_view :outlet => true, 
         :group => :albumType,
+        :delegate => 'Photos.masterController',
+        :drop_target => true,
         :content_value_key => :name,
         :group_visible_key => true,
         :content_icon_key => :icon,
@@ -21,6 +23,7 @@
   <% scroll_view :grid_view, :outlet => true do %>
     <%= grid_view :outlet => true,
       :example_view => 'SC.ImageCellView',
+      :delegate => 'Photos.detailController',
       :content_value_key => 'url',
       :can_reorder_content => true,
       :row_height => 120,
@@ -34,14 +37,21 @@
 
 <% view :footer, :class => 'sc-footer sc-square-theme' do %>
   <div class="left">
-    <%# button_view :outlet => true, :label => 'Add' %>
-    <%= button_view :outlet => true, :label => 'Albums', :bind => { :value => 'Photos.masterController.albumsVisible' }, :behavior => :toggle %>
+    <%= button_view :outlet => true, :label => 'Add Album', :action => 'Photos.masterController.addAlbum' %>
+    <%= button_view :outlet => true, :label => 'Delete Album', :action => 'Photos.masterController.deleteAlbum' %>
   </div>
   <div class="center">
     <%= label_view :outlet => true, :bind => { :value => 'Photos.detailController.countLabel' } %>
   </div>
   <div class="right">
-    <%= text_field_view :outlet => true, :hint => "Search", :enabled => false %>
+    50
+    <%= slider_view :outlet => true,
+      :minimum => 50,
+      :maximum => 250,
+      :step => 10,
+      :bind => { :value => 'Photos.detailController.photoSize' } 
+    %>
+    250
   </div>
 <% end %>
 

@@ -26,7 +26,7 @@ function main() {
   // need to show the app in the first place, to speed things up.
   SC.page.awake() ;
 
-  var albums = Photos.Album.findAll() ;
+  var albums = Photos.Album.findAll().clone() ;
   Photos.masterController.set('content', albums) ;
 } ;
 

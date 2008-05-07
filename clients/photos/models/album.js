@@ -23,6 +23,8 @@ Photos.Album = SC.Record.extend(
   
   photoCount: function() {
     return this.get('photos').get('length') ;
-  }.property('photos')
+  }.property('photos'),
+  
+  photoSize: 160 // default size
   
 }) ;
