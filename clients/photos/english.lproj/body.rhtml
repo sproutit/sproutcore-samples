@@ -21,8 +21,8 @@
   <%= split_divider_view :outlet => true, :width => 5 %>
   
   <% scroll_view :grid_view, :outlet => true do %>
-    <%= grid_view :outlet => true,
-      :example_view => 'SC.ImageCellView',
+    <%= grid_view :outlet => true, :view => 'Photos.PhotoGridView',
+      :example_view => 'Photos.PhotoView',
       :delegate => 'Photos.detailController',
       :content_value_key => 'url',
       :can_reorder_content => true,
@@ -38,21 +38,27 @@
 
 <% view :footer, :class => 'sc-footer sc-square-theme' do %>
   <div class="left">
-    <%= button_view :outlet => true, :label => 'Add Album', :action => 'Photos.masterController.addAlbum' %>
-    <%= button_view :outlet => true, :label => 'Delete Album', :action => 'Photos.masterController.deleteAlbum' %>
+    <%= button_view :outlet => true, :label => '+', :action => 'Photos.masterController.addAlbum' %>
+    <%= button_view :outlet => true, :label => '-', :action => 'Photos.masterController.deleteAlbum' %>
   </div>
   <div class="center">
     <%= label_view :outlet => true, :bind => { :value => 'Photos.detailController.countLabel' } %>
   </div>
   <div class="right">
+    <%= button_view :outlet => :edit_button, :title => "Edit", 
+      :action => 'Photos.photoController.showPicker', 
+      :bind => { 
+        :selected => 'Photos.photoController.pickerIsVisible',
+        :enabled => 'SC.Binding.Not("Photos.photoController.hasNoContent")' 
+      } %>
     50
     <%= slider_view :outlet => true,
       :minimum => 50,
-      :maximum => 250,
+      :maximum => 320,
       :step => 10,
       :bind => { :value => 'Photos.detailController.photoSize' } 
     %>
-    250
+    320
   </div>
 <% end %>
 
