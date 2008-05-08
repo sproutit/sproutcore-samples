@@ -20,4 +20,6 @@ Photos = SC.Object.create({
   
 }) ;
 
+SC.CAPTURE_BACKSPACE_KEY = YES ;
+
 PHOTO_COUNT = 250 ;

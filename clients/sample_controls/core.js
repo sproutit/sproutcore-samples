@@ -17,3 +17,6 @@ SampleControls = SC.Object.create({
   controllers: []
   
 }) ;
+
+
+SC.CAPTURE_BACKSPACE_KEY = YES ;

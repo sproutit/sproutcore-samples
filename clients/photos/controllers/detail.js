@@ -133,7 +133,6 @@ Photos.detailController = SC.ArrayController.create(
   */
   collectionViewDragDataForType: function(view, dataType, drag) {  
     var ret = (dataType === Photos.PHOTO_TYPE) ? this.get('selection').slice() : null;
-    console.log('collectionViewDragDataForType(%@) = %@'.fmt(dataType, ret));
     return ret ;
   }
   
