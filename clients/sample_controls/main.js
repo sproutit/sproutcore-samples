@@ -25,22 +25,13 @@ function main() {
   SC.Benchmark.end('SampleControls.contentController.content') ;
 
   SC.Benchmark.start('SampleControls.sourceListController.content') ;
-  var playlists = SampleControls.Playlist.findAll();// .sort(function(a,b) {
-  //     var aGroup = a.get('group') ;
-  //     var bGroup = b.get('group') ;
-  //     if (aGroup < bGroup) return -1; 
-  //     if (aGroup > bGroup) return 1 ;
-  //     if (aGroup == bGroup) {
-  //       a = a.get('name'); b = b.get('name') ;
-  //       return (a<b) ? -1 : ((a>b) ? 1 :0) ;
-  //     }
-  //   }) ;
+  var playlists = SampleControls.Playlist.findAll();
   
   SampleControls.sourceListController.set('content', playlists);
   SC.Benchmark.end('SampleControls.sourceListController.content') ;
 
   SC.Benchmark.start('SC.page.controlTabs.nowShowing = collections2') ;
-  SC.page.get('controlTabs').set('nowShowing', 'collections') ;
+  SC.page.get('controlTabs').set('nowShowing', 'forms') ;
   SC.Benchmark.end('SC.page.controlTabs.nowShowing = collections2') ;
   
   SC.page.get('pickerPane') ;

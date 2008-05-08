@@ -1,15 +1,68 @@
 <% view :forms_tab do %>
 <h1>Forms</h1>
-<style>
- .labels .sc-label-view { 
-   border: 1px #aaa solid; 
-   position: relative; 
-   width: 50%; 
-   margin-left: auto; 
-   margin-right: auto; 
-}
-</style>
-<div class="labels" style="width: 400px; border: 4px #aaa solid; margin-left: auto; margin-right: auto; top: 40px; position: relative; padding: 10px;">
-  <%= label_view :outlet => :label, :value => "Label", :editable => true %>
-</div>
+<p>
+  SproutCore has built in support for form validation, and for buffering form   
+  input into a controller before it is committed to your backend model.  The 
+  examples below show the built in validators and variety of controls that are 
+  supported.
+</p>
+
+<% form_view :outlet => true, :tag => 'table', :class =>'form' do %>
+  <tr>
+    <td class="label">First Name:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
+  </tr>
+
+  <tr>
+    <td class="label">Last Name:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
+  </tr>
+
+  <tr>
+    <td class="label">Email:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
+  </tr>
+
+  <tr>
+    <td class="label">Phone Number:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
+  </tr>
+
+  <tr>
+    <td class="label">Credit Card:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
+  </tr>
+
+  <tr><td colspan="2" class="separator"></td></tr>
+
+  <tr>
+    <td class="label">Address:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
+  </tr>
+
+  <tr>
+    <td class="label"></td>
+    <td class="value city-state">
+      <%= text_field_view :outlet => true, :class => :city %>
+      <%= popup_button_view :outlet => true, :value => "CA" %>
+    </td>
+  </tr>
+
+  <tr><td colspan="2" class="separator"></td></tr>
+  
+  <tr>
+    <td class="label">Craziness:</td>
+    <td><%= slider_view :outlet => true %></td>
+  </tr>
+
+  <tr>
+    <td colspan="2" class="buttons">
+      <%= button_view :outlet => true, :title => "Cancel", :cancel => true %>
+      <%= button_view :outlet => true, :title => "Save Changes", :defaut => true %>
+    </td>
+  </tr>
+<% end %>
+
+
+
 <% end %>
