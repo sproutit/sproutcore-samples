@@ -40,6 +40,7 @@
   <div class="left">
     <%= button_view :outlet => true, :label => '+', :action => 'Photos.masterController.addAlbum' %>
     <%= button_view :outlet => true, :label => '-', :action => 'Photos.masterController.deleteAlbum' %>
+    <%= loc(%(@@_Test Loc String "With Quotes")) %>
   </div>
   <div class="center">
     <%= label_view :outlet => true, :bind => { :value => 'Photos.detailController.countLabel' } %>
