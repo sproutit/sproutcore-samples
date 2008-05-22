@@ -1,17 +1,17 @@
-== Welcome to SproutCore Builder
+== Welcome to SproutCore Sample Applications
 
-This is an application package for building a SproutCore application.  To get
-started, edit your JavaScript application in the clients directory (we've 
-already created one for you.)
+This is a samples application package for building a SproutCore applications.  
+To get started, edit your JavaScript application in the clients directory 
+(we've already created one for you.)
 
 Then, start the SproutCore Dev Server by running from this directory:
 
-sc_server 
+sc-server 
 
 This takes all the same arguments as mongrel.  You can now visit your app
 by going to:
 
-http://localhost:3000/contacts
+http://localhost:4020/photos
 
 == What Goes Where
 
@@ -53,13 +53,13 @@ you require them.
 
 == Deploying your SproutCore App
 
-Normally you will use the sc_server to host your application while you are 
+Normally you will use the sc-server to host your application while you are 
 developing your code.  Once you are ready to deploy, however, there are two
 ways you can do it:
 
-==== 1. Use sc_server in production.  
+==== 1. Use sc-server in production.  
 
-The SproutCore server can be run in a production mode that will simply generate and cache web-optimized versions of all of your resources upon request.  For a low-traffic or newer site, this approach is an easy way to get your code into production.  You just replace your directory with your latest files and the sc_server will start serving the new resources.
+The SproutCore server can be run in a production mode that will simply generate and cache web-optimized versions of all of your resources upon request.  For a low-traffic or newer site, this approach is an easy way to get your code into production.  You just replace your directory with your latest files and the sc-server will start serving the new resources.
 
 ==== 2. Do a static build
 
@@ -68,7 +68,7 @@ In general, however, loading all of your resources through a Ruby-app is not the
 If you want real speed, do a static build of your content and serve it through
 lighttpd or apache.  Do the static build, just run:
 
-sc_build all
+sc-build
 
 This will place a directory in tmp/build that contains all of your resources 
 pre-compiled and ready for static serving.
