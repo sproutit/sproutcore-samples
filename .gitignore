@@ -1,3 +1,6 @@
+.DS_Store
+frameworks/.DS_Store
+clients/.DS_Store
 public
 log
 tmp
