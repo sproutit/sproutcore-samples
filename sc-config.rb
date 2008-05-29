@@ -67,8 +67,8 @@ end
 # provide here will override the defaults provided by the bundles themselves
 # as well as any options you place in the :all category above.
 #
-# config :contacts do |c|
-#  c[:required] = [:sproutcore, :shared]
-# end
+config :sproutcore do |c|
+ c[:required] = [:prototype]
+end
 #
 
