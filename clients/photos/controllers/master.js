@@ -123,6 +123,14 @@ Photos.masterController = SC.ArrayController.create(
   collectionViewValidateDrop: function(view, drag, dropOperation, proposedInsertionIndex, proposedDragOperation) {
 
     var ret = SC.DRAG_NONE ;
+    
+    // always allow reordering of albums...
+    console.log('proposedDragoperation: %@'.fmt(proposedDragOperation)) ;
+    
+    if (proposedDragOperation === SC.DRAG_REORDER) {
+      return proposedDragOperation;
+    }
+    
     switch(dropOperation) {
       
       // this is the parameter passed in when the collection view just wants

@@ -8,6 +8,7 @@
         :delegate => 'Photos.masterController',
         :drop_target => true,
         :content_value_key => :name,
+        :can_reorder_content => true,
         :group_visible_key => true,
         :content_icon_key => :icon,
         :content_value_editable => true,
@@ -40,7 +41,6 @@
   <div class="left">
     <%= button_view :outlet => true, :label => '+', :action => 'Photos.masterController.addAlbum' %>
     <%= button_view :outlet => true, :label => '-', :action => 'Photos.masterController.deleteAlbum' %>
-    <%= loc(%(@@_Test Loc String "With Quotes")) %>
   </div>
   <div class="center">
     <%= label_view :outlet => true, :bind => { :value => 'Photos.detailController.countLabel' } %>
