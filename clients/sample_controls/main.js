@@ -21,7 +21,7 @@ function main() {
 
   // Set content controller for display
   SC.Benchmark.start('SampleControls.contentController.content') ;
-  SampleControls.contentController.set('content', SampleControls.Contact.findAll());
+  SampleControls.contentController.set('content', SampleControls.Photo.findAll());
   SC.Benchmark.end('SampleControls.contentController.content') ;
 
   SC.Benchmark.start('SampleControls.sourceListController.content') ;
@@ -31,7 +31,7 @@ function main() {
   SC.Benchmark.end('SampleControls.sourceListController.content') ;
 
   SC.Benchmark.start('SC.page.controlTabs.nowShowing = collections2') ;
-  SC.page.get('controlTabs').set('nowShowing', 'forms') ;
+  SC.page.get('controlTabs').set('nowShowing', 'collections') ;
   SC.Benchmark.end('SC.page.controlTabs.nowShowing = collections2') ;
   
   SC.page.get('pickerPane') ;
