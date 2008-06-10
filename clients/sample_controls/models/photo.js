@@ -12,8 +12,8 @@ require('core');
   @author    AuthorName  
   @version 0.1
 */  
-SampleControls.Contact = SC.Record.extend(
-/** @scope SampleControls.Contact.prototype */ {
+SampleControls.Photo = SC.Record.extend(
+/** @scope SampleControls.Photo.prototype */ {
   
   // TODO: Add your own code here.
   fullName: function() {

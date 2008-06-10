@@ -156,12 +156,13 @@ SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
     var photoUrlIdx = idx % photoUrls.length ;
     ret[ret.length] = { 
       guid: idx, 
-      type: 'Contact',
-      firstName: text[idx*2], 
-      lastName: text[idx*2 + 1],
+      type: 'Photo',
+      description: [text[idx*2], text[(idx*2)+1]].join(' '), 
       itemIndex: idx,
       photoUrl: photoUrls[photoUrlIdx],
-      photoName: photoUrls[photoUrlIdx].split('/').last()
+      photoName: photoUrls[photoUrlIdx].split('/').last(),
+      createdAt: (Date.now() - (Math.random() * 1000)),
+      viewCount: Math.floor(Math.random() * 50)
     } ;
   }
   return ret.sort(function(a,b) { return (a.guid < b.guid) ? -1 : ((a.guid > b.guid) ? 1 : 0); }) ;
