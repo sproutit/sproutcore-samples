@@ -45,7 +45,7 @@ Photos.initDatabase = function() {
   try {
     if (window.openDatabase) {
       Photos.db = openDatabase("Photos.DemoStore", "1.0", "SproutCore Photos Demo Store", 200000) ;
-      if (!db) console.log("Failed to open database on disk.  Probably because the version was bad or the quota is exceeded.  Will proceed with fixture data.") ;
+      if (!Photos.db) console.log("Failed to open database on disk.  Probably because the version was bad or the quota is exceeded.  Will proceed with fixture data.") ;
     } else {
       console.log("This browser does not support HTML5 client side storage.  Will proceed with fixture data.") ;
     }
