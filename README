@@ -4,14 +4,30 @@ This is a samples application package for building a SproutCore applications.
 To get started, edit your JavaScript application in the clients directory 
 (we've already created one for you.)
 
-Then, start the SproutCore Dev Server by running from this directory:
+== BEFORE YOU CONTINUE 
+
+If you just cloned this samples directory using Git, you need to run the following two commands to get the latest version of SproutCore JavaScript:
+
+git submodule init
+git submodule update
+
+== Getting Started
+
+To try the samples, start the SproutCore Dev Server by running from this directory:
 
 sc-server 
 
 This takes all the same arguments as mongrel.  You can now visit your app
-by going to:
+by going to any of these apps:
 
 http://localhost:4020/photos
+http://localhost:4020/samples_controls
+http://localhost:4020/hello_world
+
+You can also view the SproutCore docs or run the unit tests:
+
+http://localhost:4020/sproutcore/-docs (click Rebuild Docs)
+http://localhost:4020/sproutcore/-tests
 
 == What Goes Where
 
