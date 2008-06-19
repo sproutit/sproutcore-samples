@@ -1,5 +1,5 @@
 <% view :forms_tab do %>
-<h1>Forms</h1>
+<h1><%= loc(%(Title_forms)) %></h1>
 <p>
   SproutCore has built in support for form validation, and for buffering form   
   input into a controller before it is committed to your backend model.  The 
@@ -9,41 +9,41 @@
 
 <% form_view :outlet => true, :tag => 'table', :class =>'form' do %>
   <tr>
-    <td class="label">First Name:</td>
-    <td class="value"><%= text_field_view :field => :first_name, :hint => "John" %></td>
+    <td class="label"><%= loc(%(FName_forms)) %>:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
   </tr>
 
   <tr>
-    <td class="label">Last Name:</td>
-    <td class="value"><%= text_field_view :field => :last_name, :hint => "Doe" %></td>
+    <td class="label"><%= loc(%(LName_forms)) %>:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
   </tr>
 
   <tr>
-    <td class="label">Email:</td>
-    <td class="value"><%= text_field_view :field => :email, :hint => "joe@example.com", :validator => :email %></td>
+    <td class="label"><%= loc(%(Email_forms)) %>:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
   </tr>
 
   <tr>
-    <td class="label">Phone Number:</td>
-    <td class="value"><%= text_field_view :field => :phone_number, :hint => '(123)456-7890' %></td>
+    <td class="label"><%= loc(%(PNumber_forms)) %>:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
   </tr>
 
   <tr>
-    <td class="label">Credit Card:</td>
-    <td class="value"><%= text_field_view :field => :credit_card, :hint => "1234 5678 9012 1234" %></td>
+    <td class="label"><%= loc(%(CCard_forms)) %>:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
   </tr>
 
   <tr><td colspan="2" class="separator"></td></tr>
 
   <tr>
-    <td class="label">Address:</td>
-    <td class="value"><%= text_field_view :field => :street, :hint => '123 Main Street' %></td>
+    <td class="label"><%= loc(%(Address_forms)) %>:</td>
+    <td class="value"><%= text_field_view :outlet => true %></td>
   </tr>
 
   <tr>
     <td class="label"></td>
     <td class="value city-state">
-      <%= text_field_view :field => :city, :class => :city, :hint => "Sunnyvale" %>
+      <%= text_field_view :outlet => true, :class => :city %>
       <%= popup_button_view :outlet => true, :value => "CA" %>
     </td>
   </tr>
@@ -51,14 +51,14 @@
   <tr><td colspan="2" class="separator"></td></tr>
   
   <tr>
-    <td class="label">Craziness:</td>
-    <td><%= slider_view :field => :craziness %></td>
+    <td class="label"><%= loc(%(Crazinnes_forms)) %>:</td>
+    <td><%= slider_view :outlet => true %></td>
   </tr>
 
   <tr>
     <td colspan="2" class="buttons">
-      <%= button_view :outlet => true, :title => "Cancel", :cancel => true %>
-      <%= button_view :outlet => true, :title => "Save Changes", :defaut => true %>
+      <%= button_view :outlet => true, :title => loc(%(Cancel_buttom_forms)), :cancel => true %>
+      <%= button_view :outlet => true, :title => loc(%(SChanges_buttom_forms)), :defaut => true %>
     </td>
   </tr>
 <% end %>
