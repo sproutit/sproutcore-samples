@@ -79,3 +79,10 @@ config :common_assets do |c|
   c[:required] = [:prototype, :sproutcore]
 end
 
+# Setup extra services to proxy.  This is used only in dev mode so you can
+# talk to backend services.
+
+# This will proxy all requests to /* -> http://www.twitter.com/*
+proxy '/', :to => 'www.twitter.com', :cookie_domain => '.twitter.com'
+
+
