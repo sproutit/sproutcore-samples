@@ -9,8 +9,6 @@
 #
 # require 'sproutcore'
 
-puts "LOADED SAMPLES"
-
 # This configuration section will be applied to all bundles used by your 
 # application, even bundles that come from other gems.
 config :all do |c|
@@ -67,16 +65,9 @@ end
 # provide here will override the defaults provided by the bundles themselves
 # as well as any options you place in the :all category above.
 #
-config :prototype do |c|
-  c[:required] = []
-end
-
-config :sproutcore do |c|
- c[:required] = [:prototype]
-end
 
 config :common_assets do |c|
-  c[:required] = [:prototype, :sproutcore]
+  c[:required] = [:sproutcore]
 end
 
 # Setup extra services to proxy.  This is used only in dev mode so you can
