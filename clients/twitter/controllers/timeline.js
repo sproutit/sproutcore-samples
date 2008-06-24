@@ -15,7 +15,7 @@ require('core');
   @version 0.1
   @static
 */
-Twitter.timelineController = SC.ArrayController.create(
+Twitter.timelineController = SC.CollectionController.create(
 /** @scope Twitter.timelineController */ {
   
 }) ;

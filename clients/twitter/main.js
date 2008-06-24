@@ -31,7 +31,9 @@ function main() {
   
   // TODO: Set the content property on your primary controller
   // ex: Twitter.contactsController.set('content',Twitter.contacts);
-  Twitter.timelineController.set('content', Twitter.Status.findAll()) ;
+  var col = Twitter.Status.collection() ;
+  Twitter.timelineController.set('content', col) ;
+  col.refresh() ;
 } ;
 
 

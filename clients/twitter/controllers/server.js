@@ -85,7 +85,9 @@ Twitter.serverController = SC.Object.create(
     
     // initiate the Ajax request.  Currently uses prototype.
     var username = this.get('username') ;
-    new Ajax.Request('/statuses/user_timeline/%@.json'.fmt(username), {
+    //var url = static_url('sample.json');  
+    var url = '/statuses/user_timeline/%@.json'.fmt(username) ;
+    new Ajax.Request(url, {
       method: 'get',
       onSuccess: this.refreshDidSucceed.bind(this),
       onFailure: this.refreshDidFail.bind(this)
@@ -108,7 +110,13 @@ Twitter.serverController = SC.Object.create(
     // by the SC.Store and then add it.
     } else {
       this.set('status', Twitter.READY) ;
-      console.log("JSON = %@".fmt(json.map(function(x) { return $I(x); }))) ;
+      
+      // convert the received attributes into attribute hashes that can be 
+      // processed by updateRecords.
+      var attrs = this.convertFeedToRecordAttributes(json) ;
+      
+      // load into the store.  This should update the collection.
+      SC.Store.updateRecords(attrs);
     }
   },
   
@@ -124,6 +132,50 @@ Twitter.serverController = SC.Object.create(
     
     var error = $error(reason, transport.status) ;
     this.set('status', error) ;
+  },
+  
+  /**
+    The array of attributes returned by the twitter feed is almost what we
+    want but not quite.  This method will build a new set of attributes from
+    the ones returned by twitter.
+    
+    It does the following:
+    
+    1. converts id => guid
+    2. Adds a "type" attributes
+    3. Extracts the User and replaces it with the User guid.
+    4. Builds an array of User attributes as well...
+  */
+  convertFeedToRecordAttributes: function(json) {
+    var ret = [] ;
+    var users = {} ; // user hashes, by guid.
+    
+    // loop through json and fix up items.
+    json.each(function(rec) {
+      rec.guid = rec.id ; // convert to guid.
+      rec.recordType = Twitter.Status; // setup the record type
+      
+      var user = rec.user ;
+      if (user) rec.user = user.id ;
+      
+      // save user record if needed...
+      if (user && !users[user.id]) {
+        user.guid = user.id ;
+        user.recordType = Twitter.User; // setup the record type
+        users[user.id] = user ;
+      }
+    
+      // save in return array
+      ret.push(rec) ;
+    }) ;
+    
+    // now save user info.
+    for(var key in users) {
+      if (!users.hasOwnProperty(key)) continue ;
+      ret.push(users[key]) ;
+    }
+    
+    return ret ;
   }
   
 }) ;

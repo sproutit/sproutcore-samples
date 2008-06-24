@@ -15,6 +15,7 @@ require('core');
 Twitter.Status = SC.Record.extend(
 /** @scope Twitter.Status.prototype */ {
   
-  userType: 'Twitter.User'
+  userType: 'Twitter.User',
+  createdAtType: SC.Record.Date
   
 }) ;
