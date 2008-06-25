@@ -22,34 +22,5 @@ Twitter.FIXTURES = Twitter.FIXTURES.concat([
     "protected":false,
     type: "User"
   }
-  // { guid: 1,
-  //   type: 'Contact',
-  //   firstName: "Michael",
-  //   lastName: "Scott"
-  // },
-  //
-  // { guid: 2,
-  //   type: 'Contact',
-  //   firstName: "Dwight",
-  //   lastName: "Schrute"
-  // },
-  //
-  // { guid: 3,
-  //   type: 'Contact',
-  //   firstName: "Jim",
-  //   lastName: "Halpert"
-  // },
-  //
-  // { guid: 4,
-  //   type: 'Contact',
-  //   firstName: "Pam",
-  //   lastName: "Beesly"
-  // },
-  //
-  // { guid: 5,
-  //   type: 'Contact',
-  //   firstName: "Ryan",
-  //   lastName: "Howard"
-  // }
 
 ]);
