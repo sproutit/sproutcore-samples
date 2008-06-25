@@ -6,11 +6,11 @@ require('core') ;
 
 
 SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
-  
+
   var library = 'Music,Movies,TV Shows,Podcasts,Radio,Ringtones'.split(',');
   var store = 'Store Purchased Downloads'.split(' ');
   var playlists ='Shuffle,Christmas,Blues,Classical,Electronic,Jazz,New Music,Top 50 Most Played,Unrated,Chillout'.split(',');
-  
+
   var ret = [] ;
   var fadd = function(group, names, iconClassName) {
     for(var idx =0;idx<names.length;idx++) {
@@ -28,8 +28,6 @@ SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
   fadd('library', library, 'sc-icon-folder-16') ;
   fadd('store', store, 'sc-icon-bookmark-16') ;
   fadd('playlists', playlists, 'sc-icon-favorite-16') ;
-  
+
   return ret ;
 }()) ;
-
-

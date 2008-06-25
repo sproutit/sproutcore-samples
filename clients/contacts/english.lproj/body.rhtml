@@ -1,9 +1,9 @@
 <% content_for('body') do %>
 
-<% split_view :workspace, :class => 'sc-app-workspace', :direction => :horizontal do %>  
+<% split_view :workspace, :class => 'sc-app-workspace', :direction => :horizontal do %>
   <% view :sidebar, :outlet => true do %>
     <% scroll_view :master_list, :outlet => true do %>
-      <%= list_view :outlet => true, 
+      <%= list_view :outlet => true,
         :content_value_key => 'fullName',
         :bind => {
           :content => 'Contacts.masterController.arrangedObjects',
@@ -11,9 +11,9 @@
         } %>
     <% end %>
   <% end %>
-  
+
   <%= split_divider_view :outlet => true, :width => 5 %>
-  
+
   <% view :detail_view, :outlet => true do %>
     <table class="card-detail">
       <tr>
@@ -35,16 +35,16 @@
             } %>
         </td>
       </tr>
-      
+
       <tr>
         <td colspan="2" class="buttons">
-          <%= button_view :outlet => true, 
+          <%= button_view :outlet => true,
             :title => "Cancel",
             :action => 'Contacts.detailController.discardChanges',
             :bind => {
               :enabled => 'Contacts.detailController.hasChanges'
             } %>
-          <%= button_view :outlet => true, 
+          <%= button_view :outlet => true,
             :title => "Save Changes", :default => true,
             :action => 'Contacts.detailController.commitChanges',
             :bind => {
@@ -53,7 +53,7 @@
         </td>
       </tr>
     </table>
-      
+
   <% end %>
 <% end %>
 

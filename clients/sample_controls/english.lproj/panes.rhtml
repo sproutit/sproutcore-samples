@@ -3,9 +3,9 @@
 <h1>Panes</h1>
 <p>
     Panes, make it easy to display overlays such as dialogs, popup-menus and
-    pickers.  To use one of the predefined panes shown below in your own 
-    application, you just need to create a new with the :pane property set to 
-    the type of pane you want the view to display in.  You can also create 
+    pickers.  To use one of the predefined panes shown below in your own
+    application, you just need to create a new with the :pane property set to
+    the type of pane you want the view to display in.  You can also create
     your own types of panes by subclassing SC.PaneView or any of its children.
 </p>
 <div class="buttons">
@@ -21,10 +21,10 @@
   Dialogs should be used for system alert messages that need to block all other interaction with the application such as when the user's connection to the internet is down or simple OK/Cancel type messages.
 </p>
 <div class="buttons">
-  <%= button_view :outlet => true, 
-    :title => "Close", 
+  <%= button_view :outlet => true,
+    :title => "Close",
     :width => 60,
-    :default => true, 
+    :default => true,
     :action => 'SampleControls.paneController.hideDialog' %>
 </div>
 <% end %>
@@ -35,9 +35,9 @@
   Panels are used to present modal parts of the application such as preferences.  Unlike dialogs, you typically expect the user to interact with the controls on a panel for awhile and then exit.
 </p>
 <div class="buttons">
-  <%= button_view :outlet => true, 
-    :title => "Close", 
-    :default => true, 
+  <%= button_view :outlet => true,
+    :title => "Close",
+    :default => true,
     :width => 60,
     :action => 'SampleControls.paneController.hidePanel' %>
 </div>

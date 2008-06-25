@@ -9,7 +9,7 @@ require('core');
   (Document Your View Here)
 
   @extends SC.Object
-  @author    AuthorName  
+  @author    AuthorName
   @version 0.1
   @static
 */
@@ -31,5 +31,5 @@ SampleControls.paneController = SC.Object.create(
   hidePanel: function() {
     SC.page.get('panelPane').set('isVisible', NO) ;
   }
-  
+
 }) ;
