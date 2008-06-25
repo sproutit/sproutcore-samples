@@ -4,10 +4,10 @@
   <h1>Twitter</h1>
   <div class="user">
     <label>from:</label>
-    <%= label_view :outlet => true, 
+    <%= label_view :outlet => true,
       :editable => true,
       :bind => { :value => 'Twitter.serverController.username' } %>
-  </div>  
+  </div>
 
 <% scroll_view :timeline_scroll, :outlet => true do %>
 <%= list_view :timeline,
@@ -17,13 +17,13 @@
 %>
 <% end %>
   <div class="actions">
-    <%= label_view :outlet => true, 
-      :tag => :label, 
+    <%= label_view :outlet => true,
+      :tag => :label,
       :bind => { :value => "Twitter.serverController.humanReadableStatus" } %>
-    
-    <%= button_view :outlet => true, 
-      :title => "Refresh", 
-      :default => true, 
+
+    <%= button_view :outlet => true,
+      :title => "Refresh",
+      :default => true,
       :action => 'Twitter.serverController.refresh',
       :bind => { :enabled => 'Twitter.serverController.canRefresh' } %>
   </div>

@@ -1,63 +1,63 @@
-/* @override 
-	http://localhost:4020/static/twitter/en/_cache/timeline-1214204037.css
-	http://localhost:4020/static/twitter/en/_cache/timeline-1214204743.css
-	http://localhost:4020/static/twitter/en/_cache/timeline-1214207794.css
-	http://localhost:4020/static/twitter/en/_cache/timeline-1214208037.css
-	http://localhost:4020/static/twitter/en/_cache/timeline-1214208302.css
+/* @override
+ http://localhost:4020/static/twitter/en/_cache/timeline-1214204037.css
+ http://localhost:4020/static/twitter/en/_cache/timeline-1214204743.css
+ http://localhost:4020/static/twitter/en/_cache/timeline-1214207794.css
+ http://localhost:4020/static/twitter/en/_cache/timeline-1214208037.css
+ http://localhost:4020/static/twitter/en/_cache/timeline-1214208302.css
 */
 
 #window {
-	position: absolute ;
-	left:  50% ;
-	margin-left: -300px ;
-	top: 50px;
-	width:  600px;
-	bottom: 50px;
-	outline: 10px #666 solid;
-	border: none;
-	background-color: #f0f0f0 ; 
-	border-radius: 8px;
-	-webkit-border-radius: 8px;
+ position: absolute ;
+ left:  50% ;
+ margin-left: -300px ;
+ top: 50px;
+ width:  600px;
+ bottom: 50px;
+ outline: 10px #666 solid;
+ border: none;
+ background-color: #f0f0f0 ;
+ border-radius: 8px;
+ -webkit-border-radius: 8px;
 }
 
 .webkit #window {
-	-webkit-box-shadow: #333 1px 3px 40px ;
-	outline: none ;
+ -webkit-box-shadow: #333 1px 3px 40px ;
+ outline: none ;
 }
 
 /* @group Info */
 
 #window h1 {
-	position: absolute ;
-	line-height: 32px;
-	left: 12px;
-	top: 2px;
-	font-size: 20px;
-	text-shadow: white -1px -1px -1px;
+ position: absolute ;
+ line-height: 32px;
+ left: 12px;
+ top: 2px;
+ font-size: 20px;
+ text-shadow: white -1px -1px -1px;
 }
 
 #window .user {
-	position: absolute ;
-	right: 12px;
-	top: 1px;
-	vertical-align: middle ;
-	line-height: 32px;
-	z-index: 1000;
-	font-size: 14px;
+ position: absolute ;
+ right: 12px;
+ top: 1px;
+ vertical-align: middle ;
+ line-height: 32px;
+ z-index: 1000;
+ font-size: 14px;
 }
 
 #window .user img {
-	vertical-align: middle ;
-	height: 20px;
-	width: 20px;
-	background-color: #ccc;
-	position: relative ;
-	top:  -2px;
-	margin-right: 4px;
+ vertical-align: middle ;
+ height: 20px;
+ width: 20px;
+ background-color: #ccc;
+ position: relative ;
+ top:  -2px;
+ margin-right: 4px;
 }
 
 #window .user .sc-label-view {
-	display: inline;
+ display: inline;
 }
 
 
@@ -67,34 +67,34 @@
 /* @group Actions */
 
 #window .actions {
-	position: absolute ;
-	left: 10px;
-	right: 10px;
-	bottom: 0px;
-	height: 32px;
+ position: absolute ;
+ left: 10px;
+ right: 10px;
+ bottom: 0px;
+ height: 32px;
 }
 
 #window .actions label {
-	position: absolute;
-	line-height: 32px;
-	left: 0;
+ position: absolute;
+ line-height: 32px;
+ left: 0;
 }
 
 #window .actions a.sc-button-view {
-	position: absolute ;
-	right: 0;
-	top: 5px;
-	width: 80px ;
+ position: absolute ;
+ right: 0;
+ top: 5px;
+ width: 80px ;
 }
 
 #window .actions input {
-	position:absolute ;
-	width: 416px;
-	right: 104px;
-	top: 4px;
-	height: 17px;
-	font-size: 14px;
-	left: 50px;
+ position:absolute ;
+ width: 416px;
+ right: 104px;
+ top: 4px;
+ height: 17px;
+ font-size: 14px;
+ left: 50px;
 }
 
 /* @end */
@@ -102,17 +102,17 @@
 /* @group Timeline */
 
 #window .timeline_scroll {
-	position: absolute ;
-	left: 0;
-	right: 0;
-	bottom: 32px;
-	top: 32px;
-	border: none ;
+ position: absolute ;
+ left: 0;
+ right: 0;
+ bottom: 32px;
+ top: 32px;
+ border: none ;
 }
 
 #window .timeline_scroll {
-	border-top: 1px #ccc solid ;
-	border-bottom: 1px #ccc solid ;
+ border-top: 1px #ccc solid ;
+ border-bottom: 1px #ccc solid ;
 }
 
 

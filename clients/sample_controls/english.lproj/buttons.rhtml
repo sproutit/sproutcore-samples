@@ -2,10 +2,10 @@
 
 <h1>Built-In Buttons & Widgets</h1>
 <p>
-  The widgets below can be created easily using view helpers.  The helper 
-  examples show you the specific options accepted by the view.  Unless the 
-  options is in bold, all options are optional.  Helpers also take the 
-  standard options accepted by all views such as :outlet, :field, :width, 
+  The widgets below can be created easily using view helpers.  The helper
+  examples show you the specific options accepted by the view.  Unless the
+  options is in bold, all options are optional.  Helpers also take the
+  standard options accepted by all views such as :outlet, :field, :width,
   etc.
 </p>
 
@@ -40,14 +40,14 @@
 <div class="buttons">
   <%= segmented_view :outlet => true, :segments => [:one, :two, :three] %><br />
   <%= segmented_view :disabled_segment, :outlet => true, :segments => [:one, :two, :three], :enabled => false %>
-  
+
 </div>
 
 <br />
 <div class="buttons sc-square-theme">
   <%= segmented_view :outlet => true, :segments => [:one, :two, :three] %><br />
   <%= segmented_view :disabled_square_segment, :outlet => true, :segments => [:one, :two, :three], :enabled => false %>
-  
+
 </div>
 
 </div>
@@ -63,7 +63,7 @@
     <%= checkbox_view :outlet => true, :label => 'Disabled Checkbox', :enabled => false %>
     <%= checkbox_view :outlet => true, :selected => true, :label => 'Selected Checkbox' %><br />
     No Label: <%= checkbox_view :outlet => true, :selected => :mixed %>
-    
+
   </div>
 </div>
 
@@ -77,9 +77,9 @@
     <%= radio_view :outlet => true, :label => 'Disabled Radio Button', :enabled => false %>
     <%= radio_view :outlet => true, :selected => true, :label => 'Selected Radio Button' %><br />
     No Label: <%= radio_view :outlet => true, :selected => :mixed %>
-    
+
   </div>
-  
+
 <p><code>
   &lt;%= radio_group_view :values =&gt; [[:item_1, &apos;First Item&apos;], :item_2, [:item_3, &apos;Last Item&apos;]], :enabled =&gt; true|false, :value =&gt; :item_1, :layout =&gt; :horizontal|:vertical %&gt;
 </code></p>
@@ -101,18 +101,18 @@
     <%= slider_view :outlet => true,
       :minimum => 50, :step => 10,
       :maximum => 250,
-      :bind => { :value => 'SampleControls.contentController.sliderValue' } 
-    %> 
+      :bind => { :value => 'SampleControls.contentController.sliderValue' }
+    %>
   </div>
-    
+
   <div class="buttons">
     <%= label_view :outlet => true, :tag => 'label',
       :bind => { :value => 'SampleControls.contentController.sliderValue' } %>
     <%= slider_view :outlet => true, :enabled => false,
       :minimum => 50, :width => 200,
       :maximum => 250, :step => 1,
-      :bind => { :value => 'SampleControls.contentController.sliderValue' } 
-    %> 
+      :bind => { :value => 'SampleControls.contentController.sliderValue' }
+    %>
   </div>
 
 </div>
@@ -125,7 +125,7 @@
 </code></p>
 
   <div class="buttons">
-    <%= disclosure_view :outlet => true, :value => true, :label => 'Open Disclosure' %> 
+    <%= disclosure_view :outlet => true, :value => true, :label => 'Open Disclosure' %>
     <%= disclosure_view :outlet => true, :label => 'Closed Disclosure', :value => false %>
     <%= disclosure_view :outlet => true, :label => 'Disabled Open Disclosure', :value => false, :enabled => false %>
     <%= disclosure_view :outlet => true, :label => 'Disabled Open Disclosure', :value => true, :enabled => false %>

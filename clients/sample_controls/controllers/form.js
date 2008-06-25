@@ -14,7 +14,7 @@ require('core');
 */
 SampleControls.formController = SC.ObjectController.create(
 /** @scope SampleControls.formController */ {
-  
+
   // TODO: Add your own code here.
-  
+
 }) ;

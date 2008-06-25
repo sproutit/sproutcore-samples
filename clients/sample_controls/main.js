@@ -2,7 +2,7 @@
 // SampleControls
 // ==========================================================================
 
-// This is the function that will start your app running.  The default 
+// This is the function that will start your app running.  The default
 // implementation will load any fixtures you have created then instantiate
 // your controllers and awake the elements on your page.
 //
@@ -10,7 +10,7 @@
 // See comments for some pointers on what to do next.
 //
 function main() {
-  
+
   // Step 1: Load Your Model Data
   // The default code here will load the fixtures you have defined.
   // Comment out the preload line and add something to refresh from the server
@@ -26,15 +26,14 @@ function main() {
 
   SC.Benchmark.start('SampleControls.sourceListController.content') ;
   var playlists = SampleControls.Playlist.findAll();
-  
+
   SampleControls.sourceListController.set('content', playlists);
   SC.Benchmark.end('SampleControls.sourceListController.content') ;
 
   SC.Benchmark.start('SC.page.controlTabs.nowShowing = collections2') ;
   SC.page.get('controlTabs').set('nowShowing', 'welcome') ;
   SC.Benchmark.end('SC.page.controlTabs.nowShowing = collections2') ;
-  
+
   SC.page.get('pickerPane') ;
 
 } ;
-

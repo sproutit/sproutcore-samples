@@ -9,9 +9,9 @@ Twitter.FIXTURES = Twitter.FIXTURES.concat([
   // TODO: Add your data fixtures here.
   // All fixture records must have a unique guid and a type matching the
   // name of your contact.  See the example below.
-  
+
   { "id":3462491,
-    guid: 3462491, 
+    guid: 3462491,
     "name":"Charles Jolley",
     "screen_name":"okito",
     "followers_count":79,
@@ -22,34 +22,34 @@ Twitter.FIXTURES = Twitter.FIXTURES.concat([
     "protected":false,
     type: "User"
   }
-  // { guid: 1, 
-  //   type: 'Contact', 
-  //   firstName: "Michael", 
-  //   lastName: "Scott" 
+  // { guid: 1,
+  //   type: 'Contact',
+  //   firstName: "Michael",
+  //   lastName: "Scott"
   // },
-  // 
-  // { guid: 2, 
-  //   type: 'Contact', 
-  //   firstName: "Dwight", 
-  //   lastName: "Schrute" 
+  //
+  // { guid: 2,
+  //   type: 'Contact',
+  //   firstName: "Dwight",
+  //   lastName: "Schrute"
   // },
-  // 
-  // { guid: 3, 
-  //   type: 'Contact', 
-  //   firstName: "Jim", 
-  //   lastName: "Halpert" 
+  //
+  // { guid: 3,
+  //   type: 'Contact',
+  //   firstName: "Jim",
+  //   lastName: "Halpert"
   // },
-  // 
-  // { guid: 4, 
-  //   type: 'Contact', 
-  //   firstName: "Pam", 
-  //   lastName: "Beesly" 
+  //
+  // { guid: 4,
+  //   type: 'Contact',
+  //   firstName: "Pam",
+  //   lastName: "Beesly"
   // },
-  // 
-  // { guid: 5, 
-  //   type: 'Contact', 
-  //   firstName: "Ryan", 
-  //   lastName: "Howard" 
-  // }  
+  //
+  // { guid: 5,
+  //   type: 'Contact',
+  //   firstName: "Ryan",
+  //   lastName: "Howard"
+  // }
 
 ]);

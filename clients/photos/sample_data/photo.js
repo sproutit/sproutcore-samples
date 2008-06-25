@@ -145,14 +145,14 @@ Photos.FIXTURES = Photos.FIXTURES.concat(function() {
   static_url('photos/DSCN3774.jpg'),
   static_url('photos/DSCN3807.jpg'),
   static_url('photos/DSCN3901.jpg')] ;
-  
+
   var ret = [];
   var idx = PHOTO_COUNT ;
   while(--idx >= 0) {
 
     var photoUrlIdx = idx % photoUrls.length ;
-    ret[ret.length] = { 
-      guid: idx+1, 
+    ret[ret.length] = {
+      guid: idx+1,
       type: 'Photo',
       url: photoUrls[photoUrlIdx],
       name: photoUrls[photoUrlIdx].split('/').last(),
@@ -160,6 +160,6 @@ Photos.FIXTURES = Photos.FIXTURES.concat(function() {
       opacity: 1.0
     } ;
   }
-  
+
   return ret.sort(function(a,b) { return (a.guid < b.guid) ? -1 : ((a.guid > b.guid) ? 1 : 0); }) ;
 }());
