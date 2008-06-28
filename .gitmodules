@@ -1,6 +1,3 @@
-[submodule "sproutcore"]
-	path = sproutcore
-	url = /Users/charles/Sites/sproutcore/samples/frameworks/sproutcore/.git
 [submodule "frameworks/sproutcore"]
 	path = frameworks/sproutcore
 	url = git://github.com/sproutit/sproutcore.git
