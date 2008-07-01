@@ -74,5 +74,5 @@ end
 # talk to backend services.
 
 # This will proxy all requests to /* -> http://www.twitter.com/*
-proxy '/', :to => 'www.twitter.com', :cookie_domain => '.twitter.com'
+proxy '/statuses', :to => 'twitter.com'
 
