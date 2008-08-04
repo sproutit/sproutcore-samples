@@ -13,6 +13,8 @@
 # application, even bundles that come from other gems.
 config :all do |c|
 
+  c[:build_languages] = [:en, :fr, :de, :ja, :es, :it]
+  
   # Name any other frameworks your bundles depend upon.  The stylesheets and
   # JavaScript for required bundles will be loaded before your bundle on your
   # page.
