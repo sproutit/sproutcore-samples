@@ -31,14 +31,16 @@ function main() {
 
   // TODO: Set the content property on your primary controller
   // ex: Benchmarks.contactsController.set('content',Benchmarks.contacts);
-  var benchmarks = Benchmarks.Benchmark.findAll() ;
-  var idx = benchmarks.length;
-  SC.page.get('report').set('value', "Beginning Benchmarks") ;
-  while(--idx>=0) {
-    var benchmark = benchmarks[idx] ;
-    benchmark.run() ;
-  }
+  (function() {
+    var benchmarks = Benchmarks.Benchmark.findAll() ;
+    var idx = benchmarks.length;
+    SC.page.get('report').set('value', "Beginning Benchmarks") ;
+    while(--idx>=0) {
+      var benchmark = benchmarks[idx] ;
+      benchmark.run() ;
+    }
 
-  SC.Benchmark.log() ;
-  SC.page.get('report').set('value', SC.Benchmark.report()) ;
+    SC.page.get('report').set('value', SC.Benchmark.report()) ;
+  }).invokeLater(null, 100) ;
+  
 } ;

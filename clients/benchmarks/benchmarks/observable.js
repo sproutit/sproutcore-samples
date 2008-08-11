@@ -11,11 +11,19 @@ Benchmarks.Benchmark.newRecord({
       computed: function(key, value) {
         if (value !== undefined) this._computed = value ;
         return this._computed ;
-      }.property() 
+      }.property(),
+      
+      observed: "property",
+      
+      observedPropertyDidChange: function() {
+        // DO SOMETHING USEFUL 
+      }.observes('observed')
 
     }) ;
     
     context.observerFunction = function() {} ;
+    
+    context.doIt = function(alpha) { return alpha; } ;
   },
 
   // GET 
@@ -35,6 +43,10 @@ Benchmarks.Benchmark.newRecord({
     context.object.get("unknown") ;
   },
 
+  "benchmark kvo: get(observed) [100000x]": function(context) {
+    context.object.get("observed") ;
+  },
+
   // SET
   "benchmark RAW: o.normal = value [10000x]": function(context) {
     context.object.normal = "value" ;
@@ -51,15 +63,20 @@ Benchmarks.Benchmark.newRecord({
   "benchmark kvo: set(unknown, value) [10000x]": function(context) {
     context.object.set("unknown", "value") ;
   },
+
+  "benchmark kvo: set(observed, value) [10000x]": function(context) {
+    context.object.set("observed", "value") ;
+  },
   
   // addObserver
   "benchmark observers: addObserver(normal, observer) [1000x]": function(context) {
     context.object.addObserver('normal', context.observerFunction) ;
   },
   
-  // removeObserver
+  // removeObserver -- note that we remove an observer that was already
+  // defined on the object.
   "benchmark observers: removeObserver(normal, observer) [1000x]": function(context) {
-    context.object.removeObserver('normal', context.observerFunction) ;
+    context.object.removeObserver('observed', context.object.observedPropertyDidChange) ;
   }
   
 }) ;
