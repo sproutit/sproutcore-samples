@@ -160,7 +160,7 @@ SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
       description: [text[idx*2], text[(idx*2)+1]].join(' '),
       itemIndex: idx,
       photoUrl: photoUrls[photoUrlIdx],
-      photoName: photoUrls[photoUrlIdx].split('/').last(),
+      photoName: photoUrls[photoUrlIdx].split('/').last().split('?').first(),
       createdAt: (Date.now() - (Math.random() * 1000)),
       viewCount: Math.floor(Math.random() * 50)
     } ;
