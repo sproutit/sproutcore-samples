@@ -9,9 +9,9 @@
     your own types of panes by subclassing SC.PaneView or any of its children.
 </p>
 <div class="buttons">
-  <%= button_view :outlet => true, :title => "Show Panel", :action => 'SampleControls.paneController.showPanel' %>
-  <%= button_view :outlet => true, :title => "Show Dialog", :action => 'SampleControls.paneController.showDialog' %>
-  <%= button_view :outlet => true, :title => "Show Picker", :action => 'SC.page.pickerPane.popup' %>
+  <%= button_view :title => "Show Panel", :action => 'SampleControls.paneController.showPanel' %>
+  <%= button_view :title => "Show Dialog", :action => 'SampleControls.paneController.showDialog' %>
+  <%= button_view :title => "Show Picker", :action => 'SC.page.pickerPane.popup' %>
 </div>
 <% end %>
 
@@ -21,8 +21,7 @@
   Dialogs should be used for system alert messages that need to block all other interaction with the application such as when the user's connection to the internet is down or simple OK/Cancel type messages.
 </p>
 <div class="buttons">
-  <%= button_view :outlet => true,
-    :title => "Close",
+  <%= button_view :title => "Close",
     :width => 60,
     :default => true,
     :action => 'SampleControls.paneController.hideDialog' %>
@@ -35,8 +34,7 @@
   Panels are used to present modal parts of the application such as preferences.  Unlike dialogs, you typically expect the user to interact with the controls on a panel for awhile and then exit.
 </p>
 <div class="buttons">
-  <%= button_view :outlet => true,
-    :title => "Close",
+  <%= button_view :title => "Close",
     :default => true,
     :width => 60,
     :action => 'SampleControls.paneController.hidePanel' %>

@@ -1,9 +1,8 @@
 <% view :collections_tab, :style => 'width: 100%; height: 100%; position: absolute;' do %>
 
 <label class="list-view-label"><%= loc(%(Class)) %> SC.ListView</label>
-<% scroll_view :list_scroll_view, :outlet => true do %>
+<% scroll_view :list_scroll_view do %>
   <%= list_view :list_view,
-      :outlet => true,
       :content_value_key => 'photoName',
       :content_icon_key => 'icon',
       :content_value_editable => true,
@@ -15,8 +14,8 @@
 <% end %>
 
 <label class="grid-view-label"><%= loc(%(Class)) %> SC.GridView</label>
-<% scroll_view :grid_scroll_view, :outlet => true do %>
-  <%= grid_view :grid_view, :outlet => true,
+<% scroll_view :grid_scroll_view do %>
+  <%= grid_view :grid_view,
       :example_view => 'SC.ImageCellView',
       :content_value_key => 'photoUrl',
       :can_reorder_content => true,

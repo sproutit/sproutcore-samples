@@ -9,36 +9,36 @@
     controls that are supported.
   </p>
 
-  <% form_view :outlet => true, :tag => 'table', :class =>'form' do %>
+  <% form_view :tag => 'table', :class =>'form' do %>
 
     <tr>
       <td class="label"><%= loc(%(FName_forms)) %>:</td>
-      <td class="value"><%= text_field_view :outlet => true, :hint => loc(%(FName_forms)) %></td>
+      <td class="value"><%= text_field_view :field => :first_name , :hint => loc(%(FName_forms)) %></td>
     </tr>
 
     <tr>
       <td class="label"><%= loc(%(LName_forms)) %>:</td>
-      <td class="value"><%= text_field_view :outlet => true, :hint => loc(%(LName_forms)) %></td>
+      <td class="value"><%= text_field_view :field => :lastName, :hint => loc(%(LName_forms)) %></td>
     </tr>
 
     <tr>
       <td class="label"><%= loc(%(Email_forms)) %>:</td>
-      <td class="value"><%= text_field_view :outlet => true, :hint => loc(%(Email_forms)) %></td>
+      <td class="value"><%= text_field_view :field => :email, :hint => loc(%(Email_forms)) %></td>
     </tr>
 
     <tr>
       <td class="label"><%= loc(%(PNumber_forms)) %>:</td>
-      <td class="value"><%= text_field_view :outlet => true, :hint => loc(%(PNumber_forms)) %></td>
+      <td class="value"><%= text_field_view :field => :phone_number, :hint => loc(%(PNumber_forms)) %></td>
     </tr>
 
     <tr>
       <td class="label"><%= loc(%(CCard_forms)) %>:</td>
-      <td class="value"><%= text_field_view :outlet => true, :hint => loc(%(CCard_forms)) %></td>
+      <td class="value"><%= text_field_view :field => :credit_card, :hint => loc(%(CCard_forms)) %></td>
     </tr>
 
     <tr>
       <td class="label"><%= loc(%(Address_forms)) %>:</td>
-      <td class="value"><%= text_field_view :outlet => true, :hint => loc(%(Address_forms)) %></td>
+      <td class="value"><%= text_field_view :field => :address, :hint => loc(%(Address_forms)) %></td>
     </tr>
 
     <tr>
@@ -52,13 +52,13 @@
 
     <tr>
       <td class="label"><%= loc(%(Crazinnes_forms)) %>:</td>
-      <td><%= slider_view :outlet => true %></td>
+      <td><%= slider_view :field => :craziness %></td>
     </tr>
 
     <tr>
       <td colspan="2" class="buttons">
-        <%= button_view :outlet => true, :title => loc(%(Cancel_buttom_forms)), :cancel => true %>
-        <%= button_view :outlet => true, :title => loc(%(SChanges_buttom_forms)), :default => true %>
+        <%= button_view :title => loc(%(Cancel_buttom_forms)), :cancel => true %>
+        <%= button_view :title => loc(%(SChanges_buttom_forms)), :default => true %>
       </td>
     </tr>
 
