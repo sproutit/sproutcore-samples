@@ -1,0 +1,274 @@
+<%
+  def content
+    "<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque sapien tortor, vestibulum sed, semper at, sollicitudin eget, mi. Vivamus porttitor tellus sit amet tellus. Aenean eu libero ut erat sollicitudin aliquet. Donec ut massa in justo vulputate malesuada. Duis eu urna. Fusce nibh. Suspendisse vitae odio. Nunc mollis, nisi in consequat porttitor, velit pede imperdiet eros, in suscipit massa nibh ut ante. Duis id sem. Ut purus massa, iaculis quis, viverra id, vehicula nec, ipsum. Nulla molestie orci sit amet lorem. In eget odio eu massa vehicula tincidunt.</p>
+
+<p>Donec lacinia sem. Sed odio metus, elementum eget, ornare sed, feugiat et, augue. Quisque euismod orci eget libero. Maecenas lorem felis, dapibus sed, aliquet et, posuere eu, magna. Sed lacinia elementum turpis. Duis mi. Suspendisse in nunc nec lorem blandit tincidunt. Praesent faucibus neque ac urna. Nullam vel nunc cursus dui dignissim rutrum. Praesent viverra consequat orci. Nullam aliquet. Suspendisse vitae purus. Sed lobortis molestie sapien. Sed vel pede. Vivamus facilisis magna vitae felis.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nulla dolor. Aenean pellentesque, turpis ac tincidunt vestibulum, risus dolor iaculis metus, sit amet aliquam augue purus eu magna. Sed euismod dapibus lacus. Curabitur nec quam eget nisi auctor lobortis. Phasellus mi mauris, laoreet sed, porttitor id, imperdiet sit amet, mauris. Mauris venenatis dictum risus. Suspendisse vel ligula nec augue congue gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse sed velit. Nulla pharetra, eros et dapibus commodo, lacus magna scelerisque purus, eu varius nisi leo in massa. Nam eu neque sit amet dolor hendrerit accumsan. Suspendisse quis mauris. Vestibulum ornare eros in est.</p>"
+  end
+-%>
+
+<% content_for('body') do %>
+    Drag the splitter up/down left/right and see how it collapses.
+    Double-click to collapse.
+
+    <% view :workspace_container1, :class => 'workspace_container', :top => 40, :left => 0 do %>
+      <% split_view :workspace1, :class => 'sc-app-workspace', :splitter => :thin, :direction => :vertical do %>
+        <% scroll_view :top_view1, :class => 'list_view', :height => 100 do %>
+          <% view :list_view1 do %>
+            <p>This view can be collapsed. It has no min or max thickness.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider1, :top => 100 %>
+        <% scroll_view :bottom_view1, :class => 'details_view', :top => 101 do %>
+          <% view :details_view1 do %>
+            <p>This view cannot be collapsed (because the top view above will be chosen
+            as the view that is collapsable). It has no min or max thickness.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+    <% view :workspace_container2, :class => 'workspace_container', :style => "top:40px; left:270px;" do %>
+      <% split_view :workspace2, :class => 'sc-app-workspace', :splitter => :thick, :direction => :vertical do %>
+        <% scroll_view :top_view2, :class => 'list_view', :can_collapse => false do %>
+          <% view :list_view2 do %>
+            <p>This view cannot be collapsed. It has no minimum thickness.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider2 %>
+        <% scroll_view :bottom_view2, :class => 'details_view', :can_collapse => true, :min_thickness => 40 do %>
+          <% view :details_view2 do %>
+            <p>This view can be collapsed. It has a minimum thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+    <% view :workspace_container3, :class => 'workspace_container', :style => "top:40px; left:540px;" do %>
+      <% split_view :workspace3, :class => 'sc-app-workspace', :direction => :vertical do %>
+        <% scroll_view :top_view3, :class => 'list_view', :can_collapse => false, :min_thickness => 40 do %>
+          <% view :list_view3 do %>
+            <p>This view cannot be collapsed. It has a minimum thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider3 %>
+        <% scroll_view :bottom_view3, :class => 'details_view', :can_collapse => true, :min_thickness => 40 do %>
+          <% view :details_view3 do %>
+            <p>This view can be collapsed. It has a minimum thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+    <% view :workspace_container4, :class => 'workspace_container', :style => "top:40px; left:810px;" do %>
+      <% split_view :workspace4, :class => 'sc-app-workspace', :direction => :vertical do %>
+        <% scroll_view :top_view4, :class => 'list_view', :can_collapse => true, :min_thickness => 40 do %>
+          <% view :list_view4 do %>
+            <p>This view can be collapsed. It has a minimum thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider4 %>
+        <% scroll_view :bottom_view4, :class => 'details_view', :can_collapse => false, :min_thickness => 40 do %>
+          <% view :details_view4 do %>
+            <p>This view cannot be collapsed. It has a minimum thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+
+
+
+
+    <% view :workspace_container21, :class => 'workspace_container', :style => "top:370px; left:0px;" do %>
+      <% split_view :workspace21, :class => 'sc-app-workspace', :direction => :vertical do %>
+        <% scroll_view :top_view21, :class => 'list_view', :can_collapse => true, :max_thickness => 200 do %>
+          <% view :list_view21 do %>
+            <p>This view cannot be collapsed (even though can_collapse is set to true). It has a maximum thickness of 200px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider21 %>
+        <% scroll_view :bottom_view21, :class => 'details_view', :can_collapse => false, :max_thickness => 200 do %>
+          <% view :details_view21 do %>
+            <p>This view cannot be collapsed (it's can_collapse is set to false). It has a maximum thickness of 200px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+    <% view :workspace_container22, :class => 'workspace_container', :style => "top:370px; left:270px;" do %>
+      <% split_view :workspace22, :class => 'sc-app-workspace', :direction => :vertical do %>
+        <% view :top_view22, :class => 'list_view', :can_collapse => true, :min_thickness => 40 do %>
+          <p>This is a simple non-scrollable view that can be collapsed. It has a minimum thickness of 40px.</p>
+          <%= content %>
+        <% end %>
+        <%= split_divider_view :divider22 %>
+        <% view :bottom_view22, :class => 'details_view', :can_collapse => false, :min_thickness => 40 do %>
+          <p>This is a simple non-scrollable view that cannot be collapsed. It has a minimum thickness of 40px.</p>
+          <%= content %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+    <% view :workspace_container23, :class => 'workspace_container', :style => "top:370px; left:540px;" do %>
+      <% split_view :workspace23, :class => 'sc-app-workspace', :direction => :vertical do %>
+
+        <% split_view :top_view23, :class => 'sc-app-workspace', :direction => :vertical, :height => 200, :can_collapse => false do %>
+          <% view :top_view23inner, :class => 'list_view', :can_collapse => true, :min_thickness => 20, :height => 90 do %>
+            <p>This is the top view within the top view of the last split. It can be collapsed. It has a minimum thickness of 20px.</p>
+            <%= content %>
+          <% end %>
+          <%= split_divider_view :divider23inner, :top => 90 %>
+          <% view :bottom_view23inner, :class => 'details_view inner', :can_collapse => true, :min_thickness => 20, :top => 95 do %>
+            <p>This is the bottom view within the top view of the last split. It can be collapsed. It has a minimum thickness of 20px.</p>
+            <%= content %>
+          <% end %>
+        <% end%>
+
+        <%= split_divider_view :divider23, :top => 200 %>
+
+        <% view :bottom_view23, :class => 'details_view', :can_collapse => true, :min_thickness => 40, :top => 205 do %>
+          <p>This is the bottom view of the last split. It can be collapsed (the inner split view cannot be collapsed). It has a minimum thickness of 40px.</p>
+          <%= content %>
+        <% end %>
+
+      <% end%>
+    <% end %>
+
+
+    <% view :workspace_container24, :class => 'workspace_container', :top => 370, :left => 810 do %>
+      <% split_view :workspace24, :class => 'sc-app-workspace', :direction => :horizontal do %>
+
+        <% view :bottom_view24, :class => 'list_view', :can_collapse => true, :min_thickness => 40, :style => "position:absolute; top:0; bottom:0; left:0; width:80px; overflow:hidden;" do %>
+          <p>This is the left view. It can be collapsed. It has a minimum thickness of 40px.</p>
+          <%= content %>
+        <% end %>
+
+        <%= split_divider_view :divider24, :left => 80 %>
+
+        <% split_view :top_view24, :class => 'sc-app-workspace', :direction => :vertical, :left => 85, :can_collapse => false do %>
+          <% view :top_view24inner, :class => 'list_view', :can_collapse => true, :min_thickness => 20, :height => 90, :style => "overflow:hidden;" do %>
+            <p>This is the top view within the right view. It can be collapsed. It has a minimum thickness of 20px.</p>
+            <%= content %>
+          <% end %>
+          <%= split_divider_view :divider24inner, :top => 90 %>
+          <% view :bottom_view24inner, :class => 'details_view', :can_collapse => true, :min_thickness => 20, :top => 95 do %>
+            <p>This is the bottom view within the right view. It can be collapsed. It has a minimum thickness of 20px.</p>
+            <%= content %>
+          <% end %>
+        <% end%>
+
+      <% end%>
+    <% end %>
+
+
+
+    <% view :workspace_container31, :class => 'workspace_container', :style => "top:700px; left:0px;" do %>
+      <% split_view :workspace31, :class => 'sc-app-workspace', :direction => :horizontal do %>
+        <% scroll_view :left_view31, :class => 'list_view' do %>
+          <% view :list_view31 do %>
+            <p>This view can be collapsed. It has no min or max thickness.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider31 %>
+        <% scroll_view :bottom_view31, :class => 'details_view' do %>
+          <% view :details_view31 do %>
+            <p>This view cannot be collapsed (because the target view above will be chosen
+            as the view that is collapsable). It has no min or max thickness.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+    <% view :workspace_container32, :class => 'workspace_container', :style => "top:700px; left:270px;" do %>
+      <% split_view :workspace32, :class => 'sc-app-workspace', :direction => :horizontal do %>
+        <% scroll_view :left_view32, :class => 'list_view', :can_collapse => false, :min_thickness => 40 do %>
+          <% view :list_view32 do %>
+            <p>This view cannot be collapsed. It has a minimum thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider32 %>
+        <% scroll_view :bottom_view32, :class => 'details_view', :can_collapse => true, :min_thicknesss => 40 do %>
+          <% view :details_view32 do %>
+            <p>This view can be collapsed. It has a minimum thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+    <% view :workspace_container33, :class => 'workspace_container', :style => "top:700px; left:540px;" do %>
+      <% split_view :workspace33, :class => 'sc-app-workspace', :direction => :horizontal do %>
+        <% scroll_view :left_view33, :class => 'list_view', :collapse_at_thickness => 60 do %>
+          <% view :list_view33 do %>
+            <p>This view collapses at a thickness of 60px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider33 %>
+        <% scroll_view :bottom_view33, :class => 'details_view', :collapse_at_thickness => 40 do %>
+          <% view :details_view33 do %>
+            <p>This view collapsed at a thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+
+
+
+    <% view :workspace_container41, :class => 'workspace_container', :style => "top:1030px; left:0px; right:0px; height:200px; width:100%;" do %>
+      <% split_view :workspace41, :class => 'sc-app-workspace', :direction => :horizontal do %>
+        <% scroll_view :left_view41, :class => 'list_view', :collapse_at_thickness => 60 do %>
+          <% view :list_view41 do %>
+            <p>This view collapses at a thickness of 60px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider41 %>
+        <% scroll_view :bottom_view41, :class => 'details_view', :collapse_at_thickness => 40, :min_thickness => 40 do %>
+          <% view :details_view41 do %>
+            <p>This view collapsed at a thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+    <% view :workspace_container42, :class => 'workspace_container', :style => "top:1260px; left:0px; right:0px; bottom:20px; width:100%;" do %>
+      <% split_view :workspace42, :class => 'sc-app-workspace', :direction => :vertical do %>
+        <% scroll_view :top_view42, :class => 'list_view', :can_collapse => false do %>
+          <% view :list_view42 do %>
+            <p>This view cannot be collapsed. It has no minimum thickness.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+        <%= split_divider_view :divider42 %>
+        <% scroll_view :bottom_view42, :class => 'details_view', :can_collapse => true, :min_thickness => 40 do %>
+          <% view :details_view42 do %>
+            <p>This view can be collapsed. It has a minimum thickness of 40px.</p>
+            <%= content %>
+          <% end %>
+        <% end %>
+      <% end%>
+    <% end %>
+
+<% end %>
+
+
+
