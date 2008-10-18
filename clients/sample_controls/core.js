@@ -20,3 +20,4 @@ SampleControls = SC.Object.create({
 
 
 SC.CAPTURE_BACKSPACE_KEY = YES ;
+
