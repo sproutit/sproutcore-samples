@@ -50,7 +50,7 @@ Twitter.serverController = SC.Object.create(
       case Twitter.LOADING:
         return 'Loading...' ;
       default:
-        return ($type(status) === T_ERROR) ? status.get('description') : status;
+        return (SC.$type(status) === SC.T_ERROR) ? status.get('description') : status;
     }
   }.property('status'),
 
@@ -103,7 +103,7 @@ Twitter.serverController = SC.Object.create(
     if (json && json.parseJSON) json = json.parseJSON() ;
 
     // if no valid json was received, set an error...
-    if ($type(json) !== T_ARRAY) {
+    if (SC.$type(json) !== SC.T_ARRAY) {
       this.set('status', $error("Feed contains no data.")) ;
 
     // valid json was received, process it into a format that can be consumed

@@ -23,7 +23,7 @@ Contacts.ListItemView = SC.View.extend(
   /** Selection state. */
   isSelected: false,
 
-  _contentObserver: function() {
+  _contentDidChange: function() {
     var content = this.get('content') ;
     var value = (content) ? content.get('fullName') : '(No Value)';
     this.set('asHTML', value) ;
