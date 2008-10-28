@@ -1,6 +1,0 @@
-[submodule "frameworks/sproutcore"]
-	path = frameworks/sproutcore
-	url = git://github.com/sproutit/sproutcore.git
-[submodule "frameworks/prototype"]
-	path = frameworks/prototype
-	url = git://github.com/sproutit/sproutcore-prototype.git
