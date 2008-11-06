@@ -8,7 +8,7 @@ require('core');
 
   (Document Your View Here)
 
-  @extends SC.View
+  @extends SC.ClassicView
   @author    AuthorName
   @version 0.1
 */

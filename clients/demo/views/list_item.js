@@ -8,11 +8,11 @@ require('core');
 
   (Document Your View Here)
 
-  @extends SC.View
+  @extends SC.ClassicView
   @author    AuthorName
   @version 0.1
 */
-Contacts.ListItemView = SC.View.extend(
+Contacts.ListItemView = SC.ClassicView.extend(
 /** @scope Contacts.ListItemView.prototype */ {
 
   emptyElement: '<div class="list-item"></div>',

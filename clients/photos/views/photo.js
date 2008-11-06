@@ -8,7 +8,7 @@ require('core');
 
   Displays a single photo.
 
-  @extends SC.View
+  @extends SC.ClassicView
   @author    AuthorName
   @version 0.1
 */
