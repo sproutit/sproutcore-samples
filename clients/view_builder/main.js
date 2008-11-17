@@ -33,7 +33,9 @@ function main() {
   // ex: ViewBuilder.contactsController.set('content',ViewBuilder.contacts);
   
   bv = SC.ButtonView.create({
-    layout: { bottom: 20, right: 20, height: 23, width: 80 }
+    layout: { bottom: 20, right: 20, height: 23, width: 80 },
+    
+    title: "OK"
   }) ;
 
   dialog = SC.View.build({
@@ -59,6 +61,7 @@ function main() {
 } ;
 
 
+/*
 SC.ButtonView = SC.View.extend({
   
   title: "Title",
@@ -84,3 +87,5 @@ SC.ButtonView = SC.View.extend({
   displayProperties: ['title','localize']
     
 }) ;
+*/
+
