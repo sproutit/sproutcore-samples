@@ -38,6 +38,11 @@ function main() {
     title: "OK"
   }) ;
 
+  lv = SC.LabelView.create({
+    layout: { centerX: 0, centerY: 0, width: 100, height: 23 },
+    value: "Hello!"
+  });
+  
   dialog = SC.View.build({
     childViews: [
       SC.ButtonView.build({
@@ -57,7 +62,7 @@ function main() {
   d = dialog.create();
 
   rv = SC.MainPane.create().appendTo('body');
-  rv.appendChild(bv);
+  rv.appendChild(bv).appendChild(lv);
 } ;
 
 
