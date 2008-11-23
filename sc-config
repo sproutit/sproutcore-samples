@@ -60,6 +60,8 @@ config :all do |c|
   # line as well using the -e option, but you can override the default
   # using this config as well.
   #c[:build_mode] = :production
+  
+  c[:sc_server] = '~/Sites/sproutcore/blue_ribbon/bin/sc-server'
 
 end
 

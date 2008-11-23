@@ -2,15 +2,12 @@
 // ViewBuilder
 // ==========================================================================
 
-ViewBuilder = SC.Object.create({
+/*global ViewBuilder */
 
-  // This will create the server for your application.  Add any namespaces
-  // your model objects are defined in to the prefix array.
-  server: SC.Server.create({ prefix: ['ViewBuilder'] }),
-
-  // When you are in development mode, this array will be populated with
-  // any fixtures you create for testing and loaded automatically in your
-  // main method.  When in production, this will be an empty array.
-  FIXTURES: []
-
-}) ;
+/** 
+  The view builder namespace is defined in the design.mode directory of 
+  SproutCore.
+*/
+if (typeof ViewBuilder === 'undefined') {
+  var ViewBuilder = SC.Object.create();
+}
