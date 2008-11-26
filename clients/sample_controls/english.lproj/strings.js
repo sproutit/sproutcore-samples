@@ -8,7 +8,11 @@
 // how your UI will look and you'll notice right away when something needs a
 // localized string added to this file!
 //
-Object.extend(String.English,{
+SC.stringsFor('en',{
+  
+  "Loc.Title": "Localized Title!",
+  "Loc.Label": "Localized Label!",
+  
  // Global
   "Class": "Class",
  // TabView

@@ -1,6 +1,7 @@
 // ==========================================================================
 // SampleControls
 // ==========================================================================
+/*global SampleControls */
 
 // This is the function that will start your app running.  The default
 // implementation will load any fixtures you have created then instantiate
@@ -20,20 +21,23 @@ function main() {
   SC.Benchmark.start('end fixtures') ;
 
   // Set content controller for display
-  SC.Benchmark.start('SampleControls.contentController.content') ;
-  SampleControls.contentController.set('content', SampleControls.Photo.findAll());
-  SC.Benchmark.end('SampleControls.contentController.content') ;
-
-  SC.Benchmark.start('SampleControls.sourceListController.content') ;
-  var playlists = SampleControls.Playlist.findAll();
-
-  SampleControls.sourceListController.set('content', playlists);
-  SC.Benchmark.end('SampleControls.sourceListController.content') ;
-
-  SC.Benchmark.start('SC.page.controlTabs.nowShowing = collections2') ;
-  SC.page.get('controlTabs').set('nowShowing', 'welcome') ;
-  SC.Benchmark.end('SC.page.controlTabs.nowShowing = collections2') ;
-
-  SC.page.get('pickerPane') ;
-
-} ;
+  // SC.Benchmark.start('SampleControls.contentController.content') ;
+  // SampleControls.contentController.set('content', SampleControls.Photo.findAll());
+  // SC.Benchmark.end('SampleControls.contentController.content') ;
+  // 
+  // SC.Benchmark.start('SampleControls.sourceListController.content') ;
+  // var playlists = SampleControls.Playlist.findAll();
+  // 
+  // SampleControls.sourceListController.set('content', playlists);
+  // SC.Benchmark.end('SampleControls.sourceListController.content') ;
+  // 
+  // SC.Benchmark.start('SC.page.controlTabs.nowShowing = collections2') ;
+  // SC.page.get('controlTabs').set('nowShowing', 'welcome') ;
+  // SC.Benchmark.end('SC.page.controlTabs.nowShowing = collections2') ;
+  // 
+  // SC.page.get('pickerPane') ;
+  
+  SC.Benchmark.start('buttonPage.mainPane.append()') ;
+  SampleControls.getPath('buttonPage.mainPane').append();
+  SC.Benchmark.end('buttonPage.mainPane.append()') ;
+} 
