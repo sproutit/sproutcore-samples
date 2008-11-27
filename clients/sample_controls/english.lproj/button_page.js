@@ -265,14 +265,57 @@ SampleControls.buttonPage = SC.Page.create({
         value: YES
       })
 
-      .title('SC.SegmentedView').width(200).sample(SC.SegmentedView, {
+      .title('SC.SegmentedView').width(200).sample(
+        SC.SegmentedView.extend({
+          valueProbe: function() { 
+            console.log("%@ value=%@".fmt(this,this.get('value')));
+          }.observes('value')
+        }), 
+      {
         items: "Item1 Item2 Item3".w(),
         value: "Item2"
       }, {
         items: "Item1 Item2 Item3".w(),
         value: "Item2",
         isEnabled: NO
+      }, null, {
+        items: "Item1 Item2 Item3".w(),
+        value: "Item1 Item3".w()
+      }, {
+        items: "Item1 Item2 Item3".w(),
+        value: "Item1 Item3".w(),
+        isEnabled: NO
+        
+      }, null, {
+        items: "Item1 Item2 Item3".w(),
+        value: "Item2",
+        allowsEmptySelection: YES
+      }, {
+        items: "Item1 Item2 Item3".w(),
+        value: "Item1 Item3".w(),
+        allowsEmptySelection: YES
+        
+      }, null, {
+        items: "Item1 Item2 Item3".w(),
+        value: "Item2",
+        allowsMultipleSelection: YES
+      }, {
+        items: "Item1 Item2 Item3".w(),
+        value: "Item1 Item3".w(),
+        allowsMultipleSelection: YES
+
+      }, null, {
+        items: "Item1 Item2 Item3".w(),
+        value: "Item2",
+        allowsEmptySelection: YES,
+        allowsMultipleSelection: YES
+      }, {
+        items: "Item1 Item2 Item3".w(),
+        value: "Item1 Item3".w(),
+        allowsEmptySelection: YES,
+        allowsMultipleSelection: YES
       })
+
       
     ]
   })
