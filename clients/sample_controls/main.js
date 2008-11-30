@@ -12,6 +12,8 @@
 //
 function main() {
 
+  document.title = "Sample Controls";
+
   // Step 1: Load Your Model Data
   // The default code here will load the fixtures you have defined.
   // Comment out the preload line and add something to refresh from the server
@@ -38,6 +40,6 @@ function main() {
   // SC.page.get('pickerPane') ;
   
   SC.Benchmark.start('buttonPage.mainPane.append()') ;
-  SampleControls.getPath('buttonPage.mainPane').append();
+  SampleControls.getPath('mainPage.mainPane').append();
   SC.Benchmark.end('buttonPage.mainPane.append()') ;
 } 

@@ -4,27 +4,37 @@
 
 /* @group General */
 
-.icons_tab {
+.icons-tab {
  background-color: white ;
  padding-top: 1px;
+ overflow-y: auto;
 }
 
-.icons_tab p {
+.icons-tab h1 {
+  padding: 10px;
+  padding-bottom: 10px;
+  padding-top: 32px;
+  margin: 0;
+  font-weight: normal;
+  font-size: 32px;
+}
+.icons-tab p {
  padding: 10px;
+ margin:0;
  color: #555;
 }
 
-.icons_tab > label {
+.icons-tab > label {
  padding: 10px;
  padding-bottom: 0 ;
 }
 
-.icons_tab .icon-group {
+.icons-tab .icon-group {
  padding: 10px ;
  padding-top: 0;
 }
 
-.icons_tab .icon-group > .icon {
+.icons-tab .icon-group > .icon {
  display: -moz-inline-box;
  display: inline-block;
  text-align: center ;
@@ -35,18 +45,18 @@
 
 }
 
-.icons_tab .icon-group > .icon:hover {
+.icons-tab .icon-group > .icon:hover {
  border: 1px #ccc solid;
 }
 
-.icons_tab .icon label {
+.icons-tab .icon label {
  font-weight: normal ;
  margin: 0;
  padding: 0;
  display: block ;
 }
 
-.icons_tab img {
+.icons-tab img {
  display: block ;
  margin-left: auto;
  margin-right: auto ;
