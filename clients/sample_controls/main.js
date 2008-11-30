@@ -12,6 +12,8 @@
 //
 function main() {
 
+  SC.userDefaults.set('appDomain', 'SampleControls');
+  
   document.title = "Sample Controls";
 
   // Step 1: Load Your Model Data
