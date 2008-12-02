@@ -27,15 +27,18 @@ SampleControls.ControlSampleView = SC.View.extend({
     // rest of the setup.
     var childViews = this.get('childViews') ;
     var top = 30, height = this.get('height') ;
+    var idx = 1;
     this.get('samples').forEach(function(sample) {
       if (sample) {
         var curHeight = sample.prototype.height || height ;
         childViews.push(sample.design({
+          rootElementPath: [idx++],
           layout: { left: 4, right: 4, top: top, height: curHeight }
         })) ;
         top += curHeight + 4 ;
       } else {
         childViews.push(SC.SeparatorView.design({
+          rootElementPath: [idx++],
           layout: { left: 4, right: 4, top: top, height: 1 }
         })) ;
         top += 5 ;
@@ -48,6 +51,7 @@ SampleControls.ControlSampleView = SC.View.extend({
   
   childViews: [
     SC.LabelView.design({
+      rootElementPath: [0],
       valueBinding: '.parentView.title',
       layout: { left: 0, right: 0, top: 0, height: 30 },
       textAlign: SC.ALIGN_CENTER,
@@ -64,6 +68,8 @@ SampleControls.ControlSampleView = SC.View.extend({
 
 SampleControls.TiledSampleView = SC.View.extend({
 
+  rootElementPath: [0],
+  
   createChildViews: function() {
     var ret = sc_super();
     
@@ -103,8 +109,8 @@ SC.mixin(SampleControls.TiledSampleView, {
   sample: function() {
     var args = SC.$A(arguments), klass = args.shift();
     args = args.map(function(x) { return x ? klass.design(x) : null; });
-
     this.prototype.childViews.push(SampleControls.ControlSampleView.extend({
+      rootElementPath: [this.prototype.childViews.length],
       title: this._title, samples: args, height: this._height,
       layout: { left: 0, top: 0, bottom: 0, width: this._width }
     })) ;

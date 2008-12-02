@@ -8,71 +8,100 @@ require('views/control_sample');
 
 
 SampleControls.controlsPage = SC.Page.create({
-  
+
   radioViewValue: "Item1",
-  
+
   mainView: SC.View.design({
-        
+    
     styleClass: ['control-tab'],
     layout: { left:0, right:0, bottom:0, top: 12 },
-    
+
     childViews: [
-      tile().title('SC.ButtonView').sample(SC.ButtonView, {
-        theme: 'regular',
-        title: 'Regular'
-      }, {
-        theme: 'regular',
-        title: 'Reg Disabled',
-        isEnabled: NO
-      }, null, {
-        theme: 'regular',
-        title: 'Default',
-        isDefault: YES
-      }, {
-        theme: 'regular',
-        title: 'Def Disabled',
-        isDefault: YES,
-        isEnabled: NO
-      }, null, {
-        theme: 'regular',
-        title: 'Selected',
-        isSelected: YES,
-        buttonBehavior: SC.TOGGLE_BEHAVIOR
-      }, {
-        theme: 'regular',
-        title: 'Sel Disabled',
-        isSelected: YES,
-        isEnabled: NO,
-        buttonBehavior: SC.TOGGLE_BEHAVIOR
-      }, null, {
-        theme: 'regular',
-        title: 'Cancel',
-        icon: 'sc-icon-info-16',
-        isCancel: YES
-      }, null, {
-        theme: 'regular',
-        title: 'Long Title Exceeds the Frame',
-        isDefault: YES
-      }, null, {
-        theme: 'regular',
-        
-        content: SC.Object.create({
-          myTitle: "Title From Content",
-          myValue: YES,
-          myIcon: "sc-icon-options-16"
+    tile().title('SC.ButtonView').sample(SC.ButtonView, {
+      theme: 'regular',
+      title: 'Regular'
+    }, {
+      theme: 'regular',
+      title: 'Reg Disabled',
+      isEnabled: NO
+    }, null, {
+      theme: 'regular',
+      title: 'Default',
+      isDefault: YES
+    }, {
+      theme: 'regular',
+      title: 'Def Disabled',
+      isDefault: YES,
+      isEnabled: NO
+    }, null, {
+      theme: 'regular',
+      title: 'Selected',
+      isSelected: YES,
+      buttonBehavior: SC.TOGGLE_BEHAVIOR
+    }, {
+      theme: 'regular',
+      title: 'Sel Disabled',
+      isSelected: YES,
+      isEnabled: NO,
+      buttonBehavior: SC.TOGGLE_BEHAVIOR
+    }, null, {
+      theme: 'regular',
+      title: 'Cancel',
+      icon: 'sc-icon-info-16',
+      isCancel: YES
+    }, null, {
+      theme: 'regular',
+      title: 'Long Title Exceeds the Frame',
+      isDefault: YES
+    }, null, {
+      theme: 'regular',
+
+      content: SC.Object.create({
+        myTitle: "Title From Content",
+        myValue: YES,
+        myIcon: "sc-icon-options-16"
         }),
-        
+
         contentValueKey: 'myValue',
         contentTitleKey: 'myTitle',
         contentIconKey: 'myIcon'
       })
-      
+
+      .title('SC.TextFieldView').height(21).sample(SC.TextFieldView, {
+        value: "Hello World",
+        hint: "Test Me"
+      }, {
+        value: "Hello World",
+        hint: "Test Me",
+        isEnabled: NO
+      }, null, {
+        hint: "First Name"
+      }, {
+        hint: "First Name",
+        isEnabled: NO
+      }, null, {
+        hint: "Credit Card",
+        validator: 'CreditCard'
+      }, {
+        hint: "Date",
+        validator: 'Date'
+      }, {
+        hint: "Email",
+        validator: 'email'
+      }, {
+        hint: "Not Empty",
+        validator: 'NotEmpty'
+      }, {
+        hint: "Number",
+        validator: 'Number'
+      })
+
       .title('SC.SliderView').height(18).sample(SC.SliderView, {
         value: 50, minimum: 0, maximum: 100
       },{
         value: 50, minimum: 0, maximum: 100,
         isEnabled: NO
-        
+
       }, null, {
         value: 0, minimum: 0, maximum: 100
       },{
@@ -86,8 +115,8 @@ SampleControls.controlsPage = SC.Page.create({
         isEnabled: NO
 
       })
-      
-      
+
+
       .title('SC.ProgressView').height(14).sample(SC.ProgressView, {
         value: 25,
         minimum: 0,
@@ -101,14 +130,14 @@ SampleControls.controlsPage = SC.Page.create({
         value: 0,
         minimum: 0,
         maximum: 100,
-        
+
         init: function() {
           sc_super();
-          this.timerProgress.invokeLater(this, 20);
+          this.timerProgress.invokeLater(this, 1000);
         },
-        
+
         change: 1,
-        
+
         timerProgress: function() {
           var v=  this.get('value')+this.change;
           if (this.change>0 && v>=100) {
@@ -116,9 +145,9 @@ SampleControls.controlsPage = SC.Page.create({
           } else if (this.change<0 && v<=0) {
             this.change = 1 ;
           }
-          
+
           this.set('value', v);
-          //this.timerProgress.invokeLater(this, 1000/60);
+          this.timerProgress.invokeLater(this, 1000/30);
         }
       }, {  
         value: 0,
@@ -148,7 +177,7 @@ SampleControls.controlsPage = SC.Page.create({
         isEnabled: NO,
         isRunning: YES
       })
-      
+
       .title('SC.ButtonView[Square]').height(21).sample(SC.ButtonView, {
         theme: 'square',
         title: 'Regular'
@@ -192,13 +221,13 @@ SampleControls.controlsPage = SC.Page.create({
           myTitle: "Title From Content",
           myValue: YES,
           myIcon: "sc-icon-options-16"
-        }),
-        
+          }),
+
         contentValueKey: 'myValue',
         contentTitleKey: 'myTitle',
         contentIconKey: 'myIcon'
       })
-            
+
       .title('SC.CheckboxView').height(18).sample(SC.CheckboxView, {
         title: "Regular"
       }, {
@@ -228,7 +257,7 @@ SampleControls.controlsPage = SC.Page.create({
         value: YES,
         height: 36
       })
-      
+
       .title('SC.RadioView').height(60).sample(SC.RadioView, {
         items: 'Item1 Item2 Item3'.w(),
         value: ['Item1', 'Item3'],
@@ -251,8 +280,8 @@ SampleControls.controlsPage = SC.Page.create({
         layoutDirection: SC.LAYOUT_HORIZONTAL
       }, null, {
         items: [{ title: "First Item", value: "Item1" },
-          { title: "Very long title goes onto the next line", value: "Item2" },
-          { title: "Loc.Title", value: "Item3" }],
+        { title: "Very long title goes onto the next line", value: "Item2" },
+        { title: "Loc.Title", value: "Item3" }],
         itemTitleKey: 'title',
         itemValueKey: 'value',
         height: 80,
@@ -261,9 +290,9 @@ SampleControls.controlsPage = SC.Page.create({
         layoutDirection: SC.LAYOUT_VERTICAL
       }, null, {
         items: [
-          { title: "First Item", value: "Item1", enabled: YES, icon: 'sc-icon-user-16' },
-          { title: "Second Item", value: "Item2", enabled: NO, icon: 'sc-icon-options-16' },
-          { title: "Third Item", value: "Item3", enabled: YES, icon: 'sc-icon-bookmark-16' }],
+        { title: "First Item", value: "Item1", enabled: YES, icon: 'sc-icon-user-16' },
+        { title: "Second Item", value: "Item2", enabled: NO, icon: 'sc-icon-options-16' },
+        { title: "Third Item", value: "Item3", enabled: YES, icon: 'sc-icon-bookmark-16' }],
         itemTitleKey: 'title',
         itemValueKey: 'value',
         itemIsEnabledKey: 'enabled',
@@ -273,7 +302,7 @@ SampleControls.controlsPage = SC.Page.create({
         localize: YES,
         layoutDirection: SC.LAYOUT_VERTICAL
       })
-      
+
       .title('SC.LabelView').height(18).sample(SC.LabelView, {
         value: "Basic Label"
       }, {
@@ -330,7 +359,7 @@ SampleControls.controlsPage = SC.Page.create({
         isEnabled: NO,
         controlSize: SC.TINY_CONTROL_SIZE
       })
-      
+
       .title('SC.DisclosureView').height(18).sample(SC.DisclosureView, {
         title: "Closed Disclosure"
       }, {
@@ -354,14 +383,13 @@ SampleControls.controlsPage = SC.Page.create({
         title: "Long Title Exceeds Frame",
         value: YES
       })
-      
+
       .title('SC.SegmentedView').width(240).sample(
-        SC.SegmentedView.extend({
-          valueProbe: function() { 
-            console.log("%@ value=%@".fmt(this,this.get('value')));
-          }.observes('value')
-        }), 
-      {
+      SC.SegmentedView.extend({
+        valueProbe: function() { 
+          console.log("%@ value=%@".fmt(this,this.get('value')));
+        }.observes('value')
+      }), {
         items: "Item1 Item2 Item3".w(),
         value: "Item2"
       }, {
@@ -387,7 +415,7 @@ SampleControls.controlsPage = SC.Page.create({
         itemIconKey: 'icon',
         isEnabled: NO,
         value: "Item1 Item3".w()
-        
+
       }, null, {
         items: ["Item1", "Very Long Item", "Item 3"],
         value: "Very Long Item",
@@ -396,7 +424,7 @@ SampleControls.controlsPage = SC.Page.create({
         items: ["Item1", "Very Long Item", "Item 3"],
         value: "Item1 Item3".w(),
         allowsEmptySelection: YES
-        
+
       }, null, {
         items: "Item1 Item2 Item3".w(),
         value: "Item2",
@@ -405,7 +433,7 @@ SampleControls.controlsPage = SC.Page.create({
         items: "Item1 Item2 Item3".w(),
         value: "Item1 Item3".w(),
         allowsMultipleSelection: YES
-      
+
       }, null, {
         items: "Item1 Item2 Item3".w(),
         value: "Item2",
@@ -417,9 +445,9 @@ SampleControls.controlsPage = SC.Page.create({
         allowsEmptySelection: YES,
         allowsMultipleSelection: YES
       })
+    
 
-      
-    ]
-  })
-  
-});
+        ]
+          })
+
+        });

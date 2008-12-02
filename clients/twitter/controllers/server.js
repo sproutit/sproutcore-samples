@@ -104,7 +104,7 @@ Twitter.serverController = SC.Object.create(
 
     // if no valid json was received, set an error...
     if (SC.$type(json) !== SC.T_ARRAY) {
-      this.set('status', $error("Feed contains no data.")) ;
+      this.set('status', SC.$error("Feed contains no data.")) ;
 
     // valid json was received, process it into a format that can be consumed
     // by the SC.Store and then add it.
@@ -130,7 +130,7 @@ Twitter.serverController = SC.Object.create(
       if (json && json.error) reason = json.error ;
     }
 
-    var error = $error(reason, transport.status) ;
+    var error = SC.$error(reason, transport.status) ;
     this.set('status', error) ;
   },
 
