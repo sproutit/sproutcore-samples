@@ -21,7 +21,7 @@ function main() {
   // Comment out the preload line and add something to refresh from the server
   // when you are ready to pull data from your server.
   SC.Benchmark.start('load fixtures') ;
-  SampleControls.server.preload(SampleControls.FIXTURES) ;
+  //SampleControls.server.preload(SampleControls.FIXTURES) ;
   SC.Benchmark.start('end fixtures') ;
 
   // Set content controller for display

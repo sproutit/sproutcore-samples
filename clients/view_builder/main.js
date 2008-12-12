@@ -26,7 +26,7 @@ function main() {
   // This default code simply finds your main pane and adds makes it visible
   // on the page.  This will usually do everything you need, though you could
   // choose to show other views here as well, such as palettes.
-  ViewBuilder.mainPage.get('mainPane').append(); 
+  ViewBuilder.getPath('mainPage.mainPane').append(); 
 
   // Step 3. Set the content property on your primary controller.
   // This will make your app come alive!

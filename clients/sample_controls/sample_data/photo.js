@@ -1,7 +1,7 @@
 // ==========================================================================
 // SampleControls.Contact Fixtures
 // ==========================================================================
-
+/*
 require('core') ;
 
 
@@ -167,3 +167,4 @@ SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
   }
   return ret.sort(function(a,b) { return (a.guid < b.guid) ? -1 : ((a.guid > b.guid) ? 1 : 0); }) ;
 }());
+*/

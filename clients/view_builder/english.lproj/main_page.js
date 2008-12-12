@@ -4,6 +4,8 @@
 // ==========================================================================
 /*global ViewBuilder */
 
+console.log('mainPage');
+
 ViewBuilder.mainPage = SC.Page.create({
   
   mainPane: SC.MainPane.design({
@@ -30,8 +32,7 @@ ViewBuilder.mainPage = SC.Page.create({
     // or other objects.
     okButton: SC.outlet('page.mainPane.childViews.0'),
     cancelButton: SC.outlet('page.mainPane.childViews.1'),
-    label: SC.outlet('page.mainPane.childViews.2'),
-    helloButton: SC.outlet('page.helloButton')
+    label: SC.outlet('page.mainPane.childViews.2')
   })
   
 });

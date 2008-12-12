@@ -4,7 +4,7 @@
 
 require('core') ;
 
-
+/*
 SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
 
   var library = 'Music,Movies,TV Shows,Podcasts,Radio,Ringtones'.split(',');
@@ -31,3 +31,4 @@ SampleControls.FIXTURES = SampleControls.FIXTURES.concat(function() {
 
   return ret ;
 }()) ;
+*/
