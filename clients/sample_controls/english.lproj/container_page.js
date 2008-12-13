@@ -6,7 +6,7 @@
 
 SampleControls.containerPage = SC.Page.create({
   
-  mainPane: SC.MainPane.design({
+  mainView: SC.View.design({
     
     styleClass: ['container-tab'],
     
@@ -18,7 +18,7 @@ SampleControls.containerPage = SC.Page.create({
       
       SC.ButtonView.design({
         layout: { left: 20, width: 140, top: 20, height: 23 },
-        title: "Show Container1",
+        title: "Show Split View",
         action: "showContainer1",
         target: "SampleControls.containerController"
       }),
@@ -39,10 +39,28 @@ SampleControls.containerPage = SC.Page.create({
     ]
   }),
 
-  container1: SC.LabelView.design({
-    value: "Container1",
-    layout: { left: 40, centerY: 0, right: 40, height: 40 },
-    tagName: 'h1'
+  container1: SC.SplitView.design({
+    layoutDirection: 'vertical',
+    layout: { left: 40, top: 40, right: 40, bottom: 40 },
+    childViews: [
+      SC.ScrollView.design({
+        layout: { left: 40, top: 40, right: 40, bottom: 400 },
+        childViews: [
+          SC.View.design({
+
+          })
+        ]
+      }),
+      SC.SplitDividerView.design({}),
+      SC.ScrollView.design({
+        layout: { left: 40, top: 400, right: 40, bottom: 40 },
+        childViews: [
+          SC.View.design({
+
+          })
+        ]
+      })
+    ]
   }),
 
   container2: SC.LabelView.design({

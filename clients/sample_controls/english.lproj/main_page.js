@@ -12,7 +12,7 @@ SampleControls.mainPage = SC.Page.create({
   pageName: 'SampleControls.mainPage',
   
   mainPane: SC.MainPane.design({
-
+    
     childViews: [SC.TabView.design({
       
       nowShowing: 'welcome',
@@ -22,6 +22,7 @@ SampleControls.mainPage = SC.Page.create({
         { title: "Controls", value: "SampleControls.controlsPage.mainView" },
         { title: "Collections", value: "SampleControls.collectionsPage.mainView" },
         { title: "Form", value: "SampleControls.formsPage.mainView" },
+        { title: "Containers", value: "SampleControls.containerPage.mainView" },
         { title: "Icons", value: "SampleControls.iconsPage.mainView" }
       ],
       

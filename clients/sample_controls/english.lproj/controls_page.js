@@ -9,6 +9,8 @@ require('views/control_sample');
 
 SampleControls.controlsPage = SC.Page.create({
 
+  needsDesigner: YES,
+  
   radioViewValue: "Item1",
 
   mainView: SC.ScrollView.design({
