@@ -44,5 +44,3 @@ SampleControls.mainPage = SC.Page.create({
   })
   
 });
-
-
