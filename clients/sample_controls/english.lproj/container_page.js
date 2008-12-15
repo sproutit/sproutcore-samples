@@ -41,13 +41,13 @@ SampleControls.containerPage = SC.Page.create({
 
   container1: SC.SplitView.design({
     layout: { left: 0, top: 0, right: 0, bottom: 0 },
-    layoutDirection: SC.VERTICAL,
+    layoutDirection: SC.LAYOUT_VERTICAL,
     topLeftDefaultThickness: 0.5, // a number between 0 and 1.0
     // topLeftMinSpan: 0,
     // topLeftMaxSpan: 0, // denotes "unlimited"
     // bottomRightMinSpan: 0,
     // bottomRightMaxSpan: 0, // denotes "unlimited"
-    autoresizeBehavior: 'top-left',
+    autoresizeBehavior: SC.RESIZE_TOP_LEFT,
     dividerThickness: 7,
     
     childViews: [
@@ -64,7 +64,7 @@ SampleControls.containerPage = SC.Page.create({
       }),
       SC.SplitDividerView.design({
         layout: {},
-        theme: 'thick'
+        styleClass: 'green'.w()
       }),
       SC.View.design({
         layout: {},
