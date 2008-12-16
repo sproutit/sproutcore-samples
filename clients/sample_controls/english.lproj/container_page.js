@@ -41,13 +41,19 @@ SampleControls.containerPage = SC.Page.create({
 
   container1: SC.SplitView.design({
     layout: { left: 0, top: 0, right: 0, bottom: 0 },
+    // layoutDirection: SC.LAYOUT_HORIZONTAL,
     layoutDirection: SC.LAYOUT_VERTICAL,
     topLeftDefaultThickness: 0.5, // a number between 0 and 1.0
-    // topLeftMinSpan: 0,
-    // topLeftMaxSpan: 0, // denotes "unlimited"
-    // bottomRightMinSpan: 0,
-    // bottomRightMaxSpan: 0, // denotes "unlimited"
+    
+    // topLeftMinThickness: 0,
+    // topLeftMaxThickness: 0, // denotes "unlimited"
+    // bottomRightMinThickness: 0,
+    // bottomRightMaxThickness: 0, // denotes "unlimited"
+    
+    // autoresizeBehavior: SC.RESIZE_BOTH,
     autoresizeBehavior: SC.RESIZE_TOP_LEFT,
+    // autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
+    
     dividerThickness: 7,
     
     childViews: [
@@ -55,6 +61,10 @@ SampleControls.containerPage = SC.Page.create({
         layout: {},
         styleClass: 'red'.w(),
         childViews: [
+          SC.ThumbView.design({
+            styleClass: 'blue'.w(),
+            layout: { bottom: 15, left: 15, width: 35, height: 20 }
+          }),
           SC.LabelView.design({
             value: "Top/Left",
             layout: { left: 40, centerY: 0, right: 40, height: 20 },
@@ -70,10 +80,67 @@ SampleControls.containerPage = SC.Page.create({
         layout: {},
         styleClass: 'blue'.w(),
         childViews: [
-          SC.LabelView.design({
-            value: "Bottom/Right",
-            layout: { left: 40, centerY: 0, right: 40, height: 20 },
-            tagName: 'h1'
+          SC.ThumbView.design({
+            styleClass: 'red'.w(),
+            layout: { top: 15, right: 15, width: 35, height: 20 }
+          }),
+          SC.SplitView.design({
+            layout: { left: 0, top: 70, right: 0, bottom: 0 },
+            layoutDirection: SC.LAYOUT_HORIZONTAL,
+            // layoutDirection: SC.LAYOUT_VERTICAL,
+             topLeftDefaultThickness: 0.5, // a number between 0 and 1.0
+
+            // topLeftMinThickness: 0,
+            // topLeftMaxThickness: 0, // denotes "unlimited"
+            // bottomRightMinThickness: 0,
+            // bottomRightMaxThickness: 0, // denotes "unlimited"
+
+            // autoresizeBehavior: SC.RESIZE_BOTH,
+            autoresizeBehavior: SC.RESIZE_TOP_LEFT,
+            // autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
+
+            dividerThickness: 7,
+
+            childViews: [
+              SC.View.design({
+                layout: {},
+                styleClass: 'green'.w(),
+                childViews: [
+                  SC.ThumbView.design({
+                    styleClass: 'gray'.w(),
+                    layout: { bottom: 15, right: 15, width: 35, height: 20 }
+                  }),
+                  SC.LabelView.design({
+                    value: "Top/Left",
+                    layout: { left: 40, centerY: 0, right: 40, height: 20 },
+                    tagName: 'h1'
+                  })
+                ]
+              }),
+              SC.SplitDividerView.design({
+                layout: {},
+                styleClass: 'red'.w()
+              }),
+              SC.View.design({
+                layout: {},
+                styleClass: 'gray'.w(),
+                childViews: [
+                  SC.ThumbView.design({
+                    styleClass: 'green'.w(),
+                    layout: { top: 15, left: 15, width: 35, height: 20 }
+                  }),
+                  SC.LabelView.design({
+                    value: "Bottom/Right",
+                    layout: { left: 40, centerY: 0, right: 40, height: 20 },
+                    tagName: 'h1'
+                  })
+                ]
+              })
+            ],
+
+            topLeftView: SC.outlet('page.container1.childViews.2.childViews.1.childViews.0'),
+            dividerView: SC.outlet('page.container1.childViews.2.childViews.1.childViews.1'), // a divider view *is* repositioned by SC.SplitView (optional)
+            bottomRightView: SC.outlet('page.container1.childViews.2.childViews.1.childViews.2')
           })
         ]
       })
@@ -81,8 +148,7 @@ SampleControls.containerPage = SC.Page.create({
     
     topLeftView: SC.outlet('page.container1.childViews.0'),
     dividerView: SC.outlet('page.container1.childViews.1'), // a divider view *is* repositioned by SC.SplitView (optional)
-    bottomRightView: SC.outlet('page.container1.childViews.2'),
-    // thumbViews: ['page.thumbViewOne', 'page.thumbViewTwo'] // thumbViews are not repositioned by SC.SplitView
+    bottomRightView: SC.outlet('page.container1.childViews.2')
   }),
 
   container2: SC.LabelView.design({
