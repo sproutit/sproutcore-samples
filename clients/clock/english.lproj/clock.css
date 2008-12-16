@@ -1,0 +1,17 @@
+body.sc-theme {
+  background-color: #666;
+}
+
+.clock {
+  border: 30px #888 solid;
+  background: black;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  color: red;
+}
+
+.clock .sc-label-view.sc-regular-size {
+  font-size: 48px !important;
+  text-align: center !important;
+  line-height: 1.0;
+}
