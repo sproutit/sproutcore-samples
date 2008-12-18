@@ -31,10 +31,11 @@ SampleControls.ControlSampleView = SC.View.extend({
     this.get('samples').forEach(function(sample) {
       if (sample) {
         var curHeight = sample.prototype.height || height ;
-        childViews.push(sample.design({
+        var designed = sample.design({
           rootElementPath: [idx++],
           layout: { left: 4, right: 4, top: top, height: curHeight }
-        })) ;
+        }) ;
+        childViews.push(designed);
         top += curHeight + 4 ;
       } else {
         childViews.push(SC.SeparatorView.design({
@@ -108,7 +109,7 @@ SC.mixin(SampleControls.TiledSampleView, {
 
   sample: function() {
     var args = SC.$A(arguments), klass = args.shift();
-    args = args.map(function(x) { return x ? klass.design(x) : null; });
+    args = args.map(function(x) { return x ? klass.extend(x) : null; });
     this.prototype.childViews.push(SampleControls.ControlSampleView.extend({
       rootElementPath: [this.prototype.childViews.length],
       title: this._title, samples: args, height: this._height,
