@@ -26,7 +26,7 @@ http://localhost:4020/contacts
 http://localhost:4020/demo
 http://localhost:4020/hello_world
 http://localhost:4020/photos
-http://localhost:4020/samples_controls
+http://localhost:4020/sample_controls
 http://localhost:4020/twitter
 
 You can also view the SproutCore docs or run the unit tests:
