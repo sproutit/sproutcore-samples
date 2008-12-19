@@ -6,6 +6,9 @@
 
 SampleControls.containerPage = SC.Page.create({
   
+  enableTopRightThumb: NO,
+  dividerThickness: 7,
+  
   mainView: SC.View.design({
     
     styleClass: ['container-tab'],
@@ -35,6 +38,23 @@ SampleControls.containerPage = SC.Page.create({
         title: "Show Container3",
         action: "showContainer3",
         target: "SampleControls.containerController"
+      }),
+      
+      SC.CheckboxView.design({
+        layout: { left: 20, width: 200, top: 113, height: 21 },
+        title: "Enable top left thumb",
+        valueBinding: '.page.enableTopRightThumb'
+      }),
+      
+      SC.SliderView.design({
+        layout: { left: 20, width: 140, top: 144, height: 21 },
+        valueBinding: '.page.dividerThickness',
+        minimum: 0, maximum: 40, step: 1
+      }),
+      
+      SC.LabelView.design({
+        layout: { left: 164, width: 30, top: 144, height: 21 },
+        valueBinding: '.page.dividerThickness'
       })
     ]
   }),
@@ -54,7 +74,7 @@ SampleControls.containerPage = SC.Page.create({
     autoresizeBehavior: SC.RESIZE_TOP_LEFT,
     // autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
     
-    dividerThickness: 7,
+    dividerThicknessBinding: '.page.dividerThickness',
     
     topLeftView: SC.View.design({
       layout: {},
@@ -62,7 +82,7 @@ SampleControls.containerPage = SC.Page.create({
       childViews: [
         SC.ThumbView.design({
           styleClass: 'blue'.w(),
-          isEnabled: NO,
+          isEnabledBinding: '.page.enableTopRightThumb',
           layout: { bottom: 15, left: 15, width: 35, height: 20 }
         }),
         SC.LabelView.design({
