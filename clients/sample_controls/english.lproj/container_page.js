@@ -6,7 +6,7 @@
 
 SampleControls.containerPage = SC.Page.create({
   
-  enableTopRightThumb: NO,
+  enableTopRightThumb: YES,
   dividerThickness: 7,
   
   mainView: SC.View.design({
@@ -65,8 +65,8 @@ SampleControls.containerPage = SC.Page.create({
     layoutDirection: SC.LAYOUT_VERTICAL,
     topLeftDefaultThickness: 0.5, // a number between 0 and 1.0
     
-    // topLeftMinThickness: 0,
-    // topLeftMaxThickness: 0, // denotes "unlimited"
+    topLeftMinThickness: 100,
+    topLeftMaxThickness: 300,
     // bottomRightMinThickness: 0,
     // bottomRightMaxThickness: 0, // denotes "unlimited"
     
