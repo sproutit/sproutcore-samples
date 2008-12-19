@@ -9,7 +9,7 @@ require('views/control_sample');
 
 SampleControls.controlsPage = SC.Page.create({
 
-  needsDesigner: YES,
+  // needsDesigner: YES,
   
   radioViewValue: "Item1",
 

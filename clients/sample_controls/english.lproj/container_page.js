@@ -106,6 +106,11 @@ SampleControls.containerPage = SC.Page.create({
           styleClass: 'red'.w(),
           layout: { top: 15, right: 15, width: 35, height: 20 }
         }),
+        SC.LabelView.design({
+          value: "Bottom/Left",
+          layout: { top: 15, left: 40, width: 80, height: 20 },
+          tagName: 'h1'
+        }),
         SC.SplitView.design({
           layout: { left: 0, top: 70, right: 0, bottom: 0 },
           layoutDirection: SC.LAYOUT_HORIZONTAL,
