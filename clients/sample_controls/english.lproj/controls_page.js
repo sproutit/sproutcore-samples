@@ -11,13 +11,13 @@ SampleControls.controlsPage = SC.Page.create({
 
   radioViewValue: "Item1",
 
-  mainView: SC.View.design({
+  mainView: SC.ScrollView.design({
     
-    styleClass: ['control-tab'],
+    styleClass: 'control-tab',
     layout: { left:0, right:0, bottom:0, top: 12 },
+    hasVerticalScroller: NO,
 
-    childViews: [
-    tile().title('SC.ButtonView').sample(SC.ButtonView, {
+    contentView: tile().title('SC.ButtonView').sample(SC.ButtonView, {
       theme: 'regular',
       title: 'Regular'
     }, {
@@ -445,9 +445,5 @@ SampleControls.controlsPage = SC.Page.create({
         allowsEmptySelection: YES,
         allowsMultipleSelection: YES
       })
-    
-
-        ]
-          })
-
-        });
+    })
+  });

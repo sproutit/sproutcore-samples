@@ -1,3 +1,14 @@
-.sc-view.control-tab .tiled-sample {
-  overflow-x: auto;
+.tiled-sample {
 }
+
+.control-sample {
+  border-right: 1px #ccc solid ;
+  overflow: hidden;
+}
+
+.control-sample > .sample-label {
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+}
+
