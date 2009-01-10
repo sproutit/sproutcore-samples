@@ -14,8 +14,8 @@ Drag.bodyPage = SC.Page.create({
       nowShowing: 'welcome',
 
       items: [
-        { title: "Welcome", value: "welcome" } //,
-        // { title: "Controls", value: "SampleControls.controlsPage.mainView" },
+        { title: "Welcome", value: "welcome" },
+        { title: "Simple Drag", value: "Drag.simpleDragPage.mainView" } //,
         // { title: "Collections", value: "SampleControls.collectionsPage.mainView" },
         // { title: "Form", value: "SampleControls.formsPage.mainView" },
         // { title: "Icons", value: "SampleControls.iconsPage.mainView" }
