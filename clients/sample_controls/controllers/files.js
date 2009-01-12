@@ -19,7 +19,7 @@ SampleControls.filesController = SC.ArrayController.create(
   init: function() {
     sc_super();
     
-    var array = SC.SparseArray.create(100000) ;
+    var array = SC.SparseArray.create(1000) ;
     array.delegate = this ;
     this.set('content', array) ;
   },

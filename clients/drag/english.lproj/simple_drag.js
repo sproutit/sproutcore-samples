@@ -28,6 +28,10 @@ Drag.simpleDragPage = SC.Page.create({
             layout: { centerX: 0, centerY: 0, width: 60, height: 60 }
           })
         ]
+      }),
+
+      Drag.RedBoxHolderView.design({
+        layout: { top: 180, left: 440, width: 100, height: 100 },
       })
     ]
   })

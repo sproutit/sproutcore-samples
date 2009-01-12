@@ -1,15 +1,15 @@
 /* @group Welcome */
 
 .welcome-tab {
- padding: 30px;
- background-color: white ;
+/* padding: 30px;
+*/ background-color: white ;
 }
 
 .welcome-tab h1 {
  font-size: 48px;
  line-height: 1;
- margin-top: 30px;
- font-weight: normal ;
+/* margin-top: 30px;
+*/ font-weight: normal ;
  letter-spacing: -2px;
 }
 
@@ -24,6 +24,14 @@
   background-color: red;
 }
 
-.sc-ghost-view {
+.red-holder {
+  background-color: gray;
+}
+
+/*.sc-ghost-view {
   background-color: blue;
+}
+*/
+.drop-target {
+  background-color: white;
 }

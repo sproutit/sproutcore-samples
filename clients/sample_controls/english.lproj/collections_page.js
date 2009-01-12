@@ -16,7 +16,8 @@ SampleControls.collectionsPage = SC.Page.create({
       contentView: SC.ListView.design({
         contentValueKey: 'title',
         contentBinding: 'SampleControls.filesController.arrangedObjects',
-        selectionBinding: 'SampleControls.filesController.selection'
+        selectionBinding: 'SampleControls.filesController.selection',
+        canReorderContent: YES
       })
     }))
 

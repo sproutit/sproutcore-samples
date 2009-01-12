@@ -4,6 +4,8 @@
 
 require('core');
 
+Drag.RED_BOX_DRAG_TYPE = 'red-box-drag-type' ;
+
 /** @class
 
   A draggable view.
@@ -12,7 +14,7 @@ require('core');
   @author AuthorName
   @version 0.1
 */
-Drag.RedBoxView = SC.View.extend(
+Drag.RedBoxView = SC.View.extend( SC.DragSource,SC.DragDataSource,
 /** @scope Drag.RedBoxView.prototype */ {
   
   styleClass: 'red',
@@ -30,6 +32,18 @@ Drag.RedBoxView = SC.View.extend(
     }) ;
     
     return YES ;
-  }
+  },
   
+  dragSourceOperationMaskFor: function(dropTarget, drag) {
+    // console.log('dragSourceOperationMaskFor called on %@'.fmt(this)) ;
+    return SC.DRAG_ANY ;
+  },
+  
+  dragDataTypes: [Drag.RED_BOX_DRAG_TYPE],
+  
+  dragDataForType: function(dataType, drag) {
+    console.log('dragDataForType called on %@'.fmt(this)) ;
+    return null;
+  }
+
 }) ;
