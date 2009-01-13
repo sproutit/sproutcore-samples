@@ -94,8 +94,7 @@ SampleControls.containerPage = SC.Page.create({
     }),
     
     dividerView: SC.SplitDividerView.design({
-      layout: {},
-      styleClass: 'green'.w()
+      layout: {}
     }),
     
     bottomRightView: SC.View.design({
@@ -145,8 +144,7 @@ SampleControls.containerPage = SC.Page.create({
           }),
           
           dividerView: SC.SplitDividerView.design({
-            layout: {},
-            styleClass: 'red'.w()
+            layout: {}
           }),
           
           bottomRightView: SC.View.design({
