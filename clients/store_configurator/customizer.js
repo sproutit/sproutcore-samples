@@ -206,7 +206,15 @@ Store.customizer = SC.Object.create({
   registerCategory: function(cat) {
     var categories = this.get('categories');
     // only setup once...
-    if (categories.indexOf(cat)<0) {
+    // array:indexOf() is not available in costello
+    var found = false ;
+    for (var idx=0, len=categories.length; idx<len; idx++) {
+      if (categories[idx] === cat) {
+        found = true ;
+        break ;
+      }
+    }
+    if (!found) {
       categories.push(cat);
       this.registerDependentKey('order', cat);
     }

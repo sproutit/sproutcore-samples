@@ -7,6 +7,7 @@
 console.log('mainPage');
 
 ViewBuilder.mainPage = SC.Page.create({
+  needsDesigner: YES,
   
   mainPane: SC.MainPane.design({
     childViews: [
