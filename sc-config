@@ -74,6 +74,8 @@ config :common_assets do |c|
   c[:required] = [:sproutcore]
 end
 
+config :store_configurator, :required => 'sproutcore/costello'
+
 # Setup extra services to proxy.  This is used only in dev mode so you can
 # talk to backend services.
 

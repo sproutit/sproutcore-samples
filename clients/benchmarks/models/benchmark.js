@@ -25,10 +25,10 @@ Benchmarks.Benchmark = SC.Record.extend(
     }
 
     var setup = this.get('setup') ;
-    if (SC.$type(setup) != SC.T_FUNCTION) setup = null;
+    if (SC.typeOf(setup) != SC.T_FUNCTION) setup = null;
 
     var teardown = this.get('teardown') ;
-    if (SC.$type(teardown) != SC.T_FUNCTION) teardown = null;
+    if (SC.typeOf(teardown) != SC.T_FUNCTION) teardown = null;
     
     var idx = methods.length;
     while(--idx >= 0) {

@@ -1,0 +1,150 @@
+/* @override 
+	http://localhost:4020/static/project/en/desktop/_cache/body-1229895844.css
+	http://localhost:4020/static/project/en/desktop/_cache/body-1229896816.css
+	http://localhost:4020/static/project/en/desktop/_cache/body-1229897432.css
+*/
+
+body {
+  font-family: 'Lucida Grande', Arial, sans-serif;
+  font-size: 13px;
+  background-color: #f5f5f5;
+}
+
+.hidden { display: none; }
+
+h1 {
+	margin: 0;
+}
+
+/* @group Order */
+
+#order {
+	position: absolute ;
+	border: 1px #ccc solid;
+	left: 20px;
+	top:  20px;
+	right: 420px;
+	background-color: white ;
+	padding: 10px;
+}
+
+#order ul {
+	padding-left: 10px;
+	list-style-type: none ;
+}
+
+#order ul#customizer > li {
+	margin-top: 10px;
+}
+
+#order ul ul {
+	margin-top: 4px;
+	font-size: 12px
+}
+
+#order .summary label {
+	font-weight: bold ;
+}
+
+#order .summary .desc {
+	font-style: italic;
+}
+
+#order .hint {
+	color: #777;
+}
+
+#order ul#total {
+	text-align: right ;
+	font-weight: bold ;
+	border-top: 1px #999 solid ;	
+}
+
+#order ul#total li {
+	position: relative ;
+	padding-right: 60px;
+}
+
+#order ul#total span.price {
+	position: absolute ;
+	right: 0;
+}
+
+#order #submit {
+	text-align: right ; 
+}
+
+#order #submit button {
+	font-weight: bold ; 
+	border: 1px #47475d solid ;
+	padding-left: 12px;
+	padding-right: 12px;
+	font-size: 13px;
+	-webkit-border-radius: 11px;
+	background-color: #9999cc;
+	text-shadow: #b6b6f3 1px 1px ;
+}
+
+#order #submit button:active {
+	background-color: #47475d;
+	border-color: black;
+	text-shadow: none ;
+	color: white ;
+}
+
+/* @end */
+
+/* @group Summary */
+
+.order-summary {
+	position: absolute ;
+	border: 1px #ccc solid;
+	right: 20px;
+	top: 20px;
+	width: 360px;
+	background-color: white;
+	padding: 10px;
+}
+
+.order-summary > .desc {
+	color: #999;
+	font-size: 12px;
+}
+
+.order-summary ul.report {
+	border: 1px black solid;
+	border-bottom: none ;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	list-style: none ;	
+	position: relative ;
+}
+
+.order-summary ul.report.summary {
+	border-bottom: 1px black solid ;
+	font-weight: bold ;
+	text-align: right ;
+}
+
+.order-summary ul.report li {
+	list-style: none ;	
+	margin: 0;
+	position: relative ;
+	padding-left: 70px;
+	padding-right: 60px;
+}
+
+.order-summary ul.report li .code {
+	position: absolute ;
+	left: 4px;
+	width: 60px;
+	overflow: hidden ;
+}
+
+.order-summary ul.report li .price {
+	position: absolute;
+	right: 4px;
+}
+
+/* @end */

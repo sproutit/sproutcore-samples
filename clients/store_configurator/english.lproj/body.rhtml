@@ -1,0 +1,168 @@
+<% # STORE CONFIGURATOR %>
+<% content_for('body') do %>
+
+<form id="order">
+
+<input type="hidden" name="order_id" id="order_id" value="1234" />
+<input type="hidden" name="product" id="product" value="m1111" />
+
+<h1 id="product-name">15" Awesome Cool Laptop</h1>
+
+<% # the product customizer -- this will be read by jquery on page load to
+   # get the customization options. 
+-%>
+<ul id="customizer">
+  <li>
+    <span class="summary">
+      <label>Memory</label>
+      <span class="desc">
+        More RAM makes your computed happy
+      </span>
+    </span>
+    <ul>
+      <li class="none"><label>
+        <input type="radio" name="memory" value="none" checked="checked" />
+        <span class="desc">2Gb RAM (built-in)</span>
+        <span class="hint hidden">[Add $<span class="price">0</span>]</span>
+      </label></li>
+      <li><label>
+        <input type="radio" name="memory" value="r4gb" />
+        <span class="desc">4Gb RAM</span>
+        <span class="hint">[Add $<span class="price">250</span>]</span>
+      </label></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="summary">
+      <label>Display</label>
+      <span class="desc">
+        A big display will make your friends jealous.
+      </span>
+    </span>
+    <ul class="opts display">
+      <li ><label>
+        <input type="radio" name="display" value="none" checked="checked" />
+        <span class="desc">No Display</span>
+        <span class="hint hidden">[Add $<span class="price">0</span>]</span>
+      </label></li>
+      <li><label>
+        <input type="radio" name="display" value="d24i" />
+        <span class="desc">24 inch Display</span>
+        <span class="hint">[Add $<span class="price">999</span>]</span>
+      </label></li>
+      <li><label>
+        <input type="radio" name="display" value="d31i" />
+        <span class="desc">31 inch Display</span>
+        <span class="hint">[Add $<span class="price">1599</span>]</span>
+      </label></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="summary">
+      <label>External Keyboard</label>
+      <span class="desc">
+        Click-clickity click click
+      </span>
+    </span>
+    <ul class="opts keyboard">
+      <li><label>
+        <input type="radio" name="keyboard" value="none" checked="checked" />
+        <span class="desc">No Keyboard</span>
+        <span class="hint hidden">[Add $<span class="price">0</span>]</span>
+      </label></li>
+      <li><label>
+        <input type="radio" name="keyboard" value="kreg" />
+        <span class="desc">Regular Keyboard</span>
+        <span class="hint">[Add $<span class="price">99</span>]</span>
+      </label></li>
+      <li><label>
+        <input type="radio" name="keyboard" value="kblu" />
+        <span class="desc">Bluetooth Keyboard</span>
+        <span class="hint">[Add $<span class="price">129</span>]</span>
+      </label></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="summary">
+      <label>External Mouse</label>
+      <span class="desc">
+        More like the real thing
+      </span>
+    </span>
+    <ul class="opts mouse">
+      <li><label>
+        <input type="radio" name="mouse" value="none"  checked="checked" />
+        <span class="desc">Use Built-in Trackback Only</span>
+        <span class="hint hidden">[Add $<span class="price">0</span>]</span>
+      </label></li>
+      <li><label>
+        <input type="radio" name="mouse" value="mreg" />
+        <span class="desc">Regular Mouse</span>
+        <span class="hint">[Add $<span class="price">49</span>]</span>
+      </label></li>
+      <li><label>
+        <input type="radio" name="mouse" value="mblu" />
+        <span class="desc">Bluetooth Mouse</span>
+        <span class="hint">[Add $<span class="price">69</span>]</span>
+      </label></li>
+    </ul>
+  </li>
+
+  <li>
+    <span class="summary">
+      <label>Extra Software</label>
+      <span class="desc">
+        Makes life more fun!
+      </span>
+    </span>
+    <ul>
+      <li><label>
+        <input type="radio" name="software" value="none"  checked="checked" />
+        <span class="desc">No extra software</span>
+        <span class="hint hidden">[Add $<span class="price">0</span>]</span>
+      </label></li>
+      <li><label>
+        <input type="radio" name="software" value="soft" />
+        <span class="desc">Yes! Extra software!</span>
+        <span class="hint">[Add $<span class="price">149</span>]</span>
+      </label></li>
+    </ul>
+  </li>
+</ul>
+
+<ul id="total">
+  <li>Subtotal: $<span id="order-subtotal" class="price">1,599</span></li>
+  <li>Tax (<span id="tax-rate">8.00</span>%): $<span id="order-tax" class="price">1</span></li>
+  <li>Total: $<span id="order-total" class="price">1,600</span></li>
+</ul>
+<div id="submit">
+  <button type="cancel">Don't Order</button>
+  <button type="submit">Purchase Computer!</button>
+</div>
+</form>
+
+<div class="order-summary">
+<h1>Order Summary</h1>
+<p class="desc">Just for demo purposes, this order summary is automatically generated whenever the product configuration changes:</p>
+
+<ul id="summary-detail" class="report">
+  <li>
+    <span class="code">m1111</span>
+    <span class="desc">15" Awesome Cool Computer</span>
+    <span class="price">1,599</span>
+  </li>
+</ul>
+
+<ul id="summary-total"  class="report summary">
+  <li>
+    <span class="desc">Total: $</span>
+    <span class="price">1,599</span>
+  </li>
+</ul>
+
+</div>
+
+<% end %>
