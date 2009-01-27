@@ -6,7 +6,7 @@ SampleControls = SC.Object.create({
 
   // This will create the server for your application.  Add any namespaces
   // your model objects are defined in to the prefix array.
-  server: SC.Server.create({ prefix: ['SampleControls'] }),
+  //server: SC.Server.create({ prefix: ['SampleControls'] }),
 
   // When you are in development mode, this array will be populated with
   // any fixtures you create for testing and loaded automatically in your
