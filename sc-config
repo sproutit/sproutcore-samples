@@ -74,8 +74,16 @@ config :common_assets do |c|
   c[:required] = [:sproutcore]
 end
 
-config :store_configurator, :required => 'sproutcore/costello'
+# Costello example.  Does not use the rest of SproutCore
+config :store_configurator, 
+  :required => 'sproutcore/costello'#, :theme => nil
 
+# Vanilla requires only the empty theme and foundation.  It is used to test
+# just the plain vanilla, platform-independent components of SproutCore.
+config :vanilla, 
+  :required => 'sproutcore/foundation',
+  :theme    => 'sproutcore/empty_theme'
+  
 # Setup extra services to proxy.  This is used only in dev mode so you can
 # talk to backend services.
 
