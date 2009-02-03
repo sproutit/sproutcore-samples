@@ -1,5 +1,5 @@
 var cnt = 1000;
-var extraTweak = YES ;
+var extraTweak = NO ;
 
 function method1() {
   // generate some initial wrapper div
