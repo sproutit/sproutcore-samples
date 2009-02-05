@@ -76,7 +76,7 @@ end
 
 # Costello example.  Does not use the rest of SproutCore
 config :store_configurator, 
-  :required => 'sproutcore/costello'#, :theme => nil
+  :required => 'sproutcore/runtime'#, :theme => nil
 
 # Vanilla requires only the empty theme and foundation.  It is used to test
 # just the plain vanilla, platform-independent components of SproutCore.

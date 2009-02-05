@@ -155,7 +155,7 @@ Photos.FIXTURES = Photos.FIXTURES.concat(function() {
       guid: idx+1,
       type: 'Photo',
       url: photoUrls[photoUrlIdx],
-      name: photoUrls[photoUrlIdx].split('/').last(),
+      name: photoUrls[photoUrlIdx].split('/').pop(),
       rotation: 0,
       opacity: 1.0
     } ;

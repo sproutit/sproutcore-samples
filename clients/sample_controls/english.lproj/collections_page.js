@@ -13,11 +13,15 @@ SampleControls.collectionsPage = SC.Page.create({
     .childView(SC.ScrollView.design({
       styleClass: 'sc-bezel-border',
       layout: { left: 20, top: 20, width: 180, bottom: 20 },
+      hasHorizontalScroller: NO,
       contentView: SC.ListView.design({
         contentValueKey: 'title',
+        contentIconKey:  'icon',
+        hasContentIcon: YES,
         contentBinding: 'SampleControls.filesController.arrangedObjects',
         selectionBinding: 'SampleControls.filesController.selection',
-        canReorderContent: YES
+        canReorderContent: YES,
+        exampleView: SC.ListItemView
       })
     }))
 
