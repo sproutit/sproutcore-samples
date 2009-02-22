@@ -7,11 +7,11 @@
 // shows demonstration of various collection views...
 SampleControls.collectionsPage = SC.Page.create({
   
-  mainView: SC.View.design({ styleClass: 'collections-tab' })
+  mainView: SC.View.design({ classNames: 'collections-tab' })
   
     // LIST VIEW DEMO
     .childView(SC.ScrollView.design({
-      styleClass: 'sc-bezel-border',
+      classNames: 'sc-bezel-border',
       layout: { left: 20, top: 20, width: 180, bottom: 20 },
       hasHorizontalScroller: NO,
       contentView: SC.ListView.design({
@@ -27,7 +27,7 @@ SampleControls.collectionsPage = SC.Page.create({
 
     // COLLECTION VIEW DEMO
     .childView(SC.ScrollView.design({
-      styleClass: 'sc-bezel-border',
+      classNames: 'sc-bezel-border',
       layout: { left: 210, top: 20, right: 20, bottom: 20 }//,
       // contentView: SC.ListView.design({
       //   contentBinding: 'SampleControls.filesController.arrangedObjects',

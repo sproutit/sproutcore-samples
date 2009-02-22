@@ -11,7 +11,7 @@ SampleControls.containerPage = SC.Page.create({
   
   mainView: SC.View.design({
     
-    styleClass: ['container-tab'],
+    classNames: ['container-tab'],
     
     childViews: [
       SC.ContainerView.design({
@@ -78,10 +78,10 @@ SampleControls.containerPage = SC.Page.create({
     
     topLeftView: SC.View.design({
       layout: {},
-      styleClass: 'red'.w(),
+      classNames: 'red'.w(),
       childViews: [
         SC.ThumbView.design({
-          styleClass: 'blue'.w(),
+          classNames: 'blue'.w(),
           isEnabledBinding: '.page.enableTopRightThumb',
           layout: { bottom: 15, left: 15, width: 35, height: 20 }
         }),
@@ -99,10 +99,10 @@ SampleControls.containerPage = SC.Page.create({
     
     bottomRightView: SC.View.design({
       layout: {},
-      styleClass: 'blue'.w(),
+      classNames: 'blue'.w(),
       childViews: [
         SC.ThumbView.design({
-          styleClass: 'red'.w(),
+          classNames: 'red'.w(),
           layout: { top: 15, right: 15, width: 35, height: 20 }
         }),
         SC.LabelView.design({
@@ -129,10 +129,10 @@ SampleControls.containerPage = SC.Page.create({
 
           topLeftView: SC.View.design({
             layout: {},
-            styleClass: 'green'.w(),
+            classNames: 'green'.w(),
             childViews: [
               SC.ThumbView.design({
-                styleClass: 'gray'.w(),
+                classNames: 'gray'.w(),
                 layout: { bottom: 15, right: 15, width: 35, height: 20 }
               }),
               SC.LabelView.design({
@@ -149,10 +149,10 @@ SampleControls.containerPage = SC.Page.create({
           
           bottomRightView: SC.View.design({
             layout: {},
-            styleClass: 'gray'.w(),
+            classNames: 'gray'.w(),
             childViews: [
               SC.ThumbView.design({
-                styleClass: 'green'.w(),
+                classNames: 'green'.w(),
                 layout: { top: 15, left: 15, width: 35, height: 20 }
               }),
               SC.LabelView.design({

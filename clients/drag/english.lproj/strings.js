@@ -8,6 +8,6 @@
 // how your UI will look and you'll notice right away when something needs a
 // localized string added to this file!
 //
-Object.extend(String.English,{
+SC.stringsFor(String.English,{
   // "_String Key": "Localized String"
 }) ;

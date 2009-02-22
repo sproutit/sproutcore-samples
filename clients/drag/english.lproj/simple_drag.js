@@ -16,7 +16,7 @@ Drag.simpleDragPage = SC.Page.create({
       SC.LabelView.design({
         layout: { top: 0, left: 0, width: 400, bottom: 0 },
         escapeHTML: NO,
-        styleClass: 'welcome-tab',
+        classNames: 'welcome-tab',
         value: "<h1>Simple Drag and Drop</h1><p>Drag the red box from between the two boxes.</p>"
       }),
       

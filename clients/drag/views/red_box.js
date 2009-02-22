@@ -17,7 +17,7 @@ Drag.RED_BOX_DRAG_TYPE = 'red-box-drag-type' ;
 Drag.RedBoxView = SC.View.extend( SC.DragSource,SC.DragDataSource,
 /** @scope Drag.RedBoxView.prototype */ {
   
-  styleClass: 'red',
+  classNames: 'red',
 
   // begin a drag session when the mouse is pressed down on a red view
   mouseDown: function(evt) {

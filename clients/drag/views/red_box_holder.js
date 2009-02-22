@@ -15,7 +15,7 @@ require('core');
 Drag.RedBoxHolderView = SC.View.extend( SC.DropTarget,
 /** @scope Drag.RedBoxHolderView.prototype */ {
 
-  styleClass: 'red-holder',
+  classNames: 'red-holder',
   
   dragStarted: function(drag, evt) {
     // console.log('dragStarted called on %@'.fmt(this)) ;

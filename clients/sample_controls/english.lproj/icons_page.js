@@ -8,7 +8,7 @@ SampleControls.iconsPage = SC.Page.create({
   
   mainView: SC.LabelView.design({
     escapeHTML: NO,
-    styleClass: 'icons-tab',
+    classNames: 'icons-tab',
     value: function() {  
       var ret = ['<h1>Icons</h1><p>SC.ImageView can automatically display sprited icons if you set a CSS class name as the value instead of a URL.  SproutCore also comes with the some default icons built right into the framework.  Just use the class names below.  If you would like to get more icons in this style, you can find them at <a href="http://www.icondrawer.com/" target="_blank">Icon Drawer</a>.</p>'];
 

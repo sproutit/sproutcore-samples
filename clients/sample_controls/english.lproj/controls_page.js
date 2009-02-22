@@ -15,7 +15,7 @@ SampleControls.controlsPage = SC.Page.create({
 
   mainView: SC.ScrollView.design({
     
-    styleClass: 'control-tab',
+    classNames: 'control-tab',
     layout: { left:0, right:0, bottom:0, top: 12 },
     hasVerticalScroller: NO,
 

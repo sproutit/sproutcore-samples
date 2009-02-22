@@ -11,12 +11,6 @@
 //
 function main() {
 
-  // Step 1: Load Your Model Data
-  // The default code here will load the fixtures you have defined.
-  // Comment out the preload line and add something to refresh from the server
-  // when you are ready to pull data from your server.
-  Drag.server.preload(Drag.FIXTURES) ;
-
   document.title = "Drag and Drop Sample App";
 
   // TODO: refresh() any collections you have created to get their records.

@@ -40,7 +40,7 @@ SampleControls.formsPage = SC.Page.create({
     childViews: [
       SC.ScrollView.design({
         
-        styleClass: ['sc-bezel-border'],
+        classNames: ['sc-bezel-border'],
         
         horizontalScrollOffsetBinding: '.page.horizontal',
         verticalScrollOffsetBinding: '.page.vertical',

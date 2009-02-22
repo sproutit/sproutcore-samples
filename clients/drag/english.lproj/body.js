@@ -32,7 +32,7 @@ Drag.bodyPage = SC.Page.create({
 
   welcome: SC.LabelView.design({
     escapeHTML: NO,
-    styleClass: 'welcome-tab',
+    classNames: 'welcome-tab',
     value: "<h1>Drag and Drop</h1><p>SproutCore comes with a full-featured, easy-to-use and robust drag and drop architecture. This sample application shows how to use it.</p>"
   })
   

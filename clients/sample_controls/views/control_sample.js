@@ -58,11 +58,11 @@ SampleControls.ControlSampleView = SC.View.extend({
       textAlign: SC.ALIGN_CENTER,
       fontWeight: SC.BOLD_FONT,
       tagName: 'h2',
-      styleClass: 'sample-label'
+      classNames: 'sample-label'
     })
   ],
   
-  styleClass: 'control-sample',
+  classNames: 'control-sample',
   layout: { left: 0, width: 150, top: 0, bottom: 0 }
   
 }) ;
@@ -86,7 +86,7 @@ SampleControls.TiledSampleView = SC.View.extend({
   
   layout: { left: 0, top: 0, bottom: 0 },
   
-  styleClass: 'tiled-sample'
+  classNames: 'tiled-sample'
   
 }) ;
 
