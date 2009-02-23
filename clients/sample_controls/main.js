@@ -42,6 +42,7 @@ function main() {
   // SC.page.get('pickerPane') ;
   
   SC.Benchmark.start('buttonPage.mainPane.append()') ;
-  SampleControls.getPath('mainPage.mainPane').append();
+  // SampleControls.getPath('mainPage.mainPane').append();
+  SampleControls.getPath('collectionsPage.mainPane').append();
   SC.Benchmark.end('buttonPage.mainPane.append()') ;
 } 
