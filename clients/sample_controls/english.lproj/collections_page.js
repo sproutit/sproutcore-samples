@@ -7,8 +7,8 @@
 // shows demonstration of various collection views...
 SampleControls.collectionsPage = SC.Page.create({
   
-  // mainView: SC.View.design({ styleClass: 'collections-tab' })
-  mainPane: SC.MainPane.design({ styleClass: 'collections-tab' })
+ mainView: SC.View.design({ styleClass: 'collections-tab' })
+  //mainPane: SC.MainPane.design({ styleClass: 'collections-tab' })
     // LIST VIEW DEMO
     .childView(SC.ScrollView.design({
       classNames: 'sc-bezel-border',

@@ -15,7 +15,7 @@ SampleControls.mainPage = SC.Page.create({
     
     childViews: [SC.TabView.design({
       
-      nowShowing: 'welcome',
+      value: 'welcome',
 
       items: [
         { title: "Welcome", value: "welcome" },
