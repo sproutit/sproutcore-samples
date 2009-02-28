@@ -39,7 +39,7 @@ Clock.mainPage = SC.Page.design({
   // create the wrapper mainPane to handle display
   mainPane: SC.MainPane.design()
     .layout({ centerX: 0, centerY: 0, width: 320, height: 120 })
-    .styleClass('clock')
+    .classNames('clock')
     
     // add labelView child...
     .childView(SC.LabelView.design()

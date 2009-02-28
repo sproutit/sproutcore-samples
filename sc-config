@@ -61,7 +61,7 @@ config :all do |c|
   # using this config as well.
   #c[:build_mode] = :production
   
-  c[:sc_server] = '~/Sites/sproutcore/blue_ribbon/bin/sc-server'
+  c[:sc_server] = '~/Sites/sproutcore/abbot/bin/sc-server'
 
 end
 
