@@ -12,7 +12,10 @@ SampleControls.collectionsPage = SC.Page.create({
     layoutDirection: SC.LAYOUT_HORIZONTAL,
     topLeftDefaultThickness: 0.25,
     autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
+    canCollapseViews: NO,
     
+    topLeftMinThickness: 200,
+    topLeftMaxThickness: 400,
     topLeftView: SC.ScrollView.design({
       hasHorizontalScroller: NO,
       contentView: SC.ListView.design({
