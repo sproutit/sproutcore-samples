@@ -7,32 +7,34 @@
 // shows demonstration of various collection views...
 SampleControls.collectionsPage = SC.Page.create({
   
- mainView: SC.View.design({ styleClass: 'collections-tab' })
-  //mainPane: SC.MainPane.design({ styleClass: 'collections-tab' })
-    // LIST VIEW DEMO
-    .childView(SC.ScrollView.design({
-      classNames: 'sc-bezel-border',
-      layout: { left: 20, top: 20, width: 180, bottom: 20 },
+  mainView: SC.SplitView.design({
+    classNames: ['collections-tab'],
+    layoutDirection: SC.LAYOUT_HORIZONTAL,
+    topLeftDefaultThickness: 0.25,
+    autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
+    
+    topLeftView: SC.ScrollView.design({
       hasHorizontalScroller: NO,
       contentView: SC.ListView.design({
         contentValueKey: 'title',
         contentIconKey:  'icon',
+        contentUnreadCountKey: 'unread',
         hasContentIcon: YES,
         contentBinding: 'SampleControls.filesController.arrangedObjects',
         selectionBinding: 'SampleControls.filesController.selection',
-        canReorderContent: YES,
-        exampleView: SC.ListItemView
+        selectOnMouseDown: YES,
+        canReorderContent: YES
       })
-    }))
-
-    // COLLECTION VIEW DEMO
-    .childView(SC.ScrollView.design({
-      classNames: 'sc-bezel-border',
-      layout: { left: 210, top: 20, right: 20, bottom: 20 }//,
+    }),
+    
+    dividerView: SC.SplitDividerView,
+    
+    bottomRightView: SC.ScrollView.design({
       // contentView: SC.ListView.design({
       //   contentBinding: 'SampleControls.filesController.arrangedObjects',
       //   selectionBinding: 'SampleControls.filesController.selection'
       // })
-    }))
-
+    })
+  })
+  
 });

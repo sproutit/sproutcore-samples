@@ -9,6 +9,7 @@ SampleControls.containerPage = SC.Page.create({
   enableTopRightThumb: YES,
   dividerThickness: 7,
   
+  // mainPane: SC.MainPane.design({
   mainView: SC.View.design({
     
     classNames: ['container-tab'],
@@ -115,18 +116,18 @@ SampleControls.containerPage = SC.Page.create({
           layoutDirection: SC.LAYOUT_HORIZONTAL,
           // layoutDirection: SC.LAYOUT_VERTICAL,
            topLeftDefaultThickness: 0.5, // a number between 0 and 1.0
-
+        
           // topLeftMinThickness: 0,
           // topLeftMaxThickness: 0, // denotes "unlimited"
           // bottomRightMinThickness: 0,
           // bottomRightMaxThickness: 0, // denotes "unlimited"
-
+        
           // autoresizeBehavior: SC.RESIZE_BOTH,
           autoresizeBehavior: SC.RESIZE_TOP_LEFT,
           // autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
-
+        
           dividerThickness: 7,
-
+        
           topLeftView: SC.View.design({
             layout: {},
             classNames: 'green'.w(),

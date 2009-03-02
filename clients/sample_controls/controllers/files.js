@@ -31,7 +31,8 @@ SampleControls.filesController = SC.ArrayController.create(
   sparseArrayDidRequestIndex: function(array, idx) {
     array.provideContentAtIndex(idx, SC.Object.create({ 
       title: "Example File %@".fmt(idx), 
-      icon: 'sc-icon-document-16' 
+      icon: 'sc-icon-document-16',
+      unread: idx
     })); 
   }
   

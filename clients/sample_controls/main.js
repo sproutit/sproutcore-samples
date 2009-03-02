@@ -20,9 +20,9 @@ function main() {
   // The default code here will load the fixtures you have defined.
   // Comment out the preload line and add something to refresh from the server
   // when you are ready to pull data from your server.
-  SC.Benchmark.start('load fixtures') ;
+  // SC.Benchmark.start('load fixtures') ;
   //SampleControls.server.preload(SampleControls.FIXTURES) ;
-  SC.Benchmark.start('end fixtures') ;
+  // SC.Benchmark.start('end fixtures') ;
 
   // Set content controller for display
   // SC.Benchmark.start('SampleControls.contentController.content') ;
@@ -41,8 +41,8 @@ function main() {
   // 
   // SC.page.get('pickerPane') ;
   
-  SC.Benchmark.start('buttonPage.mainPane.append()') ;
-   SampleControls.getPath('mainPage.mainPane').append();
-  //SampleControls.getPath('collectionsPage.mainPane').append();
-  SC.Benchmark.end('buttonPage.mainPane.append()') ;
-} 
+  // SC.Benchmark.start('buttonPage.mainPane.append()') ;
+  SampleControls.getPath('mainPage.mainPane').append();
+  // SampleControls.getPath('collectionsPage.mainPane').append();
+  // SC.Benchmark.end('buttonPage.mainPane.append()') ;
+}
