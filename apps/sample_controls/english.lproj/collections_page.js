@@ -19,7 +19,7 @@ SampleControls.collectionsPage = SC.Page.create({
     topLeftMaxThickness: 400,
     topLeftView: SC.ScrollView.design({
       hasHorizontalScroller: NO,
-      contentView: SC.ListView.design({
+      contentView: SC.SourceListView.design({
         // exampleView: SC.LabelView,
         contentValueKey: 'title',
         contentIconKey:  'icon',
