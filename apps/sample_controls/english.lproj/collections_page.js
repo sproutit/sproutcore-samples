@@ -8,6 +8,7 @@
 SampleControls.collectionsPage = SC.Page.create({
   
   mainView: SC.SplitView.design({
+    layout: { top:12, left:0, right:0, bottom:0 },
     classNames: ['collections-tab'],
     layoutDirection: SC.LAYOUT_HORIZONTAL,
     topLeftDefaultThickness: 0.25,
@@ -19,14 +20,15 @@ SampleControls.collectionsPage = SC.Page.create({
     topLeftView: SC.ScrollView.design({
       hasHorizontalScroller: NO,
       contentView: SC.ListView.design({
+        // exampleView: SC.LabelView,
         contentValueKey: 'title',
         contentIconKey:  'icon',
         contentUnreadCountKey: 'unread',
         hasContentIcon: YES,
         contentBinding: 'SampleControls.filesController.arrangedObjects',
-        selectionBinding: 'SampleControls.filesController.selection',
-        selectOnMouseDown: YES,
-        canReorderContent: YES
+        selectionBinding: 'SampleControls.filesController.selection'
+        // selectOnMouseDown: YES,
+        // canReorderContent: YES
       })
     }),
     
