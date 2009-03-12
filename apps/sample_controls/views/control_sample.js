@@ -91,7 +91,7 @@ SampleControls.TiledSampleView = SC.View.extend({
 }) ;
 
 SC.mixin(SampleControls.TiledSampleView, {
-  _width: 158, _height: 23, _title: 'Sample',
+  _width: 158, _height: 21, _title: 'Sample',
   
   width: function(newWidth) {
     this._width = newWidth + 8 ;

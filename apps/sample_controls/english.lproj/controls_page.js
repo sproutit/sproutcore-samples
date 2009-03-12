@@ -20,43 +20,43 @@ SampleControls.controlsPage = SC.Page.create({
     hasVerticalScroller: NO,
 
     contentView: tile().title('SC.ButtonView').sample(SC.ButtonView, {
-      theme: 'regular',
+   //   theme: 'regular',
       title: 'Regular'
     }, {
-      theme: 'regular',
+  //    theme: 'regular',
       title: 'Reg Disabled',
       isEnabled: NO
     }, null, {
-      theme: 'regular',
+  //    theme: 'regular',
       title: 'Default',
       isDefault: YES
     }, {
-      theme: 'regular',
+  //    theme: 'regular',
       title: 'Def Disabled',
       isDefault: YES,
       isEnabled: NO
     }, null, {
-      theme: 'regular',
+//      theme: 'regular',
       title: 'Selected',
       isSelected: YES,
       buttonBehavior: SC.TOGGLE_BEHAVIOR
     }, {
-      theme: 'regular',
+  //    theme: 'regular',
       title: 'Sel Disabled',
       isSelected: YES,
       isEnabled: NO,
       buttonBehavior: SC.TOGGLE_BEHAVIOR
     }, null, {
-      theme: 'regular',
+//      theme: 'regular',
       title: 'Cancel',
       icon: 'sc-icon-info-16',
       isCancel: YES
     }, null, {
-      theme: 'regular',
+  //    theme: 'regular',
       title: 'Long Title Exceeds the Frame',
       isDefault: YES
     }, null, {
-      theme: 'regular',
+    //  theme: 'regular',
 
       content: SC.Object.create({
         myTitle: "Title From Content",
@@ -448,4 +448,4 @@ SampleControls.controlsPage = SC.Page.create({
         allowsMultipleSelection: YES
       })
     })
-  });
+  }); 
