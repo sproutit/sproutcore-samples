@@ -1,8 +1,8 @@
 // ==========================================================================
-// Project:   Iphone
+// Project:   IphoneDemo
 // Copyright: ©2009 My Company, Inc.
 // ==========================================================================
-/*globals Iphone */
+/*globals IphoneDemo */
 
 /** @namespace
 
@@ -10,16 +10,16 @@
   
   @extends SC.Object
 */
-Iphone = SC.Object.create(
-  /** @scope Iphone.prototype */ {
+IphoneDemo = SC.Object.create(
+  /** @scope IphoneDemo.prototype */ {
 
-  NAMESPACE: 'Iphone',
+  NAMESPACE: 'IphoneDemo',
   VERSION: '0.1.0',
 
   // This is your application store.  All of your model data should be loaded
   // into this store.  You can also chain this store with any persistant 
   // backends to provide server syncing.
-  store: SC.Store.create(),
+  //store: SC.Store.create(),
   
   // When you are in development mode, this array will be populated with
   // any fixtures you create for testing and loaded automatically in your

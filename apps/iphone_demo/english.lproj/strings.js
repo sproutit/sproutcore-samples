@@ -1,8 +1,8 @@
 // ==========================================================================
-// Project:   Iphone Strings
+// Project:   IphoneDemo Strings
 // Copyright: ©2009 My Company, Inc.
 // ==========================================================================
-/*globals Iphone */
+/*globals IphoneDemo */
 
 // Place strings you want to localize here.  In your app, use the key and
 // localize it using "key string".loc().  HINT: For your key names, use the
