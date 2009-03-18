@@ -19,9 +19,9 @@ SampleControls.collectionsPage = SC.Page.create({
     topLeftMaxThickness: 400,
     topLeftView: SC.ScrollView.design({
       hasHorizontalScroller: NO,
-      contentView: SC.SourceListView.design({
+      contentView: SC.ListView.design({
         // exampleView: SC.LabelView,
-        exampleGroupView: SC.LabelView,
+        // exampleGroupView: SC.LabelView,
         // hasUniformRowHeights: NO,
         // rowHeightKey: 'rowHeight',
         // hasUniformGroupHeights: NO,
@@ -40,10 +40,12 @@ SampleControls.collectionsPage = SC.Page.create({
     dividerView: SC.SplitDividerView,
     
     bottomRightView: SC.ScrollView.design({
-      // contentView: SC.ListView.design({
-      //   contentBinding: 'SampleControls.filesController.arrangedObjects',
-      //   selectionBinding: 'SampleControls.filesController.selection'
-      // })
+      hasHorizontalScroller: NO,
+      contentView: SC.GridView.design({
+        contentValueKey: 'title',
+        contentBinding: 'SampleControls.filesController.arrangedObjects',
+        selectionBinding: 'SampleControls.filesController.selection'
+      })
     })
   })
   
