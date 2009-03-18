@@ -21,6 +21,11 @@ SampleControls.collectionsPage = SC.Page.create({
       hasHorizontalScroller: NO,
       contentView: SC.SourceListView.design({
         // exampleView: SC.LabelView,
+        exampleGroupView: SC.LabelView,
+        // hasUniformRowHeights: NO,
+        // rowHeightKey: 'rowHeight',
+        // hasUniformGroupHeights: NO,
+        // groupHeightKey: 'groupHeight',
         contentValueKey: 'title',
         contentIconKey:  'icon',
         contentUnreadCountKey: 'unread',
