@@ -1,8 +1,8 @@
 // ==========================================================================
-// SampleControls.PanelController
+// SampleControls.PaneController
 // ==========================================================================
 
-require('core');
+sc_require('core');
 
 /** @class
 
@@ -13,12 +13,12 @@ require('core');
   @version 0.1
   @static
 */
-SampleControls.panelController = SC.Object.create(
-/** @scope SampleControls.panelController */ {
+SampleControls.paneController = SC.Object.create(
+/** @scope SampleControls.paneController */ {
 	pane: null,
 
-  showPanel: function() {
-	  pane = SC.Panel.create({
+  showPanelPane: function() {
+	  pane = SC.PanelPane.create({
 	    contentView: SC.View.extend({
 	      layout: { width: 400, height: 200, centerX: 0, centerY: 0 }
 	    })
@@ -35,28 +35,28 @@ SampleControls.panelController = SC.Object.create(
 	  pane.append();
   },
 
-  showAlertPanelWarn: function() {
-	  pane = SC.AlertPanel.warn("AlertPanel.message", 'AlertPanel.description', 'AlertPanel.caption', "OK", "Cancel", 'Other...', this);      
+  showAlertPaneWarn: function() {
+	  pane = SC.AlertPane.warn("AlertPane.message", 'AlertPane.description', 'AlertPane.caption', "OK", "Cancel", 'Other...', this);      
 	  pane.append();
   },
 
-  showAlertPanelError: function() {
-	  pane = SC.AlertPanel.error("AlertPanel.message", 'AlertPanel.description', 'AlertPanel.caption', "OK", "Cancel", 'Other...', this);      
+  showAlertPaneError: function() {
+	  pane = SC.AlertPane.error("AlertPane.message", 'AlertPane.description', 'AlertPane.caption', "OK", "Cancel", 'Other...', this);      
 	  pane.append();
   },
 
-  showAlertPanelInfo: function() {
-	  pane = SC.AlertPanel.info("AlertPanel.message", 'AlertPanel.description', 'AlertPanel.caption', "OK", "Cancel", 'Other...', this);      
+  showAlertPaneInfo: function() {
+	  pane = SC.AlertPane.info("AlertPane.message", 'AlertPane.description', 'AlertPane.caption', "OK", "Cancel", 'Other...', this);      
 	  pane.append();
   },
 
-  showAlertPanelPlain: function() {
-	  pane = SC.AlertPanel.plain("AlertPanel.message", 'AlertPanel.description', 'AlertPanel.caption', "OK", "Cancel", 'Other...', this);      
+  showAlertPanePlain: function() {
+	  pane = SC.AlertPane.plain("AlertPane.message", 'AlertPane.description', 'AlertPane.caption', "OK", "Cancel", 'Other...', this);      
 	  pane.append();
   },
 
-  showAlertPanelShow: function() {
-	  pane = SC.AlertPanel.show("AlertPanel.message", 'AlertPanel.description', 'AlertPanel.caption', "OK", "Cancel", 'Other...', 'sc-icon-tools-24', this);      
+  showAlertPaneShow: function() {
+	  pane = SC.AlertPane.show("AlertPane.message", 'AlertPane.description', 'AlertPane.caption', "OK", "Cancel", 'Other...', 'sc-icon-tools-24', this);      
 	  pane.append();
   },
 
@@ -106,7 +106,7 @@ SampleControls.panelController = SC.Object.create(
 	  pane.popup(view, SC.PICKER_POINTER, [3,0,1,2,2]);
   },
 
-  hidePanel: function() {
+  hidePane: function() {
     pane.remove();
   }
 
