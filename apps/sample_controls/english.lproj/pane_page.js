@@ -4,10 +4,10 @@
 // ==========================================================================
 /*global SampleControls tile */
 
-require('views/control_sample');
+sc_require('views/control_sample');
 
 
-SampleControls.panelPage = SC.Page.create({
+SampleControls.panePage = SC.Page.create({
 
   mainView: SC.ScrollView.design({
     
@@ -15,70 +15,70 @@ SampleControls.panelPage = SC.Page.create({
     layout: { left:0, right:0, bottom:0, top: 12 },
     hasVerticalScroller: NO,
 
-    contentView: tile().title('Panel').height(21).sample(SC.ButtonView, {
+    contentView: tile().title('Panel').sample(SC.ButtonView, {
         theme: 'square',
-        title: 'SC.Panel',
-	      action: "showPanel",
-	      target: "SampleControls.panelController"
+        title: 'SC.PanelPane',
+	      action: "showPanelPane",
+	      target: "SampleControls.paneController"
       }, null, {
         theme: 'square',
         title: 'SC.SheetPane',
 	      action: "showSheetPane",
-	      target: "SampleControls.panelController"
+	      target: "SampleControls.paneController"
       }, null, {
         theme: 'square',
-        title: 'SC.AlertPanel.warn',
-	      action: "showAlertPanelWarn",
-	      target: "SampleControls.panelController"
+        title: 'SC.AlertPane.warn',
+	      action: "showAlertPaneWarn",
+	      target: "SampleControls.paneController"
       }, null, {
         theme: 'square',
-        title: 'SC.AlertPanel.error',
-	      action: "showAlertPanelError",
-	      target: "SampleControls.panelController"
+        title: 'SC.AlertPane.error',
+	      action: "showAlertPaneError",
+	      target: "SampleControls.paneController"
       }, null, {
         theme: 'square',
-        title: 'SC.AlertPanel.info',
-	      action: "showAlertPanelInfo",
-	      target: "SampleControls.panelController"
+        title: 'SC.AlertPane.info',
+	      action: "showAlertPaneInfo",
+	      target: "SampleControls.paneController"
       }, null, {
         theme: 'square',
-        title: 'SC.AlertPanel.plain',
-	      action: "showAlertPanelPlain",
-	      target: "SampleControls.panelController"
+        title: 'SC.AlertPane.plain',
+	      action: "showAlertPanePlain",
+	      target: "SampleControls.paneController"
       }, null, {
         theme: 'square',
         title: 'SC.AlertPane.show',
-	      action: "showAlertPanelShow",
-	      target: "SampleControls.panelController"
+	      action: "showAlertPaneShow",
+	      target: "SampleControls.paneController"
       })
  
       .title('Palette').height(21).sample(SC.ButtonView, {
         theme: 'square',
         title: 'SC.PalettePane',
 	      action: "showPalettePane",
-	      target: "SampleControls.panelController"
+	      target: "SampleControls.paneController"
       })
 
       .title('Picker').height(21).sample(SC.ButtonView, {
         theme: 'square',
         title: 'SC.PickerPane.default',
 	      action: "showPickerPaneDefault",
-	      target: "SampleControls.panelController"
+	      target: "SampleControls.paneController"
       }, null, {
         theme: 'square',
         title: 'SC.PickerPane.menu',
 	      action: "showPickerPaneMenu",
-	      target: "SampleControls.panelController"
+	      target: "SampleControls.paneController"
       }, null, {
         theme: 'square',
         title: 'SC.PickerPane.fixed',
 	      action: "showPickerPaneFixed",
-	      target: "SampleControls.panelController"
+	      target: "SampleControls.paneController"
       }, null, {
         theme: 'square',
         title: 'SC.PickerPane.pointer',
 	      action: "showPickerPanePointer",
-	      target: "SampleControls.panelController"
+	      target: "SampleControls.paneController"
       })
 
       .title('Menu').height(21).sample(SC.ButtonView, {
