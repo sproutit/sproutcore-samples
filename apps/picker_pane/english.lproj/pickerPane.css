@@ -1,0 +1,25 @@
+
+.sc-view.sc-label-view.headingCls{
+	font-size:16px;
+	font-weight:bold;
+	height:20px;
+	left:10px;
+	top:5px;
+	width:150px;
+}
+
+.sc-view.sc-label-view.labelCls{
+	color:#666666;
+}
+
+.sc-view.sc-label-view.urlCls{
+	color:#0f3fff;
+}
+
+.sc-pane.sc-panel > div > .sc-view {
+	background-color:#DDDDDD;
+	border:0 solid #444444;
+}
+
+.sc-view.sc-button-view.buttonCls{
+}
