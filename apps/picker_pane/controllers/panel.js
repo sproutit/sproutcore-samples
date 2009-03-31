@@ -16,15 +16,15 @@ require('views/content_data');
 */
 PickerPane.panelController = SC.Object.create(
 /** @scope SampleControls.panelController */ {
-	pane: null,
+  pane: null,
 
   showPickerPanePointer: function(view) {
-	  this.pane = SC.PickerPane.create({
-		contentView:PickerPane.ContentDataView.extend({
-			layout:{width:300,height:340}
-		  })
-	  });
-	  this.pane.popup(view, SC.PICKER_POINTER);
+    this.pane = SC.PickerPane.create({
+    contentView:PickerPane.ContentDataView.extend({
+      layout:{width:300,height:340}
+      })
+    });
+    this.pane.popup(view, SC.PICKER_POINTER);
   },
 
   hidePanel: function() {
