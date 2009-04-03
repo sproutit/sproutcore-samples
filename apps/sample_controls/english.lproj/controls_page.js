@@ -20,54 +20,224 @@ SampleControls.controlsPage = SC.Page.create({
     hasVerticalScroller: NO,
 
     contentView: tile().title('SC.ButtonView').sample(SC.ButtonView, {
-   //   theme: 'regular',
       title: 'Regular'
     }, {
-  //    theme: 'regular',
       title: 'Reg Disabled',
       isEnabled: NO
     }, null, {
-  //    theme: 'regular',
       title: 'Default',
+      icon: 'sc-icon-user-16',
       isDefault: YES
     }, {
-  //    theme: 'regular',
       title: 'Def Disabled',
       isDefault: YES,
       isEnabled: NO
     }, null, {
-//      theme: 'regular',
       title: 'Selected',
       isSelected: YES,
       buttonBehavior: SC.TOGGLE_BEHAVIOR
     }, {
-  //    theme: 'regular',
       title: 'Sel Disabled',
       isSelected: YES,
       isEnabled: NO,
       buttonBehavior: SC.TOGGLE_BEHAVIOR
     }, null, {
-//      theme: 'regular',
       title: 'Cancel',
       icon: 'sc-icon-info-16',
       isCancel: YES
     }, null, {
-  //    theme: 'regular',
       title: 'Long Title Exceeds the Frame',
       isDefault: YES
     }, null, {
-    //  theme: 'regular',
-
+      buttonBehavior: SC.TOGGLE_BEHAVIOR,
       content: SC.Object.create({
         myTitle: "Title From Content",
         myValue: YES,
         myIcon: "sc-icon-options-16"
-        }),
+      }),
 
-        contentValueKey: 'myValue',
-        contentTitleKey: 'myTitle',
-        contentIconKey: 'myIcon'
-      })
+      contentValueKey: 'myValue',
+      contentTitleKey: 'myTitle',
+      contentIconKey: 'myIcon'
+    })
+
+    .title('SC.ButtonView[Square]').height(21).sample(SC.ButtonView, {
+      title: 'Regular'
+    }, {
+      title: 'Reg Disabled',
+      isEnabled: NO
+    }, null, {
+      title: 'Default',
+      isDefault: YES
+    }, {
+      title: 'Def Disabled',
+      isDefault: YES,
+      isEnabled: NO
+    }, null, {
+      title: 'Selected',
+      isSelected: YES,
+      buttonBehavior: SC.TOGGLE_BEHAVIOR
+    }, {
+      title: 'Sel Disabled',
+      isSelected: YES,
+      isEnabled: NO,
+      buttonBehavior: SC.TOGGLE_BEHAVIOR
+    })
+
+    .title('SC.ButtonView[Capsule]').height(21).sample(SC.ButtonView, {
+      theme: 'capsule',
+      title: 'Regular'
+    }, {
+      theme: 'capsule',
+      title: 'Reg Disabled',
+      isEnabled: NO
+    }, null, {
+      theme: 'capsule',
+      title: 'Default',
+      isDefault: YES
+    }, {
+      theme: 'capsule',
+      title: 'Def Disabled',
+      isDefault: YES,
+      isEnabled: NO
+    }, null, {
+      theme: 'capsule',
+      title: 'Selected',
+      isSelected: YES,
+      buttonBehavior: SC.TOGGLE_BEHAVIOR
+    }, {
+      theme: 'capsule',
+      title: 'Sel Disabled',
+      isSelected: YES,
+      isEnabled: NO,
+      buttonBehavior: SC.TOGGLE_BEHAVIOR
+    })
+
+    .title('SC.CheckboxView').height(18).sample(SC.CheckboxView, {
+      title: "Regular"
+    }, {
+      title: "Reg Disabled",
+      isEnabled: NO
+    }, null, {
+      title: "Selected",
+      value: YES,
+      icon: 'sc-icon-folder-16'
+    }, {
+      title: "Selected Disabled",
+      value: YES,
+      isEnabled: NO,
+      icon: 'sc-icon-trash-16'
+    }, null, {
+      title: "Mixed",
+      value: [YES, NO]
+    }, {
+      title: "Mixed Disabled",
+      value: [YES, NO],
+      isEnabled: NO
+    }, null, {
+      title: "Long Title Exceeds Frame",
+      value: YES
+    }, null, {
+      title: "Long Title Exceeds Frame",
+      value: YES,
+      height: 36
+    }, null, null, null, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: 'Regular Small'
+    }, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: 'Reg Small Disabled',
+      isEnabled: NO
+    }, null, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: "Selected Small",
+      value: YES,
+      icon: 'sc-icon-folder-16'
+    }, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: "Selected Small Disabled",
+      value: YES,
+      isEnabled: NO,
+      icon: 'sc-icon-trash-16'
+    }, null, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: "Mixed Small",
+      value: [YES, NO]
+    }, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: "Mixed Small Disabled",
+      value: [YES, NO],
+      isEnabled: NO
+    })
+
+    .title('SC.RadioView').height(60).sample(SC.RadioView, {
+      items: 'Item1 Item2 Item3'.w(),
+      value: ['Item1', 'Item3'],
+      layoutDirection: SC.LAYOUT_VERTICAL
+    }, null, {
+      items: 'Item1 Item2 Item3'.w(),
+      value: ['Item1', 'Item3'],
+      isEnabled: NO,
+      layoutDirection: SC.LAYOUT_VERTICAL
+    }, null, {
+      items: 'Item1 Item2'.w(),
+      value: 'Item1',
+      height: 23,
+      layoutDirection: SC.LAYOUT_HORIZONTAL
+    }, null, {
+      items: 'Item1 Item2'.w(),
+      value: 'Item1',
+      isEnabled: NO,
+      height: 23,
+      layoutDirection: SC.LAYOUT_HORIZONTAL
+    }, null, {
+      items: [{ title: "First Item", value: "Item1" },
+      { title: "Very long title goes onto the next line", value: "Item2" },
+      { title: "Loc.Title", value: "Item3" }],
+      itemTitleKey: 'title',
+      itemValueKey: 'value',
+      height: 80,
+      value: 'Item2',
+      localize: YES,
+      layoutDirection: SC.LAYOUT_VERTICAL
+    }, null, {
+      items: [
+      { title: "First Item", value: "Item1", enabled: YES, icon: 'sc-icon-user-16' },
+      { title: "Second Item", value: "Item2", enabled: NO, icon: 'sc-icon-options-16' },
+      { title: "Third Item", value: "Item3", enabled: YES, icon: 'sc-icon-bookmark-16' }],
+      itemTitleKey: 'title',
+      itemValueKey: 'value',
+      itemIsEnabledKey: 'enabled',
+      itemIconKey: 'icon',
+      height: 80,
+      value: 'Item2',
+      localize: YES,
+      layoutDirection: SC.LAYOUT_VERTICAL
+    }, null, null, null, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      items: 'Item1 Item2 Item3'.w(),
+      value: ['Item1', 'Item3'],
+      layoutDirection: SC.LAYOUT_VERTICAL
+    }, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      items: 'Item1 Item2 Item3'.w(),
+      value: ['Item1', 'Item3'],
+      isEnabled: NO,
+      layoutDirection: SC.LAYOUT_VERTICAL
+    }, null, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      items: 'Item1 Item2'.w(),
+      value: 'Item1',
+      height: 23,
+      layoutDirection: SC.LAYOUT_HORIZONTAL
+    }, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      items: 'Item1 Item2'.w(),
+      value: 'Item1',
+      isEnabled: NO,
+      height: 23,
+      layoutDirection: SC.LAYOUT_HORIZONTAL
+    })
 
       .title('SC.TextFieldView').height(21).sample(SC.TextFieldView, {
         value: "Hello World",
@@ -178,56 +348,6 @@ SampleControls.controlsPage = SC.Page.create({
         maximum: 100,
         isEnabled: NO,
         isRunning: YES
-      })
-
-      .title('SC.ButtonView[Square]').height(21).sample(SC.ButtonView, {
-        theme: 'square',
-        title: 'Regular'
-      }, {
-        theme: 'square',
-        title: 'Reg Disabled',
-        isEnabled: NO
-      }, null, {
-        theme: 'square',
-        title: 'Default',
-        icon: 'sc-icon-user-16',
-        isDefault: YES
-      }, {
-        theme: 'square',
-        title: 'Def Disabled',
-        isDefault: YES,
-        isEnabled: NO
-      }, null, {
-        theme: 'square',
-        title: 'Selected',
-        isSelected: YES,
-        buttonBehavior: SC.TOGGLE_BEHAVIOR
-      }, {
-        theme: 'square',
-        title: 'Sel Disabled',
-        isSelected: YES,
-        isEnabled: NO,
-        buttonBehavior: SC.TOGGLE_BEHAVIOR
-      }, null, {
-        theme: 'square',
-        title: 'Cancel',
-        isCancel: YES
-      }, null, {
-        theme: 'square',
-        title: 'Long Title Exceeds the Frame',
-        isDefault: YES
-      }, null, {
-        theme: 'square',
-        buttonBehavior: SC.TOGGLE_BEHAVIOR,
-        content: SC.Object.create({
-          myTitle: "Title From Content",
-          myValue: YES,
-          myIcon: "sc-icon-options-16"
-          }),
-
-        contentValueKey: 'myValue',
-        contentTitleKey: 'myTitle',
-        contentIconKey: 'myIcon'
       })
 
       .title('SC.CheckboxView').height(18).sample(SC.CheckboxView, {
