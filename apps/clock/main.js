@@ -7,7 +7,7 @@
   new SproutCore.  All applications should have some views, a controller
   and a main function.
   
-  Place your applicaiton into a namespace.
+  Place your application into a namespace.
   
   @namespace Clock
 */
