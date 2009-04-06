@@ -48,9 +48,26 @@ SampleControls.paneController = SC.Object.create(
     var pane = SC.SheetPane.create({
       layout: { width: 400, height: 200, centerX: 0 },
       contentView: SC.View.extend({
+        layout: { top: 0, left: 0, bottom: 0, right: 0 },
+        childViews: 'labelView buttonView'.w(),
+
+        labelView: SC.LabelView.extend({
+          layout: { centerY: -10, height: 24, left: 0, right: 0 },
+          textAlign: SC.ALIGN_CENTER,
+          controlSize: SC.LARGE_CONTROL_SIZE,
+          value: "SC.SheetPane"
+        }),
+        
+        buttonView: SC.ButtonView.extend({
+          layout: { width: 80, bottom: 20, height: 21, centerX: 0 },
+          title: "Hide",
+          action: "remove",
+          target: "SampleControls.paneController.sheetPane"
+        })
       })
     });
     pane.append();
+    this.set('sheetPane', pane);
   },
 
   showAlertPaneWarn: function() {
