@@ -160,6 +160,43 @@ SampleControls.paneController = SC.Object.create(
     });
     pane.popup(view, SC.PICKER_POINTER, [3,0,1,2,2]);
   },
+  
+  showMenuPane: function(view) {
+    var iconURL= "http://www.freeiconsweb.com/Icons/16x16_people_icons/People_046.gif" ;
+    var method = function() { console.log("done"); } ;
+    var pane = SC.MenuPane.create({
+                 items: [ { title: "Item1", isEnabled: YES, icon: iconURL, 
+                   separator: NO, action: method ,
+                   checkbox:YES, shortCut: "ctrl_z", keyEquivalent: "ctrl_z" },
+                   { title: "", isEnabled: YES, icon: null, separator: YES},
+                   { title: "Item2", isEnabled: NO, icon: iconURL, separator: NO },
+                   { title: "Item3", isEnabled: YES, icon: iconURL, separator: NO , branchItem: YES,
+                   subMenu: SC.MenuPane.create({
+                     items: ["title1","title2"],
+                     contentView: SC.View.extend({
+                       layout: { width: 150, height: 200 }
+                     })
+                   })
+                 }],
+                 isEnabled: YES,
+                 itemIsEnabledKey: "isEnabled",
+                 itemTitleKey: "title",
+                 itemIconKey: "icon",
+                 itemSeparatorKey: 'separator',
+                 itemActionKey: 'action',
+                 itemCheckboxKey: 'checkbox',
+                 itemBranchKey: 'branchItem',  
+                 preferType: SC.PICKER_MENU,
+                 subMenuKey: 'subMenu',
+                 itemShortCutKey: 'shortCut',
+                 itemKeyEquivalentKey: 'keyEquivalent',
+                 itemHeightKey: 'height',
+                 contentView: SC.View.extend({
+                   layout: { width: 150, height: 200 }
+                 })
+               }) ;
+    pane.popup(view) ;
+  },
 
   hidePane: function() {
     this.pane.remove();

@@ -81,10 +81,12 @@ SampleControls.panePage = SC.Page.create({
         target: "SampleControls.paneController"
       })
 
-      .title('Menu').height(21).sample(SC.ButtonView, {
+      .title('Menu').height(21).sample(SC.PopupButtonView, {
         theme: 'square',
-        title: 'SC.Menu.popup'
-      }, null, {
+        title: 'SC.Menu.popup',
+        action: "showMenuPane",
+        target: "SampleControls.paneController"
+      },  null, {
         theme: 'square',
         title: 'SC.Menu.dropdown'
       })
