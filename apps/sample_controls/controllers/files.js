@@ -20,7 +20,7 @@ SampleControls.filesController = SC.ArrayController.create(
   init: function() {
     sc_super();
     
-    var array = SC.SparseArray.create(2000) ;
+    var array = SC.SparseArray.array(2000) ;
     array.delegate = this ;
     this.set('content', array) ;
   },
@@ -53,7 +53,7 @@ SampleControls.filesController = SC.ArrayController.create(
     if (rowHeight == 0 ) rowHeight = 25 ;
     // console.log(idx + ': ' + ((idx % 32) + 20));
     
-    array.provideContentAtIndex(idx, SC.Object.create({ 
+    array.provideObjectAtIndex(idx, SC.Object.create({ 
       title: "Example File %@".fmt(idx), 
       icon: 'sc-icon-document-16',
       unread: idx,
