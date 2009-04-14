@@ -5,11 +5,13 @@ Statechart = SC.Object.create({
     this.foo = NO ;
     
     // initialize the hierarchical state machine manually for now...
-    this.initStatchart() ;
-  }
+    this.initStatechart() ;
+  },
   
   // dispatch synthesized events manually for now...
-  insertText: function(text) {
+  keyDown: function(evt) {
+    console.log('%@.keyDown(evt="%@")'.fmt(this, evt));
+    var text = evt.getCharString() ;
     switch (text) {
       case 'a':
       case 'b':
@@ -179,7 +181,7 @@ Statechart = SC.Object.create({
         break;
       }
     }
-  }.state(),
+  }.state('s'),
   
   s21: function(evt){
     switch (evt.sig) {

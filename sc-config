@@ -89,6 +89,8 @@ config :iphone_demo,
   :theme    => 'sproutcore/iphone_theme',
   :layout   => 'sproutcore/mobile:lib/index.rhtml'
 
+config :statechart, :required => 'sproutcore/statechart'
+
 # Setup extra services to proxy.  This is used only in dev mode so you can
 # talk to backend services.
 
