@@ -136,8 +136,8 @@ Statechart = SC.Object.create({
       }
       case 'g': {
         console.log("pressed 'g' in s11");
-        // return sc_transition('s211') ;
-        return (this[this.stateKey] = this['s211'], SC.EVT_TRANSITION_RES) ;
+        // return sc_transition('s21') ;
+        return (this[this.stateKey] = this['s21'], SC.EVT_TRANSITION_RES) ;
       }
       case 'h': {
         console.log("pressed 'h' in s11");
