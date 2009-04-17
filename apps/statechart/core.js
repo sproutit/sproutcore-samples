@@ -96,7 +96,7 @@ Statechart = SC.Object.create({
       }
       case 'd': {
         if (!this.foo) {
-          console.log("pressed 'd' is s1 && this.foo == NO");
+          console.log("pressed 'd' in s1 && this.foo == NO");
           this.foo = YES ;
           // return sc_transition('s') ;
           return (this[this.stateKey] = this['s'], SC.EVT_TRANSITION_RES) ;
@@ -208,11 +208,6 @@ Statechart = SC.Object.create({
         // return sc_transition('s211') ;
         return (this[this.stateKey] = this['s211'], SC.EVT_TRANSITION_RES) ;
       }
-      case 'd': {
-        console.log("pressed 'd' in s21");
-        // return sc_transition('s2') ;
-        return (this[this.stateKey] = this['s2'], SC.EVT_TRANSITION_RES) ;
-      }
       case 'g': {
         console.log("pressed 'g' in s21");
         // return sc_transition('s1') ;
@@ -230,6 +225,11 @@ Statechart = SC.Object.create({
       case SC.EVT_EXIT_SIG: {
         console.log("<- exit s211");
         return sc_handled() ;
+      }
+      case 'd': {
+        console.log("pressed 'd' in s211");
+        // return sc_transition('s2') ;
+        return (this[this.stateKey] = this['s2'], SC.EVT_TRANSITION_RES) ;
       }
       case 'h': {
         console.log("pressed 'h' in s211");
