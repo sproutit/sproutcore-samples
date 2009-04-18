@@ -1,5 +1,7 @@
 Statechart = SC.Object.create({
   
+  trace: YES, // enable statechart tracing...
+  
   init: function() {
     sc_super() ;
     this.foo = NO ;
