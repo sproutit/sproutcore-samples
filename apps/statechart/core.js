@@ -1,6 +1,7 @@
 Statechart = SC.Object.create({
   
-  trace: YES, // enable statechart tracing...
+  sc_trace: YES, // enable statechart tracing...
+  // sc_singleStep: YES, // enable single-step alerts
   
   init: function() {
     sc_super() ;
