@@ -1,33 +1,13 @@
 Statechart = SC.Object.create({
   
-  sc_trace: YES, // enable statechart tracing...
-  // sc_singleStep: YES, // enable single-step alerts
+  sc_trace: YES, // enable statechart tracing by default...
   
-  init: function() {
-    sc_super() ;
+  initStatechart: function() {
+    // define extended state variables here
     this.foo = NO ;
     
-    // initialize the hierarchical state machine manually for now...
-    this.initStatechart() ;
-  },
-  
-  // dispatch synthesized events manually for now...
-  keyDown: function(evt) {
-    console.log('%@.keyDown(evt="%@")'.fmt(this, evt));
-    var text = evt.getCharString() ;
-    switch (text) {
-      case 'a':
-      case 'b':
-      case 'c':
-      case 'd':
-      case 'e':
-      case 'f':
-      case 'g':
-      case 'h':
-      case 'q':
-        return this.dispatch({ sig: text }) ;
-    }
-    return NO ;
+    // initialize the hierarchical state machine
+    sc_super() ;
   },
   
   initial: 's2', // the initial state to enter...
@@ -44,20 +24,24 @@ Statechart = SC.Object.create({
         // return sc_transition('s11') ;
         return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
       }
-      case 'e': {
-        // return sc_transition('s11') ;
-        return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'i': {
-        if (this.foo) {
-          this.foo = NO ;
-          return sc_handled() ;
+      case 'keyDown': {
+        switch (evt.getCharString()) {
+          case 'e': {
+            // return sc_transition('s11') ;
+            return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'i': {
+            if (this.foo) {
+              this.foo = NO ;
+              return sc_handled() ;
+            }
+            break ;
+          }
+          case 'q': {
+            window.location = 'http://www.google.com' ; // goodbye!
+            return sc_terminate() ;
+          }
         }
-        break ;
-      }
-      case 'q': {
-        window.location = 'http://www.google.com' ; // goodbye!
-        return sc_terminate() ;
       }
     }
   }.state(),
@@ -74,32 +58,36 @@ Statechart = SC.Object.create({
         // return sc_transition('s11') ;
         return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
       }
-      case 'a': {
-        // return sc_transition('s1') ;
-        return (this[this.stateKey] = 's1', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'b': {
-        // return sc_transition('s11') ;
-        return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'c': {
-        // return sc_transition('s2') ;
-        return (this[this.stateKey] = 's2', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'd': {
-        if (!this.foo) {
-          this.foo = YES ;
-          // return sc_transition('s') ;
-          return (this[this.stateKey] = 's', SC.EVT_TRANSITION_RES) ;
+      case 'keyDown': {
+        switch (evt.getCharString()) {
+          case 'a': {
+            // return sc_transition('s1') ;
+            return (this[this.stateKey] = 's1', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'b': {
+            // return sc_transition('s11') ;
+            return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'c': {
+            // return sc_transition('s2') ;
+            return (this[this.stateKey] = 's2', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'd': {
+            if (!this.foo) {
+              this.foo = YES ;
+              // return sc_transition('s') ;
+              return (this[this.stateKey] = 's', SC.EVT_TRANSITION_RES) ;
+            }
+            break ;
+          }
+          case 'f': {
+            // return sc_transition('s211') ;
+            return (this[this.stateKey] = 's211', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'i': {
+            return sc_handled() ;
+          }
         }
-        break ;
-      }
-      case 'f': {
-        // return sc_transition('s211') ;
-        return (this[this.stateKey] = 's211', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'i': {
-        return sc_handled() ;
       }
     }
   }.state('s'),
@@ -112,21 +100,25 @@ Statechart = SC.Object.create({
       case SC.EVT_EXIT_SIG: {
         return sc_handled() ;
       }
-      case 'd': {
-        if (this.foo) {
-          this.foo = NO ;
-          // return sc_transition('s1') ;
-          return (this[this.stateKey] = 's1', SC.EVT_TRANSITION_RES) ;
+      case 'keyDown': {
+        switch (evt.getCharString()) {
+          case 'd': {
+            if (this.foo) {
+              this.foo = NO ;
+              // return sc_transition('s1') ;
+              return (this[this.stateKey] = 's1', SC.EVT_TRANSITION_RES) ;
+            }
+            break;
+          }
+          case 'g': {
+            // return sc_transition('s21') ;
+            return (this[this.stateKey] = 's21', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'h': {
+            // return sc_transition('s') ;
+            return (this[this.stateKey] = 's', SC.EVT_TRANSITION_RES) ;
+          }
         }
-        break;
-      }
-      case 'g': {
-        // return sc_transition('s21') ;
-        return (this[this.stateKey] = 's21', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'h': {
-        // return sc_transition('s') ;
-        return (this[this.stateKey] = 's', SC.EVT_TRANSITION_RES) ;
       }
     }
   }.state('s1'),
@@ -143,20 +135,24 @@ Statechart = SC.Object.create({
         // return sc_transition('s211') ;
         return (this[this.stateKey] = 's211', SC.EVT_TRANSITION_RES) ;
       }
-      case 'c': {
-        // return sc_transition('s1') ;
-        return (this[this.stateKey] = 's1', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'f': {
-        // return sc_transition('s11') ;
-        return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'i': {
-        if (!this.foo) {
-          this.foo = YES ;
-          return sc_handled() ;
+      case 'keyDown': {
+        switch (evt.getCharString()) {
+          case 'c': {
+            // return sc_transition('s1') ;
+            return (this[this.stateKey] = 's1', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'f': {
+            // return sc_transition('s11') ;
+            return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'i': {
+            if (!this.foo) {
+              this.foo = YES ;
+              return sc_handled() ;
+            }
+            break;
+          }
         }
-        break;
       }
     }
   }.state('s'),
@@ -173,17 +169,21 @@ Statechart = SC.Object.create({
         // return sc_transition('s211') ;
         return (this[this.stateKey] = 's211', SC.EVT_TRANSITION_RES) ;
       }
-      case 'a': {
-        // return sc_transition('s21') ;
-        return (this[this.stateKey] = 's21', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'b': {
-        // return sc_transition('s211') ;
-        return (this[this.stateKey] = 's211', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'g': {
-        // return sc_transition('s1') ;
-        return (this[this.stateKey] = 's1', SC.EVT_TRANSITION_RES) ;
+      case 'keyDown': {
+        switch (evt.getCharString()) {
+          case 'a': {
+            // return sc_transition('s21') ;
+            return (this[this.stateKey] = 's21', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'b': {
+            // return sc_transition('s211') ;
+            return (this[this.stateKey] = 's211', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'g': {
+            // return sc_transition('s1') ;
+            return (this[this.stateKey] = 's1', SC.EVT_TRANSITION_RES) ;
+          }
+        }
       }
     }
   }.state('s2'),
@@ -196,13 +196,17 @@ Statechart = SC.Object.create({
       case SC.EVT_EXIT_SIG: {
         return sc_handled() ;
       }
-      case 'd': {
-        // return sc_transition('s2') ;
-        return (this[this.stateKey] = 's21', SC.EVT_TRANSITION_RES) ;
-      }
-      case 'h': {
-        // return sc_transition('s') ;
-        return (this[this.stateKey] = 's', SC.EVT_TRANSITION_RES) ;
+      case 'keyDown': {
+        switch (evt.getCharString()) {
+          case 'd': {
+            // return sc_transition('s2') ;
+            return (this[this.stateKey] = 's21', SC.EVT_TRANSITION_RES) ;
+          }
+          case 'h': {
+            // return sc_transition('s') ;
+            return (this[this.stateKey] = 's', SC.EVT_TRANSITION_RES) ;
+          }
+        }
       }
     }
   }.state('s21')
