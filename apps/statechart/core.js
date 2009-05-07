@@ -14,13 +14,14 @@ Statechart = SC.Object.create({
   
   s: function(evt) {
     switch (evt.sig) {
-      case SC.EVT_ENTER_SIG: {
+      case 'enter': { // old goStateS() functionality
+        
         return sc_handled() ;
       }
-      case SC.EVT_EXIT_SIG: {
+      case 'exit': {
         return sc_handled() ;
       }
-      case SC.EVT_INIT_SIG: {
+      case 'defaultTransition': {
         // return sc_transition('s11') ;
         return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
       }
@@ -48,13 +49,13 @@ Statechart = SC.Object.create({
   
   s1: function(evt) {
     switch (evt.sig) {
-      case SC.EVT_ENTER_SIG: {
+      case 'enter': {
         return sc_handled() ;
       }
-      case SC.EVT_EXIT_SIG: {
+      case 'exit': {
         return sc_handled() ;
       }
-      case SC.EVT_INIT_SIG: {
+      case 'defaultTransition': {
         // return sc_transition('s11') ;
         return (this[this.stateKey] = 's11', SC.EVT_TRANSITION_RES) ;
       }
@@ -94,10 +95,10 @@ Statechart = SC.Object.create({
   
   s11: function(evt) {
     switch (evt.sig) {
-      case SC.EVT_ENTER_SIG: {
+      case 'enter': {
         return sc_handled() ;
       }
-      case SC.EVT_EXIT_SIG: {
+      case 'exit': {
         return sc_handled() ;
       }
       case 'keyDown': {
@@ -125,13 +126,13 @@ Statechart = SC.Object.create({
   
   s2: function(evt) {
     switch (evt.sig) {
-      case SC.EVT_ENTER_SIG: {
+      case 'enter': {
         return sc_handled() ;
       }
-      case SC.EVT_EXIT_SIG: {
+      case 'exit': {
         return sc_handled() ;
       }
-      case SC.EVT_INIT_SIG: {
+      case 'defaultTransition': {
         // return sc_transition('s211') ;
         return (this[this.stateKey] = 's211', SC.EVT_TRANSITION_RES) ;
       }
@@ -159,13 +160,14 @@ Statechart = SC.Object.create({
   
   s21: function(evt){
     switch (evt.sig) {
-      case SC.EVT_ENTER_SIG: {
+      case 'enter': {
+        /* this is where we control the state of the app */
         return sc_handled() ;
       }
-      case SC.EVT_EXIT_SIG: {
+      case 'exit': {
         return sc_handled() ;
       }
-      case SC.EVT_INIT_SIG: {
+      case 'defaultTransition': {
         // return sc_transition('s211') ;
         return (this[this.stateKey] = 's211', SC.EVT_TRANSITION_RES) ;
       }
@@ -173,6 +175,7 @@ Statechart = SC.Object.create({
         switch (evt.getCharString()) {
           case 'a': {
             // return sc_transition('s21') ;
+            /* this is where your action code goes */
             return (this[this.stateKey] = 's21', SC.EVT_TRANSITION_RES) ;
           }
           case 'b': {
@@ -190,10 +193,10 @@ Statechart = SC.Object.create({
   
   s211: function(evt) {
     switch (evt.sig) {
-      case SC.EVT_ENTER_SIG: {
+      case 'enter': {
         return sc_handled() ;
       }
-      case SC.EVT_EXIT_SIG: {
+      case 'exit': {
         return sc_handled() ;
       }
       case 'keyDown': {
