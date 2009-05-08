@@ -26,6 +26,11 @@ Drag.RedBoxHolderView = SC.View.extend( SC.DropTarget,
     return SC.DRAG_ANY ;
   },
   
+  performDragOperation: function(drag, op) {
+    this.appendChild(drag.get('source')) ;
+    return op ;
+  },
+  
   dragEntered: function(drag, evt) {
     console.log('dragEntered called on %@'.fmt(this)) ;
   },

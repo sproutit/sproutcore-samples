@@ -18,14 +18,25 @@ Drag.RedBoxView = SC.View.extend( SC.DragSource,SC.DragDataSource,
 /** @scope Drag.RedBoxView.prototype */ {
   
   classNames: 'red',
+  
+  thth: function() {
+    console.log('layout did change');
+  }.observes('layout'),
 
   // begin a drag session when the mouse is pressed down on a red view
   mouseDown: function(evt) {
+    var dv = this.constructor.create({
+      layout: this.get('layout'),
+      parentView: this
+    });
+    
+    dv.set('layer', this.get('layer').cloneNode(true));
+    
     // initiate the drag
     SC.Drag.start({
       event: evt,
       source: this,
-      dragView: this,
+      dragView: dv,
       ghost: YES,
       slideBack: YES,
       dataSource: this
