@@ -64,7 +64,7 @@ SampleControls.containerPage = SC.Page.create({
     layout: { left: 0, top: 0, right: 0, bottom: 0 },
     // layoutDirection: SC.LAYOUT_HORIZONTAL,
     layoutDirection: SC.LAYOUT_VERTICAL,
-    topLeftDefaultThickness: 0.5, // a number between 0 and 1.0
+    defaultThickness: 0.5, // a number between 0 and 1.0
     
     topLeftMinThickness: 100,
     topLeftMaxThickness: 300,
@@ -115,7 +115,7 @@ SampleControls.containerPage = SC.Page.create({
           layout: { left: 0, top: 70, right: 0, bottom: 0 },
           layoutDirection: SC.LAYOUT_HORIZONTAL,
           // layoutDirection: SC.LAYOUT_VERTICAL,
-           topLeftDefaultThickness: 0.5, // a number between 0 and 1.0
+          defaultThickness: 0.5, // a number between 0 and 1.0
         
           // topLeftMinThickness: 0,
           // topLeftMaxThickness: 0, // denotes "unlimited"
