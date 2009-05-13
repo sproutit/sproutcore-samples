@@ -8,32 +8,52 @@
 SampleControls.collectionsPage = SC.Page.create({
   
   mainView: SC.SplitView.design({
-    layout: { top:12, left:0, right:0, bottom:0 },
+    layout: { top:20, left:12, right:12, bottom:12 },
     classNames: ['collections-tab'],
     layoutDirection: SC.LAYOUT_HORIZONTAL,
-    defaultThickness: 0.25,
+    defaultThickness: 250,
     autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
     canCollapseViews: NO,
     
     topLeftMinThickness: 200,
     topLeftMaxThickness: 400,
-    topLeftView: SC.ScrollView.design({
-      hasHorizontalScroller: NO,
-      contentView: SC.ListView.design({
-        // exampleView: SC.LabelView,
-        // exampleGroupView: SC.LabelView,
-        // hasUniformRowHeights: NO,
-        // rowHeightKey: 'rowHeight',
-        // hasUniformGroupHeights: NO,
-        // groupHeightKey: 'groupHeight',
-        contentValueKey: 'title',
-        contentIconKey:  'icon',
-        contentUnreadCountKey: 'unread',
-        hasContentIcon: YES,
-        contentBinding: 'SampleControls.filesController.arrangedObjects',
-        selectionBinding: 'SampleControls.filesController.selection'
-        // selectOnMouseDown: YES,
-        // canReorderContent: YES
+    topLeftView: SC.View.design({
+      childViews: 'scrollView rowHeightSlider customRowCheckbox customRowHeightSlider'.w(),
+      
+      rowHeightSlider: SC.SliderView.design({
+        layout: { bottom: 40, left: 8, right: 8, height: 18 },
+        minimum: 12,
+        maximum: 80,
+        step: 1,
+        valueBinding: "SampleControls.filesController.rowHeight"
+      }),
+      
+      customRowCheckbox: SC.CheckboxView.design({
+        layout: { bottom: 20, left: 8, right: 8, height: 18 },
+        title: "Use custom row heights",
+        valueBinding: "SampleControls.filesController.useCustomRowHeights"
+      }),
+      
+      customRowHeightSlider: SC.SliderView.design({
+        layout: { bottom: 0, left: 8, right: 8, height: 18 },
+        minimum: 12,
+        maximum: 80,
+        valueBinding: "SampleControls.filesController.customRowHeight"
+      }),
+
+      scrollView: SC.ScrollView.design({
+        layout: { top: 0, left: 0, right: 0, bottom: 70 },
+        hasHorizontalScroller: NO,
+        contentView: SC.ListView.design({
+          contentValueKey: 'title',
+          contentIconKey:  'icon',
+          contentUnreadCountKey: 'unread',
+          hasContentIcon: YES,
+          contentBinding: 'SampleControls.filesController'//,
+          //selectionBinding: 'SampleControls.filesController.selection'
+          // selectOnMouseDown: YES,
+          // canReorderContent: YES
+        })
       })
     }),
     
@@ -41,10 +61,11 @@ SampleControls.collectionsPage = SC.Page.create({
     
     bottomRightView: SC.ScrollView.design({
       hasHorizontalScroller: NO,
-      contentView: SC.GridView.design({
-        contentValueKey: 'title',
-        contentBinding: 'SampleControls.filesController.arrangedObjects',
-        selectionBinding: 'SampleControls.filesController.selection'
+      contentView: SC.LabelView.design({
+        value: "SC.GridView Coming Soon"
+        // contentValueKey: 'title',
+        // contentBinding: 'SampleControls.filesController.arrangedObjects',
+        // selectionBinding: 'SampleControls.filesController.selection'
       })
     })
   })

@@ -15,15 +15,40 @@ require('core');
   @static
 */
 SampleControls.filesController = SC.ArrayController.create(
+  SC.CollectionRowDelegate,
 /** @scope SampleControls.filesController */ {
   
   init: function() {
     sc_super();
     
-    var array = SC.SparseArray.array(2000) ;
+    var array = SC.SparseArray.array(200000) ;
     array.delegate = this ;
     this.set('content', array) ;
   },
+  
+  // ..........................................................
+  // CUSTOM ROW HEIGHTS
+  // 
+  
+  rowHeight: 20,
+  
+  customRowHeight: 20,
+  
+  useCustomRowHeightIndexes: YES,
+  
+  customRowHeightIndexes: function() {
+    if (!this.get('useCustomRowHeightIndexes')) return null;
+    var ret = SC.IndexSet.create(), idx, len = this.get('length');
+    for(idx=0;idx<len;idx+=100) ret.add(idx);
+    return ret.freeze();
+  }.property('useCustomRowHeightIndexes').cacheable(),
+  
+  contentIndexRowHeight: function(view, content, index) {
+    var set = this.get('customRowHeightIndexes');
+    return (set && set.contains(index)) ? this.get('customRowHeight') : this.get('rowHeight'); 
+  },
+  
+  // grouping
   
   groupByKey: 'group',
   
@@ -49,16 +74,11 @@ SampleControls.filesController = SC.ArrayController.create(
     provided.  Provide the content for the index.
   */
   sparseArrayDidRequestIndex: function(array, idx) {
-    var rowHeight = ((idx % 4) * 20) ;
-    if (rowHeight == 0 ) rowHeight = 25 ;
-    // console.log(idx + ': ' + ((idx % 32) + 20));
-    
     array.provideObjectAtIndex(idx, SC.Object.create({ 
       title: "Example File %@".fmt(idx), 
       icon: 'sc-icon-document-16',
       unread: idx,
-      group: 'Group ' + Math.floor(idx / 50),
-      rowHeight: rowHeight
+      group: 'Group ' + Math.floor(idx / 50)
     }));
   }
   
