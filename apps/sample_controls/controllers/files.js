@@ -31,17 +31,25 @@ SampleControls.filesController = SC.ArrayController.create(
   // 
   
   rowHeight: 20,
-  
+
+  // when custom row height is changed, we need to tell the list to re-render
   customRowHeight: 20,
+  customRowHeightDidChange: function() {
+    // note: indexes will be null if custom row heights are disabled.  
+    var indexes = this.get('customRowHeightIndexes'),
+        view    = SampleControls.collectionsPage.get('rowListView');
+    if (indexes && view) view.rowHeightDidChangeForIndexes(indexes);
+  }.observes('customRowHeight'),
   
-  useCustomRowHeightIndexes: YES,
+  useCustomRowHeights: NO,
   
   customRowHeightIndexes: function() {
-    if (!this.get('useCustomRowHeightIndexes')) return null;
+    if (!this.get('useCustomRowHeights')) return null;
     var ret = SC.IndexSet.create(), idx, len = this.get('length');
-    for(idx=0;idx<len;idx+=100) ret.add(idx);
+    for(idx=0;idx<1000;idx+=20) ret.add(idx);
     return ret.freeze();
-  }.property('useCustomRowHeightIndexes').cacheable(),
+  }.property('useCustomRowHeights', 'customRowHeight').cacheable(),
+  
   
   contentIndexRowHeight: function(view, content, index) {
     var set = this.get('customRowHeightIndexes');

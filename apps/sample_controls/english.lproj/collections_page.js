@@ -7,6 +7,8 @@
 // shows demonstration of various collection views...
 SampleControls.collectionsPage = SC.Page.create({
   
+  rowListView: SC.outlet('mainView.topLeftView.scrollView.contentView'),
+  
   mainView: SC.SplitView.design({
     layout: { top:20, left:12, right:12, bottom:12 },
     classNames: ['collections-tab'],
@@ -18,10 +20,16 @@ SampleControls.collectionsPage = SC.Page.create({
     topLeftMinThickness: 200,
     topLeftMaxThickness: 400,
     topLeftView: SC.View.design({
-      childViews: 'scrollView rowHeightSlider customRowCheckbox customRowHeightSlider'.w(),
+      childViews: 'scrollView rowHeightLabel rowHeightSlider customRowCheckbox customRowHeightSlider customRowHeightLabel'.w(),
+      
+      rowHeightLabel: SC.LabelView.design({
+        layout: { bottom: 40, right: 8, width: 20, height: 18 },
+        textAlign: SC.ALIGN_CENTER,
+        valueBinding: "SampleControls.filesController.rowHeight"
+      }),
       
       rowHeightSlider: SC.SliderView.design({
-        layout: { bottom: 40, left: 8, right: 8, height: 18 },
+        layout: { bottom: 40, left: 8, right: 32, height: 18 },
         minimum: 12,
         maximum: 80,
         step: 1,
@@ -33,11 +41,18 @@ SampleControls.collectionsPage = SC.Page.create({
         title: "Use custom row heights",
         valueBinding: "SampleControls.filesController.useCustomRowHeights"
       }),
+
+      customRowHeightLabel: SC.LabelView.design({
+        layout: { bottom: 0, right: 8, width: 20, height: 18 },
+        textAlign: SC.ALIGN_CENTER,
+        valueBinding: "SampleControls.filesController.customRowHeight"
+      }),
       
       customRowHeightSlider: SC.SliderView.design({
-        layout: { bottom: 0, left: 8, right: 8, height: 18 },
+        layout: { bottom: 0, left: 8, right: 32, height: 18 },
         minimum: 12,
         maximum: 80,
+        step: 1,
         valueBinding: "SampleControls.filesController.customRowHeight"
       }),
 
