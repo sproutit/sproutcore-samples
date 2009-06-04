@@ -141,7 +141,7 @@ SampleControls.controlsPage = SC.Page.create({
       title: "Long Title Exceeds Frame",
       value: YES,
       height: 36
-    }, null, null, null, {
+    }, null, {
       controlSize: SC.SMALL_CONTROL_SIZE,
       title: 'Regular Small'
     }, {
@@ -213,7 +213,7 @@ SampleControls.controlsPage = SC.Page.create({
       value: 'Item2',
       localize: YES,
       layoutDirection: SC.LAYOUT_VERTICAL
-    }, null, null, null, {
+    }, null, {
       controlSize: SC.SMALL_CONTROL_SIZE,
       items: 'Item1 Item2 Item3'.w(),
       value: ['Item1', 'Item3'],
@@ -446,7 +446,7 @@ SampleControls.controlsPage = SC.Page.create({
         controlSize: SC.REGULAR_CONTROL_SIZE
       }, {
         value: "Bold Regular Size Label",
-        fontWeight: SC.BOLD_FONT,
+        fontWeight: SC.BOLD_WEIGHT,
         controlSize: SC.REGULAR_CONTROL_SIZE
       }, {
         value: "Dis Regular Size Label",
@@ -459,7 +459,7 @@ SampleControls.controlsPage = SC.Page.create({
       }, {
         value: "Bold Small Size Label",
         height: 14,
-        fontWeight: SC.BOLD_FONT,
+        fontWeight: SC.BOLD_WEIGHT,
         controlSize: SC.SMALL_CONTROL_SIZE
       }, {
         value: "Dis Small Size Label",
@@ -473,13 +473,19 @@ SampleControls.controlsPage = SC.Page.create({
       }, {
         value: "Bold Tiny Size Label",
         height: 12,
-        fontWeight: SC.BOLD_FONT,
+        fontWeight: SC.BOLD_WEIGHT,
         controlSize: SC.TINY_CONTROL_SIZE
       }, {
         value: "Disabled Tiny Size Label",
         height: 12,
         isEnabled: NO,
         controlSize: SC.TINY_CONTROL_SIZE
+      }, null, {
+        value: "Editable",
+        isEditable: YES
+      }, {
+        value: "Editable icon",
+        isEditable: YES
       })
 
       .title('SC.DisclosureView').height(18).sample(SC.DisclosureView, {
