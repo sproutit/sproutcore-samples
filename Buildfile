@@ -60,8 +60,6 @@ config :all do |c|
   # line as well using the -e option, but you can override the default
   # using this config as well.
   #c[:build_mode] = :production
-  
-  c[:sc_server] = '~/Sites/sproutcore/abbot/bin/sc-server'
 
 end
 
@@ -88,8 +86,6 @@ config :iphone_demo,
   :required => 'sproutcore/mobile',
   :theme    => 'sproutcore/iphone_theme',
   :layout   => 'sproutcore/mobile:lib/index.rhtml'
-
-config :statechart, :required => 'sproutcore/statechart'
 
 # Setup extra services to proxy.  This is used only in dev mode so you can
 # talk to backend services.
