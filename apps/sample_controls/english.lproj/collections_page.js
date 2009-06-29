@@ -64,7 +64,9 @@ SampleControls.collectionsPage = SC.Page.create({
           contentIconKey:  'icon',
           contentUnreadCountKey: 'unread',
           hasContentIcon: YES,
-          contentBinding: 'SampleControls.filesController'//,
+          contentBinding: 'SampleControls.filesController',
+          canEditContent: YES,
+          canReorderContent: YES//,
           //selectionBinding: 'SampleControls.filesController.selection'
           // selectOnMouseDown: YES,
           // canReorderContent: YES
