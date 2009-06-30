@@ -478,7 +478,8 @@ SampleControls.controlsPage = SC.Page.create({
         isEditable: YES
       }, {
         value: "Editable icon",
-        isEditable: YES
+        isEditable: YES,
+        icon: "sc-icon-help-16"
       })
 
       .title('SC.DisclosureView').height(18).sample(SC.DisclosureView, {
