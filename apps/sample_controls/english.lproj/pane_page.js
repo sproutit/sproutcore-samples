@@ -15,7 +15,7 @@ SampleControls.panePage = SC.Page.create({
     layout: { left:0, right:0, bottom:0, top: 12 },
     hasVerticalScroller: NO,
 
-    contentView: tile().title('Panel').sample(SC.ButtonView, {
+    contentView: tile().title('Panel').height(24).sample(SC.ButtonView, {
         theme: 'square',
         title: 'SC.PanelPane',
         action: "showPanelPane",
@@ -52,14 +52,14 @@ SampleControls.panePage = SC.Page.create({
         target: "SampleControls.paneController"
       })
  
-      .title('Palette').height(21).sample(SC.ButtonView, {
+      .title('Palette').height(24).sample(SC.ButtonView, {
         theme: 'square',
         title: 'SC.PalettePane',
         action: "showPalettePane",
         target: "SampleControls.paneController"
       })
 
-      .title('Picker').height(21).sample(SC.ButtonView, {
+      .title('Picker').height(24).sample(SC.ButtonView, {
         theme: 'square',
         title: 'SC.PickerPane.default',
         action: "showPickerPaneDefault",
@@ -81,7 +81,7 @@ SampleControls.panePage = SC.Page.create({
         target: "SampleControls.paneController"
       })
 
-      .title('Menu').height(21).sample(SC.PopupButtonView, {
+      .title('Menu').height(24).sample(SC.PopupButtonView, {
         theme: 'square',
         title: 'SC.Menu.popup',
         action: "showMenuPane",

@@ -63,6 +63,10 @@ config :all do |c|
 
 end
 
+mode :debug do
+  config :all, :combine_stylesheets => false
+end
+
 # Add configurations for specific bundles here as well.  Any options you
 # provide here will override the defaults provided by the bundles themselves
 # as well as any options you place in the :all category above.
