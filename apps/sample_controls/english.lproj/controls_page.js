@@ -18,8 +18,9 @@ SampleControls.controlsPage = SC.Page.create({
     classNames: 'control-tab',
     layout: { left:0, right:0, bottom:0, top: 12 },
     hasVerticalScroller: NO,
+    borderStyle: SC.BORDER_NONE,
 
-    contentView: tile().title('SC.ButtonView').sample(SC.ButtonView, {
+    contentView: tile().height(24).title('SC.ButtonView').sample(SC.ButtonView, {
       title: 'Regular'
     }, {
       title: 'Reg Disabled',
@@ -61,7 +62,7 @@ SampleControls.controlsPage = SC.Page.create({
       contentIconKey: 'myIcon'
     })
 
-    .title('SC.ButtonView[Square]').height(21).sample(SC.ButtonView, {
+    .title('SC.ButtonView[Square]').height(24).sample(SC.ButtonView, {
       title: 'Regular'
     }, {
       title: 'Reg Disabled',
@@ -84,7 +85,7 @@ SampleControls.controlsPage = SC.Page.create({
       buttonBehavior: SC.TOGGLE_BEHAVIOR
     })
 
-    .title('SC.ButtonView[Capsule]').height(21).sample(SC.ButtonView, {
+    .title('SC.ButtonView[Capsule]').height(24).sample(SC.ButtonView, {
       theme: 'capsule',
       title: 'Regular'
     }, {
@@ -111,63 +112,6 @@ SampleControls.controlsPage = SC.Page.create({
       isSelected: YES,
       isEnabled: NO,
       buttonBehavior: SC.TOGGLE_BEHAVIOR
-    })
-
-    .title('SC.CheckboxView').height(18).sample(SC.CheckboxView, {
-      title: "Regular"
-    }, {
-      title: "Reg Disabled",
-      isEnabled: NO
-    }, null, {
-      title: "Selected",
-      value: YES,
-      icon: 'sc-icon-folder-16'
-    }, {
-      title: "Selected Disabled",
-      value: YES,
-      isEnabled: NO,
-      icon: 'sc-icon-trash-16'
-    }, null, {
-      title: "Mixed",
-      value: [YES, NO]
-    }, {
-      title: "Mixed Disabled",
-      value: [YES, NO],
-      isEnabled: NO
-    }, null, {
-      title: "Long Title Exceeds Frame",
-      value: YES
-    }, null, {
-      title: "Long Title Exceeds Frame",
-      value: YES,
-      height: 36
-    }, null, {
-      controlSize: SC.SMALL_CONTROL_SIZE,
-      title: 'Regular Small'
-    }, {
-      controlSize: SC.SMALL_CONTROL_SIZE,
-      title: 'Reg Small Disabled',
-      isEnabled: NO
-    }, null, {
-      controlSize: SC.SMALL_CONTROL_SIZE,
-      title: "Selected Small",
-      value: YES,
-      icon: 'sc-icon-folder-16'
-    }, {
-      controlSize: SC.SMALL_CONTROL_SIZE,
-      title: "Selected Small Disabled",
-      value: YES,
-      isEnabled: NO,
-      icon: 'sc-icon-trash-16'
-    }, null, {
-      controlSize: SC.SMALL_CONTROL_SIZE,
-      title: "Mixed Small",
-      value: [YES, NO]
-    }, {
-      controlSize: SC.SMALL_CONTROL_SIZE,
-      title: "Mixed Small Disabled",
-      value: [YES, NO],
-      isEnabled: NO
     })
 
     .title('SC.RadioView').height(60).sample(SC.RadioView, {
@@ -239,6 +183,207 @@ SampleControls.controlsPage = SC.Page.create({
       layoutDirection: SC.LAYOUT_HORIZONTAL
     })
 
+    .title('SC.SliderView').height(21).sample(SC.SliderView, {
+      value: 50, minimum: 0, maximum: 100
+    },{
+      value: 50, minimum: 0, maximum: 100,
+      isEnabled: NO
+
+    }, null, {
+      value: 0, minimum: 0, maximum: 100
+    },{
+      value: 0, minimum: 0, maximum: 100,
+      isEnabled: NO
+
+    }, null, {
+      value: 100, minimum: 0, maximum: 100, step: 20
+    },{
+      value: 100, minimum: 0, maximum: 100,
+      isEnabled: NO
+
+    })
+
+    .title('SC.ProgressView').height(20).sample(SC.ProgressView, {
+      value: 25,
+      minimum: 0,
+      maximum: 100
+    }, {  
+      value: 25,
+      minimum: 0,
+      maximum: 100,
+      isEnabled: NO
+    }, null, {
+      value: 0,
+      minimum: 0,
+      maximum: 100,
+
+      init: function() {
+        sc_super();
+        this.timerProgress.invokeLater(this, 1000);
+      },
+
+      change: 1,
+
+      timerProgress: function() {
+        var v=  this.get('value')+this.change;
+        if (this.change>0 && v>=100) {
+          this.change = -1;
+        } else if (this.change<0 && v<=0) {
+          this.change = 1 ;
+        }
+
+        this.set('value', v);
+        this.timerProgress.invokeLater(this, 1000/30);
+      }
+    }, {  
+      value: 0,
+      minimum: 0,
+      maximum: 100,
+      isEnabled: NO
+    }, null, {
+      value: 100,
+      minimum: 0,
+      maximum: 100
+    }, {  
+      value: 100,
+      minimum: 0,
+      maximum: 100,
+      isEnabled: NO
+    }, null, {
+      isIndeterminate: YES,
+      value: 50,
+      minimum: 0,
+      maximum: 100,
+      isRunning: YES
+    }, {  
+      isIndeterminate: YES,
+      value: 50,
+      minimum: 0,
+      maximum: 100,
+      isEnabled: NO,
+      isRunning: YES
+    })
+    
+    .title('SC.SegmentedView').height(24).width(240).sample(
+    SC.SegmentedView.extend({
+      valueProbe: function() { 
+        console.log("%@ value=%@".fmt(this,this.get('value')));
+      }.observes('value')
+    }), {
+      items: "Item1 Item2 Item3".w(),
+      value: "Item2"
+    }, {
+      items: "Item1 Item2 Item3".w(),
+      value: "Item2",
+      isEnabled: NO
+    }, null, {
+      items: [
+      { value: "Item1", icon: "sc-icon-user-16" },
+      { value: "Item2", icon: "sc-icon-group-16" },
+      { value: "Item3", icon: "sc-icon-options-16" }],
+      itemTitleKey: 'value',
+      itemValueKey: 'value',
+      itemIconKey: 'icon',
+      value: "Item1 Item3".w()
+    }, {
+      items: [
+      { value: "Item1", icon: "sc-icon-user-16" },
+      { value: "Item2", icon: "sc-icon-group-16" },
+      { value: "Item3", icon: "sc-icon-options-16" }],
+      itemTitleKey: 'value',
+      itemValueKey: 'value',
+      itemIconKey: 'icon',
+      isEnabled: NO,
+      value: "Item1 Item3".w()
+
+    }, null, {
+      items: ["Item1", "Very Long Item", "Item 3"],
+      value: "Very Long Item",
+      allowsEmptySelection: YES
+    }, {
+      items: ["Item1", "Very Long Item", "Item 3"],
+      value: "Item1 Item3".w(),
+      allowsEmptySelection: YES
+
+    }, null, {
+      items: "Item1 Item2 Item3".w(),
+      value: "Item2",
+      allowsMultipleSelection: YES
+    }, {
+      items: "Item1 Item2 Item3".w(),
+      value: "Item1 Item3".w(),
+      allowsMultipleSelection: YES
+
+    }, null, {
+      items: "Item1 Item2 Item3".w(),
+      value: "Item2",
+      allowsEmptySelection: YES,
+      allowsMultipleSelection: YES
+    }, {
+      items: "Item1 Item2 Item3".w(),
+      value: "Item1 Item3".w(),
+      allowsEmptySelection: YES,
+      allowsMultipleSelection: YES
+    })
+    
+    .title('SC.CheckboxView').height(18).sample(SC.CheckboxView, {
+      title: "Regular"
+    }, {
+      title: "Reg Disabled",
+      isEnabled: NO
+    }, null, {
+      title: "Selected",
+      value: YES,
+      icon: 'sc-icon-folder-16'
+    }, {
+      title: "Selected Disabled",
+      value: YES,
+      isEnabled: NO,
+      icon: 'sc-icon-trash-16'
+    }, null, {
+      title: "Mixed",
+      value: [YES, NO]
+    }, {
+      title: "Mixed Disabled",
+      value: [YES, NO],
+      isEnabled: NO
+    }, null, {
+      title: "Long Title Exceeds Frame",
+      value: YES
+    }, null, {
+      title: "Long Title Exceeds Frame",
+      value: YES,
+      height: 36
+    }, null, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: 'Regular Small'
+    }, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: 'Reg Small Disabled',
+      isEnabled: NO
+    }, null, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: "Selected Small",
+      value: YES,
+      icon: 'sc-icon-folder-16'
+    }, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: "Selected Small Disabled",
+      value: YES,
+      isEnabled: NO,
+      icon: 'sc-icon-trash-16'
+    }, null, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: "Mixed Small",
+      value: [YES, NO]
+    }, {
+      controlSize: SC.SMALL_CONTROL_SIZE,
+      title: "Mixed Small Disabled",
+      value: [YES, NO],
+      isEnabled: NO
+    })
+
+    
       .title('SC.TextFieldView').height(21).sample(SC.TextFieldView, {
         value: "Hello World",
         hint: "Test Me"
@@ -268,163 +413,11 @@ SampleControls.controlsPage = SC.Page.create({
         validator: 'Number'
       })
 
-      .title('SC.SliderView').height(18).sample(SC.SliderView, {
-        value: 50, minimum: 0, maximum: 100
-      },{
-        value: 50, minimum: 0, maximum: 100,
-        isEnabled: NO
-
-      }, null, {
-        value: 0, minimum: 0, maximum: 100
-      },{
-        value: 0, minimum: 0, maximum: 100,
-        isEnabled: NO
-
-      }, null, {
-        value: 100, minimum: 0, maximum: 100, step: 20
-      },{
-        value: 100, minimum: 0, maximum: 100,
-        isEnabled: NO
-
-      })
 
 
-      .title('SC.ProgressView').height(14).sample(SC.ProgressView, {
-        value: 25,
-        minimum: 0,
-        maximum: 100
-      }, {  
-        value: 25,
-        minimum: 0,
-        maximum: 100,
-        isEnabled: NO
-      }, null, {
-        value: 0,
-        minimum: 0,
-        maximum: 100,
 
-        init: function() {
-          sc_super();
-          this.timerProgress.invokeLater(this, 1000);
-        },
 
-        change: 1,
-
-        timerProgress: function() {
-          var v=  this.get('value')+this.change;
-          if (this.change>0 && v>=100) {
-            this.change = -1;
-          } else if (this.change<0 && v<=0) {
-            this.change = 1 ;
-          }
-
-          this.set('value', v);
-          this.timerProgress.invokeLater(this, 1000/30);
-        }
-      }, {  
-        value: 0,
-        minimum: 0,
-        maximum: 100,
-        isEnabled: NO
-      }, null, {
-        value: 100,
-        minimum: 0,
-        maximum: 100
-      }, {  
-        value: 100,
-        minimum: 0,
-        maximum: 100,
-        isEnabled: NO
-      }, null, {
-        isIndeterminate: YES,
-        value: 50,
-        minimum: 0,
-        maximum: 100,
-        isRunning: YES
-      }, {  
-        isIndeterminate: YES,
-        value: 50,
-        minimum: 0,
-        maximum: 100,
-        isEnabled: NO,
-        isRunning: YES
-      })
-
-      .title('SC.CheckboxView').height(18).sample(SC.CheckboxView, {
-        title: "Regular"
-      }, {
-        title: "Reg Disabled",
-        isEnabled: NO
-      }, null, {
-        title: "Selected",
-        value: YES,
-        icon: 'sc-icon-folder-16'
-      }, {
-        title: "Selected Disabled",
-        value: YES,
-        isEnabled: NO,
-        icon: 'sc-icon-trash-16'
-      }, null, {
-        title: "Mixed",
-        value: [YES, NO]
-      }, {
-        title: "Mixed Disabled",
-        value: [YES, NO],
-        isEnabled: NO
-      }, null, {
-        title: "Long Title Exceeds Frame",
-        value: YES
-      }, null, {
-        title: "Long Title Exceeds Frame",
-        value: YES,
-        height: 36
-      })
-
-      .title('SC.RadioView').height(60).sample(SC.RadioView, {
-        items: 'Item1 Item2 Item3'.w(),
-        value: ['Item1', 'Item3'],
-        layoutDirection: SC.LAYOUT_VERTICAL
-      }, null, {
-        items: 'Item1 Item2 Item3'.w(),
-        value: ['Item1', 'Item3'],
-        isEnabled: NO,
-        layoutDirection: SC.LAYOUT_VERTICAL
-      }, null, {
-        items: 'Item1 Item2'.w(),
-        value: 'Item1',
-        height: 23,
-        layoutDirection: SC.LAYOUT_HORIZONTAL
-      }, null, {
-        items: 'Item1 Item2'.w(),
-        value: 'Item1',
-        isEnabled: NO,
-        height: 23,
-        layoutDirection: SC.LAYOUT_HORIZONTAL
-      }, null, {
-        items: [{ title: "First Item", value: "Item1" },
-        { title: "Very long title goes onto the next line", value: "Item2" },
-        { title: "Loc.Title", value: "Item3" }],
-        itemTitleKey: 'title',
-        itemValueKey: 'value',
-        height: 80,
-        value: 'Item2',
-        localize: YES,
-        layoutDirection: SC.LAYOUT_VERTICAL
-      }, null, {
-        items: [
-        { title: "First Item", value: "Item1", enabled: YES, icon: 'sc-icon-user-16' },
-        { title: "Second Item", value: "Item2", enabled: NO, icon: 'sc-icon-options-16' },
-        { title: "Third Item", value: "Item3", enabled: YES, icon: 'sc-icon-bookmark-16' }],
-        itemTitleKey: 'title',
-        itemValueKey: 'value',
-        itemIsEnabledKey: 'enabled',
-        itemIconKey: 'icon',
-        height: 80,
-        value: 'Item2',
-        localize: YES,
-        layoutDirection: SC.LAYOUT_VERTICAL
-      })
-
+      
       .title('SC.LabelView').height(18).sample(SC.LabelView, {
         value: "Basic Label"
       }, {
@@ -512,66 +505,6 @@ SampleControls.controlsPage = SC.Page.create({
         value: YES
       })
 
-      .title('SC.SegmentedView').width(240).sample(
-      SC.SegmentedView.extend({
-        valueProbe: function() { 
-          console.log("%@ value=%@".fmt(this,this.get('value')));
-        }.observes('value')
-      }), {
-        items: "Item1 Item2 Item3".w(),
-        value: "Item2"
-      }, {
-        items: "Item1 Item2 Item3".w(),
-        value: "Item2",
-        isEnabled: NO
-      }, null, {
-        items: [
-        { value: "Item1", icon: "sc-icon-user-16" },
-        { value: "Item2", icon: "sc-icon-group-16" },
-        { value: "Item3", icon: "sc-icon-options-16" }],
-        itemTitleKey: 'value',
-        itemValueKey: 'value',
-        itemIconKey: 'icon',
-        value: "Item1 Item3".w()
-      }, {
-        items: [
-        { value: "Item1", icon: "sc-icon-user-16" },
-        { value: "Item2", icon: "sc-icon-group-16" },
-        { value: "Item3", icon: "sc-icon-options-16" }],
-        itemTitleKey: 'value',
-        itemValueKey: 'value',
-        itemIconKey: 'icon',
-        isEnabled: NO,
-        value: "Item1 Item3".w()
-
-      }, null, {
-        items: ["Item1", "Very Long Item", "Item 3"],
-        value: "Very Long Item",
-        allowsEmptySelection: YES
-      }, {
-        items: ["Item1", "Very Long Item", "Item 3"],
-        value: "Item1 Item3".w(),
-        allowsEmptySelection: YES
-
-      }, null, {
-        items: "Item1 Item2 Item3".w(),
-        value: "Item2",
-        allowsMultipleSelection: YES
-      }, {
-        items: "Item1 Item2 Item3".w(),
-        value: "Item1 Item3".w(),
-        allowsMultipleSelection: YES
-
-      }, null, {
-        items: "Item1 Item2 Item3".w(),
-        value: "Item2",
-        allowsEmptySelection: YES,
-        allowsMultipleSelection: YES
-      }, {
-        items: "Item1 Item2 Item3".w(),
-        value: "Item1 Item3".w(),
-        allowsEmptySelection: YES,
-        allowsMultipleSelection: YES
-      })
+      
     })
   }); 

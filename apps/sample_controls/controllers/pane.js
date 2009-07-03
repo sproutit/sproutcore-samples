@@ -33,7 +33,7 @@ SampleControls.paneController = SC.Object.create(
         }),
         
         buttonView: SC.ButtonView.extend({
-          layout: { width: 80, bottom: 20, height: 21, centerX: 0 },
+          layout: { width: 80, bottom: 20, height: 24, centerX: 0 },
           title: "Hide",
           action: "remove",
           target: "SampleControls.paneController.pane"
@@ -59,7 +59,7 @@ SampleControls.paneController = SC.Object.create(
         }),
         
         buttonView: SC.ButtonView.extend({
-          layout: { width: 80, bottom: 20, height: 21, centerX: 0 },
+          layout: { width: 80, bottom: 20, height: 24, centerX: 0 },
           title: "Hide",
           action: "remove",
           target: "SampleControls.paneController.sheetPane"
@@ -110,7 +110,7 @@ SampleControls.paneController = SC.Object.create(
         }),
         
         buttonView: SC.ButtonView.extend({
-          layout: { width: 80, bottom: 20, height: 21, centerX: 0 },
+          layout: { width: 80, bottom: 20, height: 24, centerX: 0 },
           title: "Hide",
           action: "remove",
           target: "SampleControls.paneController.palettePane"
