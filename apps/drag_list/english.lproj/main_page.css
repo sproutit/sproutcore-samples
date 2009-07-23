@@ -1,0 +1,10 @@
+body {
+  overflow: hidden;
+}
+
+.sc-view.main-container {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: #000 1px 3px 40px ;
+  -moz-box-shadow: #000 1px 3px 40px ;
+}
