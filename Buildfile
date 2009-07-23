@@ -96,5 +96,3 @@ config :iphone_demo,
 
 # This will proxy all requests to /* -> http://www.twitter.com/*
 proxy '/statuses', :to => 'twitter.com'
-
-config :clock, :required => ['sproutcore/deprecated']

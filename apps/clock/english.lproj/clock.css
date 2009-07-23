@@ -2,7 +2,7 @@ body.sc-theme {
   background-color: #666;
 }
 
-.clock {
+.sc-view.sc-main.clock {
   border: 30px #888 solid;
   background: black;
   -webkit-border-radius: 40px;
