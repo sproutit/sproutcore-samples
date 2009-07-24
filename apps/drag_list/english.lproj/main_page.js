@@ -56,7 +56,11 @@ DragList.mainPage = SC.Page.design({
 
             // enabled reordering and dragging
             canReorderContent: YES,
-            isDropTarget: YES
+            isDropTarget: YES,
+            
+            // double-click action handling
+            action: 'doubleClickedEmployees',
+            target: DragList
 
           })
         }),
