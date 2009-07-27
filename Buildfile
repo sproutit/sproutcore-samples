@@ -64,7 +64,7 @@ config :all do |c|
 end
 
 mode :debug do
-  config :all, :combine_stylesheets => false
+  config 'sproutcore/standard_theme', :combine_stylesheets => false
 end
 
 # Add configurations for specific bundles here as well.  Any options you
