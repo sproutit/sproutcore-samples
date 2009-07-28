@@ -1,6 +1,6 @@
 // ==========================================================================
 // Project:   DragList.inviteesController Unit Test
-// Copyright: ©2009 My Company, Inc.
+// Copyright: ©2009 Apple Inc.
 // ==========================================================================
 /*globals DragList module test ok equals same stop start */
 

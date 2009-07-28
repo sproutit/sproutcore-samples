@@ -1,6 +1,6 @@
 // ==========================================================================
 // Project:   UserDefaults Strings
-// Copyright: ©2009 My Company, Inc.
+// Copyright: ©2009 Apple Inc.
 // ==========================================================================
 /*globals UserDefaults */
 

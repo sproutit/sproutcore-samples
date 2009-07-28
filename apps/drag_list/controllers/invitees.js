@@ -1,6 +1,6 @@
 // ==========================================================================
 // Project:   DragList.inviteesController
-// Copyright: ©2009 My Company, Inc.
+// Copyright: ©2009 Apple Inc.
 // ==========================================================================
 /*globals DragList */
 
