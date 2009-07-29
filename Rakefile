@@ -8,10 +8,14 @@ LANGUAGES = [:en]
 # Autodetect some environment variables
 HOSTNAME = "demo.sproutcore.com"
 USERNAME = "sprout"
-HOME_TARGET = "welcome"
+HOME_TARGET = "/sproutcore/welcome"
 DOCROOT = "/home/sprout/demo.sproutcore.com"
 SC_BUILD = 'sc-build'
 WORKING = File.dirname(__FILE__)
+
+# these targets will not be included in the targets.json feed
+# add apps here that are not fully functioning and should not be listed
+EXCLUDE_TARGETS = %w(chat video sproutcore/tests sproutcore/docs not_found drag)
 
 # store global config options
 OPTS = {}
@@ -70,13 +74,75 @@ task :prepare_targets do
   targets = project.targets.values
   
   puts "preparing build numbers"
-  targets.each { |t| t.prepare!.compute_build_number }
+  targets.each do |t| 
+    puts " .. #{t.target_name}"
+    t.prepare!.compute_build_number if !t.build_number
+  end
   
   OPTS[:targets] = targets
   OPTS[:project] = project
 end
   
+desc "generates json feeds we need to update" 
+task :json_feeds => :prepare_targets do
+  require 'json'
+
+  json_hash = []
+  OPTS[:targets].each do |target|
+    next if EXCLUDE_TARGETS.include?(target.target_name.to_s[1..-1])
     
+    target.prepare!
+    parent = target.parent_target
+    parent = parent.kind_of?(SC::Target) ? parent.target_name : ''
+    json_hash << { "name" => target.target_name,
+      "kind" => target.target_type,
+      "parent" => parent,
+      "link_root" => target.url_root }
+  end
+  
+  file_path = WORKING / 'tmp' / 'sc' / 'targets.json'
+  FileUtils.mkdir_p(File.basename(file_path))
+  File.open(file_path, 'w+') { |f| f.write(json_hash.to_json) }
+  
+  OPTS[:feeds] = {
+    'sc/targets.json' => file_path
+  }
+end
+   
+desc "copies the built feeds onto the #{HOSTNAME} server"
+task :deploy_feeds => [:collect_password, :json_feeds] do
+
+  begin
+    require 'net/ssh'
+    require 'net/scp'  
+  rescue LoadError => e
+    puts "\n ~ FATAL: net-scp gem is required.\n          Try: rake install_gems"
+    exit(1)
+  end
+
+  password = OPTS[:password]
+  feeds    = OPTS[:feeds] || {} 
+  
+  puts "building directory structure"
+  Net::SSH.start(HOSTNAME, USERNAME, :password => password) do |ssh|
+    feeds.each do |dst_path, src_path|
+      remote_path = "#{DOCROOT}/#{dst_path}"
+      puts ssh.exec!(%[mkdir -p "#{File.basename(remote_path)}"]) || "%: mkdir -p #{remote_path}"
+      puts ssh.exec!(%[rm -r "#{remote_path}"]) || "%: rm #{remote_path}"
+    end
+
+  end
+        
+  puts "copying static resources onto remote server"
+  Net::SCP.start(HOSTNAME, USERNAME, :password => password) do |scp|
+    feeds.each do |dst_path, local_path|
+      remote_path = "#{DOCROOT}/#{dst_path}"
+      puts " ~ uploading feed: #{dst_path}"
+      scp.upload! local_path, remote_path, :recursive => true
+    end
+  end # Net::SCP.start
+end
+
 desc "copies the built files onto the #{HOSTNAME} server"
 task :deploy_assets => [:collect_password, :build, :prepare_targets] do
 
@@ -131,6 +197,7 @@ task :deploy_assets => [:collect_password, :build, :prepare_targets] do
         
       end # LANGUAGES.each
     end # targets.each
+    
   end # Net::SCP.start
   
 end
@@ -207,7 +274,7 @@ task :link_current => [:collect_password, :prepare_targets] do
 end
 
 desc "builds and then deploys the files to the server.  This will not clean the build first, which will be faster.  If you have trouble try deploy_clean"
-task :deploy => [:collect_password, :build, :deploy_assets, :link_current]
+task :deploy => [:collect_password, :build, :deploy_assets, :deploy_feeds, :link_current]
 
 desc "first cleans, then deploys the files"
 task :deploy_clean => [:clean, :deploy]
