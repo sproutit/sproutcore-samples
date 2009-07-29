@@ -1,7 +1,7 @@
 // ==========================================================================
 // Project:   SproutCore - JavaScript Application Framework
 // Copyright: ©2006-2009 Sprout Systems, Inc. and contributors.
-//            Portions ©2008-2009 Apple Inc. All rights reserved.
+//            Portions ©2008-2009 Apple, Inc. All rights reserved.
 // License:   Licened under MIT license (see license.js)
 // ==========================================================================
 
@@ -14,15 +14,20 @@ SC.VideoView = SC.View.extend({
   videoDuration : 0,
   v:null,
   volume:0,
+  time: '00:00/00:00',
   
   render: function(context, firstTime) {
     context.attr('src', this.src);
+    context.attr('poster', this.poster);
     context.push('video tag not supported by your browser');
   },
   
   seek:function(){
     var video=this.get('v');
     if(video.paused) video.currentTime=this.get('videoCurrentTime');
+    var timeInSecs = this.get('videoCurrentTime');
+    var totaltimeInSecs = this.get('videoDuration');
+    this.set('time', Math.floor(timeInSecs/60)+':'+Math.floor(timeInSecs%60)+"/"+Math.floor(totaltimeInSecs/60)+':'+Math.floor(totaltimeInSecs%60));
   }.observes('videoCurrentTime'),
   
   setVolume:function(){

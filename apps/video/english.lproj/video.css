@@ -22,3 +22,46 @@
   font-size: 24px !important;
   color: grey;
 }
+
+.play
+{
+  background: transparent static_url('buttons.gif') no-repeat -3px 3px ;
+  height: 20px;
+  width: 19px;
+}
+
+.theater
+{
+  background: transparent static_url('buttons.gif') no-repeat -22px 3px ;
+  height: 20px;
+  width: 18px;
+}
+
+.minus
+{
+  background: transparent static_url('buttons.gif') no-repeat -52px 3px ;
+  height: 20px;
+  width: 20px;
+}
+
+.plus
+{
+  background: transparent static_url('buttons.gif') no-repeat -35px 3px ;
+  height: 20px;
+  width: 20px;
+}
+
+.time
+{
+  background : white;
+  -webkit-border-radius: 5px;
+}
+
+.credits
+{
+  color:white;
+}
+
+.sc-theme .sc-pane.sc-main {
+	background-image: none !important;
+}

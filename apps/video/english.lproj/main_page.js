@@ -1,6 +1,6 @@
 // ==========================================================================
 // Project:   VideoApp - mainPage
-// Copyright: ©2009 Apple Inc.
+// Copyright: ©2009 My Company, Inc.
 // ==========================================================================
 /*globals VideoApp */
 
@@ -14,7 +14,7 @@ VideoApp.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page 
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'videoPlayer sproutcore'.w(),
+    childViews: 'videoPlayer sproutcore credits'.w(),
         
     videoPlayer: SC.View.design({
       childViews: 'canvasView controllersView'.w(),
@@ -24,23 +24,24 @@ VideoApp.mainPage = SC.Page.design({
         layout: { top: 0, left: 0, width: 640, height: 480 },
         canPlayCB : VideoApp.appController.canPlay,
         classNames: 'reflector',
-        src: 'http://images.apple.com/movies/us/hd_gallery/gl1800/480p/parks_on_fire_m480p.mov'
+        src: 'http://bitcast.vimeo.com/vimeo/v/462/050/4620504.mp4?e=1248816174&h=a106a6ce428571d4c4082b738123cbc3',
+        poster: 'http://static.flickr.com/2493/3746919153_d7869bd1a0.jpg'
       }),
       controllersView: SC.View.design({
-        layout: { bottom:58, left: 0, width: 640, height: 30 },
-        childViews: 'playButton progressView theatherButton volumeView'.w(),
+        layout: { bottom:28, left: 0, width: 640, height: 30 },
+        childViews: 'playButton progressView timeView minusLabelView volumeView plusLabelView theaterButton'.w(),
         classNames: 'controllers',
         playButton: SC.ButtonView.design({
-          title: 'Play',
-          titleMinWidth: 40,
-          classNames: 'reflector',
-          layout: { top: 0, left: 5, width: 50},
+          title: '',
+          titleMinWidth: 25,
+          icon: 'play',
+          layout: { top: 0, left: 5, width: 30},
           action: "playPause",
           target: "VideoApp.appController"
         }),
 
         progressView: SC.SliderExtended.design({
-          layout: { top: 0, left: 60, width: 400},
+          layout: { top: 2, left: 40, width: 340},
           value:0,
           valueBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.videoCurrentTime" ,
           minimum: 0,
@@ -49,19 +50,37 @@ VideoApp.mainPage = SC.Page.design({
           onMouseUp:VideoApp.appController.play
           
         }),
-        theatherButton: SC.ButtonView.design({
-          title: 'Curtain',
-          titleMinWidth: 40,
-          layout: { top: 0, left: 460, width: 60},
-          action: "theatherMode",
-          target: "VideoApp.appController"
+        
+        timeView: SC.LabelView.design({
+          layout: { top: 2, left: 380, width: 85, height:20},
+          classNames: 'time',
+          textAlign: SC.ALIGN_CENTER,
+          valueBinding: 'VideoApp.mainPage.mainPane.videoPlayer.canvasView.time'
+        }),
+        minusLabelView: SC.LabelView.design({
+          layout: { top: 0, left: 470, width: 25},
+          value: '',
+          icon: 'minus'
         }),
         volumeView: SC.SliderExtended.design({
-          layout: { top: 0, left: 520, width: 115},
+          layout: { top: 2, left: 485, width: 100},
           value:0,
           valueBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.volume" ,
           minimum: 0,
           maximum: 1
+        }),
+        plusLabelView: SC.LabelView.design({
+          layout: { top: 0, left: 580, width: 25},
+          value: '',
+          icon: 'plus'
+        }),
+        theaterButton: SC.ButtonView.design({
+          title: '',
+          icon: 'theater',
+          titleMinWidth: 30,
+          layout: { top: 0, right: 5, width: 30},
+          action: "theatherMode",
+          target: "VideoApp.appController"
         })
       })  
     }),
@@ -70,7 +89,15 @@ VideoApp.mainPage = SC.Page.design({
         classNames: 'sproutfont',
          textAlign: SC.ALIGN_RIGHT,
         layout: { top: 0, right: 0, width: 300, height: 30 }
-      })
+      }),
+      
+      credits: SC.LabelView.design({
+        tag: 'a',
+        classNames: 'credits',
+          value: 'Credits: flight patterns, Charlie McCarthy, http://vimeo.com/5676816',
+           textAlign: SC.ALIGN_RIGHT,
+          layout: { bottom: 0, right: 0, width: 500, height: 20 }
+        })
     
     
   })
