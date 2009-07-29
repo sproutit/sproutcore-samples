@@ -21,34 +21,34 @@ SampleControls.containerPage = SC.Page.create({
       }),
       
       SC.ButtonView.design({
-        layout: { left: 20, width: 140, top: 20, height: 21 },
+        layout: { left: 20, width: 140, top: 20, height: 24 },
         title: "Show Split View",
         action: "showContainer1",
         target: "SampleControls.containerController"
       }),
 
       SC.ButtonView.design({
-        layout: { left: 20, width: 140, top: 51, height: 21 },
+        layout: { left: 20, width: 140, top: 54, height: 24 },
         title: "Show Container2",
         action: "showContainer2",
         target: "SampleControls.containerController"
       }),
 
       SC.ButtonView.design({
-        layout: { left: 20, width: 140, top: 82, height: 21 },
+        layout: { left: 20, width: 140, top: 88, height: 24 },
         title: "Show Container3",
         action: "showContainer3",
         target: "SampleControls.containerController"
       }),
       
       SC.CheckboxView.design({
-        layout: { left: 20, width: 200, top: 113, height: 21 },
+        layout: { left: 20, width: 200, top: 125, height: 21 },
         title: "Enable top left thumb",
         valueBinding: '.page.enableTopRightThumb'
       }),
       
       SC.SliderView.design({
-        layout: { left: 20, width: 140, top: 144, height: 21 },
+        layout: { left: 20, width: 140, top: 154, height: 21 },
         valueBinding: '.page.dividerThickness',
         minimum: 0, maximum: 40, step: 1
       }),

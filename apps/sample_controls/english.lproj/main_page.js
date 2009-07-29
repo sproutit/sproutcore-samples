@@ -21,7 +21,7 @@ SampleControls.mainPage = SC.Page.create({
         { title: "Welcome", value: "welcome" },
         { title: "Controls", value: "SampleControls.controlsPage.mainView" },
         { title: "Collections", value: "SampleControls.collectionsPage.mainView" },
-        { title: "Form", value: "SampleControls.formsPage.mainView" },
+        //{ title: "Form", value: "SampleControls.formsPage.mainView" },
         { title: "Containers", value: "SampleControls.containerPage.mainView" },
         { title: "Panes", value: "SampleControls.panePage.mainView" },
         { title: "Icons", value: "SampleControls.iconsPage.mainView" }
