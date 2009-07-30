@@ -24,11 +24,10 @@ VideoApp.mainPage = SC.Page.design({
         layout: { top: 0, left: 0, width: 640, height: 480 },
         canPlayCB : VideoApp.appController.canPlay,
         classNames: 'reflector',
-        src: 'http://bitcast.vimeo.com/vimeo/v/462/050/4620504.mp4?e=1248816174&h=a106a6ce428571d4c4082b738123cbc3',
-        poster: 'http://static.flickr.com/2493/3746919153_d7869bd1a0.jpg'
+        src: 'http://tinyvid.tv/vfe/big_buck_bunny.mp4',
       }),
       controllersView: SC.View.design({
-        layout: { bottom:28, left: 0, width: 640, height: 30 },
+        layout: { bottom:58, left: 0, width: 640, height: 30 },
         childViews: 'playButton progressView timeView minusLabelView volumeView plusLabelView theaterButton'.w(),
         classNames: 'controllers',
         playButton: SC.ButtonView.design({
@@ -94,7 +93,7 @@ VideoApp.mainPage = SC.Page.design({
       credits: SC.LabelView.design({
         tag: 'a',
         classNames: 'credits',
-          value: 'Credits: flight patterns, Charlie McCarthy, http://vimeo.com/5676816',
+          value: '(c) copyright Blender Foundation | www.bigbuckbunny.org',
            textAlign: SC.ALIGN_RIGHT,
           layout: { bottom: 0, right: 0, width: 500, height: 20 }
         })

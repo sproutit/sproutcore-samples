@@ -27,8 +27,14 @@ SC.VideoView = SC.View.extend({
     if(video.paused) video.currentTime=this.get('videoCurrentTime');
     var timeInSecs = this.get('videoCurrentTime');
     var totaltimeInSecs = this.get('videoDuration');
-    this.set('time', Math.floor(timeInSecs/60)+':'+Math.floor(timeInSecs%60)+"/"+Math.floor(totaltimeInSecs/60)+':'+Math.floor(totaltimeInSecs%60));
+    var formattedTime = this.addZeros(Math.floor(timeInSecs/60))+':'+this.addZeros(Math.floor(timeInSecs%60))+"/"+this.addZeros(Math.floor(totaltimeInSecs/60))+':'+this.addZeros(Math.floor(totaltimeInSecs%60));
+    this.set('time', formattedTime);
   }.observes('videoCurrentTime'),
+  
+  addZeros:function(value){
+    if(value.toString().length<2) return "0"+value;
+    return value;
+  },
   
   setVolume:function(){
     var video=this.get('v');

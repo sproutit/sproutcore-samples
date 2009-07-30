@@ -3,7 +3,7 @@
 	src: url('slkscre.ttf');
 }
 
-.theather_mode {
+.sc-theme .sc-pane.sc-main.theather_mode {
   background: black;
 }
 
@@ -53,7 +53,7 @@
 
 .time
 {
-  background : white;
+  background : grey;
   -webkit-border-radius: 5px;
 }
 
