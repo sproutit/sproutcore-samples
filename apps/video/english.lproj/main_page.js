@@ -24,7 +24,7 @@ VideoApp.mainPage = SC.Page.design({
         layout: { top: 0, left: 0, width: 640, height: 480 },
         canPlayCB : VideoApp.appController.canPlay,
         classNames: 'reflector',
-        src: 'http://tinyvid.tv/vfe/big_buck_bunny.mp4',
+        src: (SC.browser.safari ? 'http://tinyvid.tv/vfe/big_buck_bunny.mp4':'http://tinyvid.tv/vfe/big_buck_bunny.ogv')
       }),
       controllersView: SC.View.design({
         layout: { bottom:58, left: 0, width: 640, height: 30 },

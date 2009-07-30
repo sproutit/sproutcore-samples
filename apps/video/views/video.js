@@ -50,12 +50,12 @@ SC.VideoView = SC.View.extend({
       SC.RunLoop.begin();
       xx.set('videoDuration', vid.duration);
       SC.RunLoop.end();
-    });
+    }, false);
     vid.addEventListener("timeupdate", function () {
       SC.RunLoop.begin();
       xx.set('videoCurrentTime',vid.currentTime);
       SC.RunLoop.end();
-    });     
+    }, false);     
   },
   
   play: function(){
