@@ -1,0 +1,19 @@
+.sc-view.desc h1 {
+  font-size: 28px;
+  line-height: 1.2;
+  padding-bottom: 20px;
+}
+
+.sc-view.desc ul li {
+	list-style-type: disc;
+	margin: 0.5em 0 ;
+	padding-left: 1.0em;
+}
+
+.working {
+  background-color: white;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border: 1px #333 solid;
+  color: black;
+}
