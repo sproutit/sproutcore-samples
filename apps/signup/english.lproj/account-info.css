@@ -1,0 +1,10 @@
+.signup-account-info table {
+  width: 100%;
+}
+
+.signup-account-info table th {
+  padding-right: 10px;
+  text-align: right;
+  font-weight: bold;
+  width: 120px;
+}
