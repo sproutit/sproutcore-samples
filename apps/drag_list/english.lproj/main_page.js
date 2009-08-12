@@ -100,7 +100,7 @@ DragList.mainPage = SC.Page.design({
             hasContentIcon:  YES,
             contentIconKey:  "icon",
             rowHeight: 32,
-
+            canDeleteContent: YES,
             // enabled reordering and dragging
             canReorderContent: YES,
             isDropTarget: YES
