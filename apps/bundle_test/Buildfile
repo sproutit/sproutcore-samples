@@ -1,0 +1,6 @@
+config :bundle_test,
+  :required => [:sproutcore, 'bundle_test/static'],
+  :dynamic_required => ['bundle_test/dynamic']
+
+config :static, :required => []
+config :dynamic, :required => []
