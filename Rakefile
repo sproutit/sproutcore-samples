@@ -101,8 +101,8 @@ task :json_feeds => :prepare_targets do
   end
   
   file_path = WORKING / 'tmp' / 'sc' / 'targets.json'
-  FileUtils.mkdir_p(File.basename(file_path))
-  File.open(file_path, 'w+') { |f| f.write(json_hash.to_json) }
+  FileUtils.mkdir_p(File.dirname(file_path))
+  File.open(file_path, 'w') { |f| f.write(json_hash.to_json) }
   
   OPTS[:feeds] = {
     'sc/targets.json' => file_path
