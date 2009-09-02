@@ -411,6 +411,13 @@ SampleControls.controlsPage = SC.Page.create({
       }, {
         hint: "Number",
         validator: 'Number'
+      }, null, {
+        isTextArea: YES,
+        hint: "TextArea - Multiline",
+        value: 'TextArea - Multiline'
+      }, {
+        isTextArea: YES,
+        hint: "TextArea - Multiline"
       })
 
 
