@@ -349,7 +349,8 @@ SampleControls.controlsPage = SC.Page.create({
       isEnabled: NO
     }, null, {
       title: "Long Title Exceeds Frame",
-      value: YES
+      value: YES,
+      needsEllipsis: YES
     }, null, {
       title: "Long Title Exceeds Frame",
       value: YES,

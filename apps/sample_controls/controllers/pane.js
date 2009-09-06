@@ -173,6 +173,7 @@ SampleControls.paneController = SC.Object.create(
                    { title: "Item3", isEnabled: YES, icon: iconURL, separator: NO , branchItem: YES,
                    subMenu: SC.MenuPane.create({
                      items: ["title1","title2"],
+                     layout: { width: 150 },
                      contentView: SC.View.extend({
                        layout: { width: 150, height: 200 }
                      })
@@ -189,6 +190,7 @@ SampleControls.paneController = SC.Object.create(
                  preferType: SC.PICKER_MENU,
                  subMenuKey: 'subMenu',
                  itemShortCutKey: 'shortCut',
+                 layout: { width: 150 },
                  itemKeyEquivalentKey: 'keyEquivalent',
                  itemHeightKey: 'height',
                  contentView: SC.View.extend({

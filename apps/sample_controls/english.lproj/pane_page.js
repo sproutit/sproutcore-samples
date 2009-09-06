@@ -86,10 +86,38 @@ SampleControls.panePage = SC.Page.create({
         title: 'SC.Menu.popup',
         action: "showMenuPane",
         target: "SampleControls.paneController"
-      },  null, {
-        theme: 'square',
-        title: 'SC.Menu.dropdown'
       })
- 
+      
+      //Code for DropDownMenu
+      .title('Drop Down').height(24).sample(SC.DropDownMenu, {
+
+        //Type1 - selectionValue not defined by the user
+        title: 'SC.DropDownMenu',
+        objects: [ { title: "Type 1", icon: 'drop-down-icon'},
+          { title: "vanilla", icon: 'drop-down-icon', pos: 1 },
+          { title: "chocolate", icon: 'drop-down-icon', pos: 2 },
+          { title: "straberry", icon: 'drop-down-icon', pos: 3 },
+          { title: "lemon", icon: 'drop-down-icon', pos: 4 }],
+        nameKey: 'title',
+        iconKey: 'icon',
+        value: 'chicolate',
+        valueKey: 'title',
+        sortKey: 'pos',
+        checkboxEnabled: YES
+      }, null, {
+
+        //Type2 - selectionValue specified by user
+        title: 'SC.DropDownMenu',
+        objects: [{ title: "None", icon: 'drop-down-icon'},
+          { title: "Low", icon: 'drop-down-icon' },
+          { title: "Medium", icon: 'drop-down-icon' },
+          { title: "High", icon: 'drop-down-icon' },
+          { title: "Type 2", icon: 'drop-down-icon' }],
+        nameKey: 'title',
+        value: 'Type 2',
+        valueKey: 'title',
+        checkboxEnabled: YES
+      })
+      //End of DropDownMenu
   })
 });
