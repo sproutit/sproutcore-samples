@@ -1,6 +1,6 @@
 // ==========================================================================
 // Project:   Dot.DotView Unit Test
-// Copyright: ©2009 My Company, Inc.
+// Copyright: ©2009 Apple Inc.
 // ==========================================================================
 /*globals Dot module test ok equals same stop start */
 

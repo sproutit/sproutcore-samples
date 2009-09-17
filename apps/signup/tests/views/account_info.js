@@ -1,6 +1,6 @@
 // ==========================================================================
 // Project:   Signup.AccountInfoView Unit Test
-// Copyright: ©2009 My Company, Inc.
+// Copyright: ©2009 Apple Inc.
 // ==========================================================================
 /*globals Signup module test ok equals same stop start */
 
