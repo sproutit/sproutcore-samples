@@ -88,16 +88,16 @@ SampleControls.panePage = SC.Page.create({
         target: "SampleControls.paneController"
       })
       
-      //Code for DropDownMenu
-      .title('Drop Down').height(24).sample(SC.DropDownMenu, {
+      //Code for Selector
+      .title('Selector').height(24).sample(SC.Selector, {
 
         //Type1 - selectionValue not defined by the user
-        title: 'SC.DropDownMenu',
-        objects: [ { title: "Type 1", icon: 'drop-down-icon'},
-          { title: "vanilla", icon: 'drop-down-icon', pos: 1 },
-          { title: "chocolate", icon: 'drop-down-icon', pos: 2 },
-          { title: "straberry", icon: 'drop-down-icon', pos: 3 },
-          { title: "lemon", icon: 'drop-down-icon', pos: 4 }],
+        title: 'SC.Selector',
+        objects: [ { title: "Type 1", icon: 'selector-icon'},
+          { title: "vanilla", icon: 'selector-icon', pos: 1 },
+          { title: "chocolate", icon: 'selector-icon', pos: 2 },
+          { title: "straberry", icon: 'selector-icon', pos: 3 },
+          { title: "lemon", icon: 'selector-icon', pos: 4 }],
         nameKey: 'title',
         iconKey: 'icon',
         value: 'chicolate',
@@ -107,17 +107,17 @@ SampleControls.panePage = SC.Page.create({
       }, null, {
 
         //Type2 - selectionValue specified by user
-        title: 'SC.DropDownMenu',
-        objects: [{ title: "None", icon: 'drop-down-icon'},
-          { title: "Low", icon: 'drop-down-icon' },
-          { title: "Medium", icon: 'drop-down-icon' },
-          { title: "High", icon: 'drop-down-icon' },
-          { title: "Type 2", icon: 'drop-down-icon' }],
+        title: 'SC.Selector',
+        objects: [{ title: "None", icon: 'selector-icon'},
+          { title: "Low", icon: 'selector-icon' },
+          { title: "Medium", icon: 'selector-icon' },
+          { title: "High", icon: 'selector-icon' },
+          { title: "Type 2", icon: 'selector-icon' }],
         nameKey: 'title',
         value: 'Type 2',
         valueKey: 'title',
         checkboxEnabled: YES
       })
-      //End of DropDownMenu
+      //End of Selector
   })
 });
