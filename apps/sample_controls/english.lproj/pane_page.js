@@ -88,16 +88,16 @@ SampleControls.panePage = SC.Page.create({
         target: "SampleControls.paneController"
       })
       
-      //Code for Selector
-      .title('Selector').height(24).sample(SC.Selector, {
+      //Code for SelectButton
+      .title('SelectButtonView').height(24).sample(SC.SelectButtonView, {
 
         //Type1 - selectionValue not defined by the user
-        title: 'SC.Selector',
-        objects: [ { title: "Type 1", icon: 'selector-icon'},
-          { title: "vanilla", icon: 'selector-icon', pos: 1 },
-          { title: "chocolate", icon: 'selector-icon', pos: 2 },
-          { title: "straberry", icon: 'selector-icon', pos: 3 },
-          { title: "lemon", icon: 'selector-icon', pos: 4 }],
+        title: 'SC.SelectButtonView',
+        objects: [ { title: "Type 1", icon: 'select-button-icon'},
+          { title: "vanilla", icon: 'select-button-icon', pos: 1 },
+          { title: "chocolate", icon: 'select-button-icon', pos: 2 },
+          { title: "straberry", icon: 'select-button-icon', pos: 3 },
+          { title: "lemon", icon: 'select-button-icon', pos: 4 }],
         nameKey: 'title',
         iconKey: 'icon',
         value: 'chicolate',
@@ -107,17 +107,17 @@ SampleControls.panePage = SC.Page.create({
       }, null, {
 
         //Type2 - selectionValue specified by user
-        title: 'SC.Selector',
-        objects: [{ title: "None", icon: 'selector-icon'},
-          { title: "Low", icon: 'selector-icon' },
-          { title: "Medium", icon: 'selector-icon' },
-          { title: "High", icon: 'selector-icon' },
-          { title: "Type 2", icon: 'selector-icon' }],
+        title: 'SC.SelectButtonView',
+        objects: [{ title: "None", icon: 'select-button-icon'},
+          { title: "Low", icon: 'select-button-icon' },
+          { title: "Medium", icon: 'select-button-icon' },
+          { title: "High", icon: 'select-button-icon' },
+          { title: "Type 2", icon: 'select-button-icon' }],
         nameKey: 'title',
         value: 'Type 2',
         valueKey: 'title',
         checkboxEnabled: YES
       })
-      //End of Selector
+      //End of SelectButtonView
   })
 });
