@@ -17,7 +17,7 @@ DragList.main = function main() {
   DragList.getPath('mainPage.mainPane').append() ;
 
   // set the initial data
-  var employees = this.store.findAll(DragList.Employee);
+  var employees = SC.A(this.store.find(DragList.Employee));
   DragList.employeesController.set('content', employees);
 
 } ;
