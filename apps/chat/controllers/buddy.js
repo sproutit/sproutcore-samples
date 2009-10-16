@@ -19,6 +19,9 @@ Chat.buddyController = SC.TreeController.create(
   content: null,
   
   treeItemIsGrouped: YES,
-  treeItemChildrenKey: 'buddyGroups'
+  treeItemChildrenKey: 'buddyGroups',
+  
+  allowsEmptySelection: NO,
+  allowsMultipleSelection: NO
   
 });

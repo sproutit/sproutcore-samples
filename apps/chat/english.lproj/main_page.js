@@ -18,10 +18,9 @@ Chat.mainPage = SC.Page.design({
       hasHorizontalScroller: NO,
       contentView: SC.SourceListView.design({
         contentBinding: 'Chat.buddyController.arrangedObjects',
+        selectionBinding: 'Chat.buddyController.selection',
         contentValueKey: 'fullName',
-        // groupExampleView: SC.ListItemView.design({
-        //   contentValueKey: 'name'
-        // })
+        canReorderContent: YES
       })
     })
   })

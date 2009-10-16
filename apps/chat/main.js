@@ -8,7 +8,7 @@ function main() {
   Chat.getPath('mainPage.mainPane').append() ;
   
   // create the root of our tree controller...
-  var buddyGroups = Chat.store.findAll(Chat.BuddyGroup) ;
+  var buddyGroups = Chat.store.find(Chat.BuddyGroup).toArray() ;
   var buddyList =  SC.Object.create(SC.TreeItemContent, {
     treeItemIsGrouped: YES,
     treeItemChildren: buddyGroups,
