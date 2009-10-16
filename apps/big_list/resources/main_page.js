@@ -20,7 +20,9 @@ BigList.mainPage = SC.Page.design({
       
       contentView: SC.ListView.design({
         contentValueKey: "subject",
-        contentBinding: "BigList.rootController.arrangedObjects"
+        contentBinding: "BigList.rootController.arrangedObjects",
+        canDeleteContent: YES,
+        canReorderContent: YES
       })
     }),
     

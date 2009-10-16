@@ -87,6 +87,21 @@ BigList.MessageSparseArray = SC.Object.extend(
       sa.provideObjectsInRange(range, ret);
       sa.rangeRequestCompleted(range.start);
     });
+  },
+  
+  // helper to quickly compute index of an item...
+  sparseArrayDidRequestIndexOf: function(sa, object) {
+    if (!this._objects) return -1;
+    return this._objects.indexOf(object);
+  },
+  
+  // allow edits yo.  also make equivalent change on local objects...
+  sparseArrayShouldReplace: function(sparseArray, idx, amt, objects) {
+    console.log('sparseArrayShouldReplace(idx=%@ amt=%@ objects=%@)'.fmt(idx, amt, objects));
+    
+    if (!this._objects) return NO ;
+    this._objects.replace(idx, amt, objects);
+    return YES ;
   }
 
 }) ;
