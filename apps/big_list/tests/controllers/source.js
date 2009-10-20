@@ -1,6 +1,6 @@
 // ==========================================================================
 // Project:   BigList.sourceController Unit Test
-// Copyright: ©2009 My Company, Inc.
+// Copyright: ©2009 Apple Inc.
 // ==========================================================================
 /*globals BigList module test ok equals same stop start */
 
