@@ -514,6 +514,17 @@ SampleControls.controlsPage = SC.Page.create({
         value: YES
       })
 
+      .title('SC.WellView').height(90).sample(SC.WellView, {
+        contentView: SC.RadioView.design({
+          items: 'Item1 Item2 Item3'.w(),
+          value: ['Item1', 'Item3'],
+          layoutDirection: SC.LAYOUT_VERTICAL
+        }),
+        nowShowing: true,
+        layout: { left: 0, top: 0, bottom: 0, right: 0 }
+      })
+
+
       
     })
   }); 

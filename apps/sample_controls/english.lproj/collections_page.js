@@ -13,7 +13,7 @@ SampleControls.collectionsPage = SC.Page.create({
     layout: { top:20, left:12, right:12, bottom:12 },
     classNames: ['collections-tab'],
     layoutDirection: SC.LAYOUT_HORIZONTAL,
-    defaultThickness: 500,
+    defaultThickness: 0.5,
     autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
     canCollapseViews: YES,
     

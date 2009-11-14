@@ -99,6 +99,7 @@ SampleControls.panePage = SC.Page.create({
           { title: "straberry", icon: 'select-button-icon', pos: 3 },
           { title: "lemon", icon: 'select-button-icon', pos: 4 }],
         nameKey: 'title',
+        theme: 'square',
         iconKey: 'icon',
         value: 'chicolate',
         valueKey: 'title',
@@ -114,6 +115,7 @@ SampleControls.panePage = SC.Page.create({
           { title: "High", icon: 'select-button-icon' },
           { title: "Type 2", icon: 'select-button-icon' }],
         nameKey: 'title',
+        theme: 'square',
         value: 'Type 2',
         valueKey: 'title',
         checkboxEnabled: YES
