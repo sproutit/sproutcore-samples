@@ -1,0 +1,36 @@
+/*
+// ==========================================================================
+// Project:   BindingsOverload - main_page.css
+// Copyright: ©2009 Apple, Inc.
+// ==========================================================================
+*/
+/*globals BindingsOverload */
+
+/**
+  Custom styling can be done in your CSS files.
+
+  Any CSS files in the resources directory will automatically be included--you
+  don't need to explicitly require them as you traditionally do in HTML.
+
+  Note that the class names of views correspond to their JavaScript class. For
+  example, SC.ButtonView becomes sc-button-view, SC.TextFieldView becomes
+  sc-text-field-view, etc. Sub-classes will inherit their parents' class
+  names, as well, so applying styles to '.sc-view' would affect ButtonViews
+  and TextFieldViews both.
+
+  You can define a custom class name by setting the classNames property on
+  your view. See our custom view in main_page.js, which we style below by
+  using the '.bindings-controls' selector.
+*/
+.sc-button-view {
+  opacity: 1;
+  -webkit-transition-property: left, top, opacity;
+  -webkit-transition-duration: 1s, 1s, 1s;
+  -webkit-transition-timing-function: ease-in-out, ease-in-out, linear;
+}
+
+.bindings-controls {
+  background-color: rgba(0,0,0,0.4);
+  padding: 6px;
+  z-index: 1;
+}
