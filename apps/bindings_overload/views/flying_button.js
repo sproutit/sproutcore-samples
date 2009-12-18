@@ -34,12 +34,12 @@ BindingsOverload.FlyingButtonView = SC.ButtonView.extend(
     this.invokeLater(function() {
       var frame = this.getPath('pane.frame'), width, height;
       width = Math.floor(Math.random()*(frame.width-100));
-      height = Math.floor(Math.random()*(frame.height-100));
+      height = Math.floor(Math.random()*(frame.height-24));
       this.adjust({ left: width, top: height });
     }, 100);
 
     // Once we've been on screen for 3 seconds, begin to dim the control.
-    this.invokeLater(this.dimControl, 3000);
+    this.invokeLater(this.dimControl, 6000);
   },
 
   /**
