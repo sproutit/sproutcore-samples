@@ -15,7 +15,7 @@ WORKING = File.dirname(__FILE__)
 
 # these targets will not be included in the targets.json feed
 # add apps here that are not fully functioning and should not be listed
-EXCLUDE_TARGETS = %w(chat video sproutcore/tests sproutcore/docs not_found drag)
+EXCLUDE_TARGETS = %w(chat sproutcore/tests sproutcore/docs not_found drag)
 
 # store global config options
 OPTS = {}
