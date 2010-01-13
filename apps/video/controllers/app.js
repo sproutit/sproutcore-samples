@@ -25,7 +25,7 @@ VideoApp.appController = SC.Object.create(
   
   pause: function() {
     var pb=VideoApp.mainPage.mainPane.videoPlayer.canvasView;
-    pb.pause();
+    pb.stop();
   },
   
   theatherMode: function() {

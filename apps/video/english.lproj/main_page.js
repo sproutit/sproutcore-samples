@@ -24,10 +24,11 @@ VideoApp.mainPage = SC.Page.design({
         layout: { top: 0, left: 0, width: 640, height: 480 },
         canPlayCB : VideoApp.appController.canPlay,
         classNames: 'reflector',
-        src: (SC.browser.safari ? 'http://tinyvid.tv/vfe/big_buck_bunny.mp4':'http://tinyvid.tv/vfe/big_buck_bunny.ogv')
+        src: 'http://tinyvid.tv/vfe/big_buck_bunny.mp4'
+          //'http://tinyvid.tv/vfe/big_buck_bunny.ogv')
       }),
       controllersView: SC.View.design({
-        layout: { bottom:58, left: 0, width: 640, height: 30 },
+        layout: { bottom:0, left: 0, width: 640, height: 30 },
         childViews: 'playButton progressView timeView minusLabelView volumeView plusLabelView theaterButton'.w(),
         classNames: 'controllers',
         playButton: SC.ButtonView.design({
@@ -42,9 +43,9 @@ VideoApp.mainPage = SC.Page.design({
         progressView: SC.SliderExtended.design({
           layout: { top: 2, left: 40, width: 340},
           value:0,
-          valueBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.videoCurrentTime" ,
+          valueBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.currentTime" ,
           minimum: 0,
-          maximumBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.videoDuration",
+          maximumBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.duration",
           onMouseDown:VideoApp.appController.pause,
           onMouseUp:VideoApp.appController.play
           
@@ -66,7 +67,8 @@ VideoApp.mainPage = SC.Page.design({
           value:0,
           valueBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.volume" ,
           minimum: 0,
-          maximum: 1
+          maximum: 1,
+          step: 0.01
         }),
         plusLabelView: SC.LabelView.design({
           layout: { top: 0, left: 580, width: 25},

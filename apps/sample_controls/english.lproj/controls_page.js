@@ -233,7 +233,7 @@ SampleControls.controlsPage = SC.Page.create({
         }
 
         this.set('value', v);
-        this.timerProgress.invokeLater(this, 1000/30);
+        this.timerProgress.invokeLater(this, 30);
       }
     }, {  
       value: 0,
