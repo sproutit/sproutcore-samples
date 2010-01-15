@@ -13,16 +13,19 @@
 Twitter.TweetDataSource = SC.DataSource.extend(
 /** @scope Twitter.TweetDataSource.prototype */ {
 
+  pageSize: 50,
+   
   // ..........................................................
   // QUERY SUPPORT
   // 
 
   fetch: function(store, query) {
 
-    // TODO: Add handlers to fetch data for specific queries.  
-    // call store.dataSourceDidFetchQuery(query) when done.
+    SC.Request.getUrl('search.json?rpp=50&page=1&q='+query.query).json()
+      .notify(this, 'didFetchTweets', store, query, {})
+      .send();
+    return YES;
 
-    return NO ; // return YES if you handled the query
   },
 
   // ..........................................................
@@ -59,6 +62,17 @@ Twitter.TweetDataSource = SC.DataSource.extend(
     // call store.dataSourceDidDestroy(storeKey) when done
     
     return NO ; // return YES if you handled the storeKey
+  },
+  
+  
+  didFetchTweets: function(response, store, query, params) {
+    var data, storeKeys;
+    if (SC.ok(response)) {
+      data = response.get('body').results;
+      storeKeys = store.loadRecords(Twitter.Tweet, data);
+      store.loadQueryResults(query, storeKeys);
+    } 
+    else store.dataSourceDidErrorQuery(query, response);
   }
   
 }) ;

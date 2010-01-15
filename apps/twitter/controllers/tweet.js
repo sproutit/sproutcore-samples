@@ -23,6 +23,16 @@ Twitter.tweetController = SC.ArrayController.create(
       url = fO.get('url');
       this.set('url', url);
     }
-  }.observes('selection')
+  }.observes('selection'),
+  
+  query: '',
+  
+  invokeQuery: function(){
+    var q=this.get('query');
+    if(q.length===0 || q.length%2 !== 0) return;
+    var twitterQuery = SC.Query.remote(Twitter.Tweet, {query: q});
+    var tweets = Twitter.store.find(twitterQuery);
+    Twitter.tweetController.set('content', tweets);
+  }.observes('query')
   
 }) ;

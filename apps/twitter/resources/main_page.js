@@ -25,7 +25,8 @@ Twitter.mainPage = SC.Page.design({
       }),
       searchField: SC.TextFieldView.design({
         layout: { centerY: 0, height: 25, left: 270, width: 300 },
-        hint: "Type your search here"
+        hint: "Type your search here",
+        valueBinding: 'Twitter.tweetController.query'
       }),
       loginButton: SC.ButtonView.design({
         layout: { top: -3, height: 25, right: 20, width: 100 },
