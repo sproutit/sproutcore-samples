@@ -20,13 +20,12 @@ Twitter.mainPage = SC.Page.design({
 
       twitterLogo: SC.ImageView.design({
         layout: { centerY: 0, height: 55, left: 20, width: 225 },
-        value:   'http://a1.twimg.com/a/1257878623/images/logo.png',
-        useImageCache:NO
+        value: 'http://a1.twimg.com/a/1257878623/images/logo.png',
+        useImageCache: NO
       }),
       searchField: SC.TextFieldView.design({
         layout: { centerY: 0, height: 25, left: 270, width: 300 },
-        hint:  "Type your search here",
-        valueBinding: 'Twitter.twettController.query'
+        hint: "Type your search here"
       })
     }),
     
@@ -46,11 +45,7 @@ Twitter.mainPage = SC.Page.design({
 
         contentView: SC.ListView.design({   
           classNames: ['twetts'],
-          contentBinding: 'Twitter.twettController.arrangedObjects',
-          selectionBinding: 'Twitter.twettController.selection' ,
-          contentValueKey: "text",     
           hasContentIcon: YES,
-          contentIconKey: 'profile_image_url',
           rowHeight: 60
         })
       }),
@@ -61,12 +56,10 @@ Twitter.mainPage = SC.Page.design({
         childViews: 'address webView'.w(),
       
         address: SC.LabelView.design({
-          layout: { top: 0, left: 10, right: 0, height: 25 },
-          valueBinding: 'Twitter.twettController.url'
+          layout: { top: 0, left: 10, right: 0, height: 25 }
         }),  
         webView: SC.WebView.design({
-          layout: { top:25, left: 0, right: 0, bottom: 0 },
-          valueBinding:'Twitter.twettController.url'
+          layout: { top:25, left: 0, right: 0, bottom: 0 }
         })
       })
     })
