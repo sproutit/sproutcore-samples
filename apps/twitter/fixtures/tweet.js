@@ -4,9 +4,9 @@
 // ==========================================================================
 /*globals Twitter */
 
-sc_require('models/twett');
+sc_require('models/tweet');
 
-Twitter.Twett.FIXTURES = [{
+Twitter.Tweet.FIXTURES = [{
         "profile_image_url": "http://a3.twimg.com/profile_images/63592953/Photo_43_normal.jpg",
         "created_at": "Thu, 12 Nov 2009 03:35:06 +0000",
         "from_user": "sc_ttwhite",
