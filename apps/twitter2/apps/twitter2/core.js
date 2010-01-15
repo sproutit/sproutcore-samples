@@ -1,8 +1,8 @@
 // ==========================================================================
-// Project:   Twitter
+// Project:   Twitter2
 // Copyright: ©2010 My Company, Inc.
 // ==========================================================================
-/*globals Twitter */
+/*globals Twitter2 */
 
 /** @namespace
 
@@ -10,10 +10,10 @@
   
   @extends SC.Object
 */
-Twitter = SC.Application.create(
-  /** @scope Twitter.prototype */ {
+Twitter2 = SC.Application.create(
+  /** @scope Twitter2.prototype */ {
 
-  NAMESPACE: 'Twitter',
+  NAMESPACE: 'Twitter2',
   VERSION: '0.1.0',
 
   // This is your application store.  You will use this store to access all

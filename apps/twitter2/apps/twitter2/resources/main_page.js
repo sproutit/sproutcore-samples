@@ -1,11 +1,11 @@
 // ==========================================================================
-// Project:   Twitter - mainPage
+// Project:   Twitter2 - mainPage
 // Copyright: ©2010 My Company, Inc.
 // ==========================================================================
-/*globals Twitter */
+/*globals Twitter2 */
 
 // This page describes the main user interface for your application.  
-Twitter.mainPage = SC.Page.design({
+Twitter2.mainPage = SC.Page.design({
 
   // The main pane is made visible on screen as soon as your app is loaded.
   // Add childViews to this pane for views to display immediately on page 
