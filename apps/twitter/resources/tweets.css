@@ -1,0 +1,15 @@
+.sc-theme .twetts .sc-list-item-view .icon {
+  margin-top:0px;
+  top:5px;
+  width: 48px;
+  height:48px;
+  
+}
+
+.sc-theme .twetts .sc-list-item-view label {
+  left: 58px;
+}
+
+.topBar {
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#00E3DB), to(#16CCE0), color-stop(.6,#FFFFFF))
+}
