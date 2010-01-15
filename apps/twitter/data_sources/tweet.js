@@ -123,5 +123,5 @@ Twitter.TweetDataSource = SC.DataSource.extend(
      console.log('MessageListDataSource.sparseArrayDidReset') ;
    }
 
-  
+
 }) ;

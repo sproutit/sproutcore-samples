@@ -27,12 +27,15 @@ Twitter.mainPage = SC.Page.design({
         layout: { centerY: 0, height: 25, left: 270, width: 300 },
         hint: "Type your search here",
         valueBinding: 'Twitter.tweetController.query'
+<<<<<<< HEAD
       }),
       loginButton: SC.ButtonView.design({
         layout: { top: -3, height: 25, right: 20, width: 100 },
         title: "Login",
         target: 'Twitter.loginController',
         action: 'openDialog'
+=======
+>>>>>>> Bind textfield with controller. Add datasource and load from twitter.
       })
     }),
     
