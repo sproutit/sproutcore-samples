@@ -100,3 +100,5 @@ config :table_view,
 
 # This will proxy all requests to /* -> http://www.twitter.com/*
 proxy '/statuses', :to => 'twitter.com'
+
+proxy '/search', :to =>'search.twitter.com'
