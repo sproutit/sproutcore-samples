@@ -13,6 +13,16 @@
 Twitter.tweetController = SC.ArrayController.create(
 /** @scope Twitter.tweetController.prototype */ {
 
-  // TODO: Add your own code here.
-
+  url: 'about:blank',
+  
+  selectionChanged: function() {
+    var s, fO, url; 
+    s = this.get('selection');
+    if(s){
+      fO = s.firstObject();
+      url = fO.get('url');
+      this.set('url', url);
+    }
+  }.observes('selection')
+  
 }) ;
