@@ -18,10 +18,11 @@ Twitter.TweetDataSource = SC.DataSource.extend(
   recentQuery: null,
   
   storeKeyArraySparse: null,
-   
+
   // ..........................................................
   // QUERY SUPPORT
   // 
+
 
   fetch: function(store, query, params) {
     var range;
@@ -121,5 +122,6 @@ Twitter.TweetDataSource = SC.DataSource.extend(
    sparseArrayDidReset: function(sparseArray) {
      console.log('MessageListDataSource.sparseArrayDidReset') ;
    }
+
   
 }) ;
