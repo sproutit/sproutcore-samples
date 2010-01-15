@@ -1,0 +1,10 @@
+.sc-theme .twetts .sc-list-item-view .icon {
+  margin-top:0px;
+  top:5px;
+  width: 48px;
+  height:48px;
+}
+
+.sc-theme .twetts .sc-list-item-view label {
+  left: 58px;
+}
