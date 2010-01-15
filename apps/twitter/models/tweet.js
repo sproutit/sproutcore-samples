@@ -18,6 +18,19 @@ Twitter.Tweet = SC.Record.extend(
 
   text: SC.Record.attr(String),
   
-  profileImage: SC.Record.attr(String, { key: "profile_image_url" })
+  profileImage: SC.Record.attr(String, { key: "profile_image_url" }),
   
+  _blankUrl: 'about:blank',
+
+  url: function() {
+    var txt = this.get('text'), tokens, i, tLen;
+    if(txt) {
+      tokens = txt.split(' ');
+      for(i=0, tLen = tokens.length; i<tLen; i++) {
+        if(tokens[i].match('http:')) return tokens[i];
+      }
+    }
+    return this._blankUrl;
+  }.property('text').cacheable()
+
 }) ;

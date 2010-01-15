@@ -44,6 +44,7 @@ Twitter.searchPage = SC.Page.create({
         layout: { top:25, left: 0, right: 0, bottom: 0 },
         valueBinding: 'Twitter.tweetController.url'
       })
+      
     })
   }) 
 });
