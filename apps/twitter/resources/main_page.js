@@ -30,8 +30,8 @@ Twitter.mainPage = SC.Page.design({
       loginButton: SC.ButtonView.design({
         layout: { top: -3, height: 25, right: 20, width: 100 },
         title: "Login",
-        target: 'Twitter.TweetController',
-        action: ''
+        target: 'Twitter.loginController',
+        action: 'openDialog'
       })
     }),
     

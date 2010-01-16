@@ -102,3 +102,5 @@ config :table_view,
 proxy '/statuses', :to => 'twitter.com'
 
 proxy '/search', :to =>'search.twitter.com'
+
+proxy '/account', :to =>'twitter.com'
