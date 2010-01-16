@@ -22,7 +22,9 @@ Twitter.searchPage = SC.Page.create({
       contentView: SC.ListView.design({   
         classNames: ['twetts'],
         hasContentIcon: YES,
-        rowHeight: 60
+        rowHeight: 60,
+        contentBinding: 'Twitter.tweetController.arrangedObjects',
+        selectionBinding: 'Twitter.tweetController.selection'
       })
     }),
 
