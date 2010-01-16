@@ -24,7 +24,9 @@ Twitter.searchPage = SC.Page.create({
         hasContentIcon: YES,
         rowHeight: 60,
         contentBinding: 'Twitter.tweetController.arrangedObjects',
-        selectionBinding: 'Twitter.tweetController.selection'
+        selectionBinding: 'Twitter.tweetController.selection',
+        contentValueKey: "text",     
+        contentIconKey: 'profileImage'
       })
     }),
 
