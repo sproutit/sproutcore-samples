@@ -14,15 +14,30 @@ Twitter.TweetDataSource = SC.DataSource.extend(
 /** @scope Twitter.TweetDataSource.prototype */ {
 
   pageSize: 50,
+  
+  recentQuery: null,
+  
+  storeKeyArraySparse: null,
    
   // ..........................................................
   // QUERY SUPPORT
   // 
 
-  fetch: function(store, query) {
-
-    SC.Request.getUrl('search.json?rpp=50&page=1&q='+query.query).json()
-      .notify(this, 'didFetchTweets', store, query, {})
+  fetch: function(store, query, params) {
+    var range;
+    this.set('recentQuery', query);
+    if(this.storeKeyArraySparse===null){
+      this.storeKeyArraySparse = SC.SparseArray.array();
+      this.storeKeyArraySparse.set('rangeWindowSize', this.pageSize);
+      this.storeKeyArraySparse.delegate = this;
+    }
+    if(!params) {
+      range={start:0, length:this.pageSize};
+    }else {
+      range=params.range;
+    }
+    SC.Request.getUrl('search.json?rpp='+this.pageSize+'&page='+((range.start/range.length)+1)+'&q='+query.query).json()
+      .notify(this, 'didFetchTweets', store, query, {range: range})
       .send();
     return YES;
 
@@ -66,13 +81,45 @@ Twitter.TweetDataSource = SC.DataSource.extend(
   
   
   didFetchTweets: function(response, store, query, params) {
-    var data, storeKeys;
+    var data, storeKeys, currentStart;
     if (SC.ok(response)) {
       data = response.get('body').results;
+      currentStart = (response.get('body').page-1) * response.get('body').results_per_page;
       storeKeys = store.loadRecords(Twitter.Tweet, data);
-      store.loadQueryResults(query, storeKeys);
+      if(data.length<this.pageSize) this.storeKeyArraySparse.provideLength(currentStart+this.pageSize);
+      this.storeKeyArraySparse.provideLength(currentStart+this.pageSize+10);
+      this.storeKeyArraySparse.provideObjectsInRange(params.range, storeKeys) ;
+      this.storeKeyArraySparse.rangeRequestCompleted(currentStart) ;
+      store.loadQueryResults(query, this.storeKeyArraySparse);
     } 
     else store.dataSourceDidErrorQuery(query, response);
-  }
+  },
+  
+  sparseArrayDidRequestLength: function(sparseArray) {
+     console.log('MessageListDataSource.sparseArrayDidRequestLength') ;
+     throw new Error('XXX') ;
+   },
+
+   sparseArrayDidRequestIndex: function(sparseArray, index) {
+     console.log('MessageListDataSource.sparseArrayDidRequestIndex') ;
+   },
+
+   sparseArrayDidRequestRange: function(sparseArray, range) {
+     console.log('didrequestrange');
+     this.fetch(Twitter.store,
+                this.get('recentQuery'),
+                {
+                range: {start:range.start, length:this.pageSize}
+                }) ;
+   },
+   
+   sparseArrayShouldReplace: function(sparseArray, idx, amt, objects) {
+     console.log('MessageListDataSource.sparseArrayShouldReplace') ;
+     return YES ;
+   },
+
+   sparseArrayDidReset: function(sparseArray) {
+     console.log('MessageListDataSource.sparseArrayDidReset') ;
+   }
   
 }) ;
