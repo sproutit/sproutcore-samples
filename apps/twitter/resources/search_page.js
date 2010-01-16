@@ -32,7 +32,8 @@ Twitter.searchPage = SC.Page.create({
       childViews: 'address webView'.w(),
 
       address: SC.LabelView.design({
-        layout: { top: 0, left: 10, right: 0, height: 25 }
+        textAlign: SC.ALIGN_RIGHT,
+        layout: { top: 0, left: 10, right: 10, height: 25 }
       }),  
       webView: SC.WebView.design({
         layout: { top:25, left: 0, right: 0, bottom: 0 }
