@@ -11,12 +11,12 @@ Twitter.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page 
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'middleView topView'.w(),
+    childViews: 'topView tabView'.w(),
 
     topView: SC.View.design({
       classNames: 'topBar'.w(),
       layout: { top: 0, left: 0, right: 0, height: 70 },
-      childViews: 'twitterLogo searchField'.w(),
+      childViews: 'twitterLogo searchField loginButton'.w(),
 
       twitterLogo: SC.ImageView.design({
         layout: { centerY: 0, height: 55, left: 20, width: 225 },
@@ -26,42 +26,30 @@ Twitter.mainPage = SC.Page.design({
       searchField: SC.TextFieldView.design({
         layout: { centerY: 0, height: 25, left: 270, width: 300 },
         hint: "Type your search here"
+      }),
+      loginButton: SC.ButtonView.design({
+        layout: { top: -3, height: 25, right: 20, width: 100 },
+        title: "Login",
+        target: 'Twitter.TweetController',
+        action: ''
       })
     }),
     
-    
-    middleView: SC.SplitView.design({
-      layout: { top: 70, bottom: 0, left: 0, right: 0 },
-      layoutDirection: SC.LAYOUT_HORIZONTAL,
-      defaultThickness: 0.5,
-      autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
-      canCollapseViews: YES,
-      topLeftMinThickness: 200,
-      topLeftMaxThickness: 900,
-      topLeftView: SC.ScrollView.design({
-        hasHorizontalScroller: NO,
-        layout: { top: 70, bottom: 0, left: 0, right: 0 },
-        backgroundColor: 'white',
+    tabView: SC.TabView.design({
+      value: 'Twitter.searchPage.mainView',
 
-        contentView: SC.ListView.design({   
-          classNames: ['twetts'],
-          hasContentIcon: YES,
-          rowHeight: 60
-        })
-      }),
+      items: [
+        { title: "Search", value: "Twitter.searchPage.mainView" },
+        { title: "Lists", value: "Twitter.listsPage.mainView" }
+      ],
 
-      dividerView: SC.SplitDividerView,
+      itemTitleKey: 'title',
+      itemValueKey: 'value',
 
-      bottomRightView: SC.View.design({
-        childViews: 'address webView'.w(),
-      
-        address: SC.LabelView.design({
-          layout: { top: 0, left: 10, right: 0, height: 25 }
-        }),  
-        webView: SC.WebView.design({
-          layout: { top:25, left: 0, right: 0, bottom: 0 }
-        })
-      })
+      layout: { left:0, right:0, top:58, bottom:0 },
+
+      userDefaultKey: "mainPane"
+
     })
   })
 });
