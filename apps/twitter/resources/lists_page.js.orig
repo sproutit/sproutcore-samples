@@ -6,25 +6,10 @@
 
 Twitter.listsPage = SC.Page.create({
   
-  mainView: SC.View.design({
-    childViews: ['splitView','saveRecords', 'addListButton'],
-    
-    addListButton: SC.ButtonView.design({
-      layout: { bottom: 3, height: 28, width: 80, left: 3 },
-      title: 'New List',
-      target: 'Twitter.listsController',
-      action: 'createNewList'
-    }),
-    
-    saveRecords: SC.ButtonView.design({
-      layout: { bottom: 3, height: 28, width: 80, left: 86 },
-      title: 'Commit Records',
-      target: 'Twitter.store',
-      action: 'commitRecords'
-    }),
-    
-    splitView: SC.SplitView.design({
-      layout: { bottom: 30, top: 20 },
+<<<<<<< Updated upstream
+  mainView: SC.SplitView.design({
+
+     layout: { top: 0, bottom: 0, left: 0, right: 0 },
      layoutDirection: SC.LAYOUT_HORIZONTAL,
      defaultThickness: 0.3,
      autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
@@ -38,7 +23,6 @@ Twitter.listsPage = SC.Page.create({
 
        contentView: SC.ListView.design({   
          classNames: ['lists'],
-         canEditContent: YES,
          hasContentIcon: YES,
          rowHeight: 60,
            contentBinding: 'Twitter.listsController.arrangedObjects',
@@ -95,6 +79,38 @@ Twitter.listsPage = SC.Page.create({
         })
       })
    })
+  
+=======
+  mainView: SC.View.create({
+    childViews: ['splitView', 'addListButton'],
+    
+    addListButton: SC.ButtonView.design({
+      layout: { bottom: 3, height: 28, width: 80, left: 3 },
+      title: 'New List',
+      target: 'Twitter.listsController',
+      action: 'createNewList'
+    }),
+    
+    splitView: SC.SplitView.design({
+      layout: { bottom: 30, top: 20 },
+      defaultThickness: 0.4,
+    
+      topLeftView: SC.ListView.design({
+        contentBinding: 'Twitter.listsController.arrangedObjects',
+        selectionBinding: 'Twitter.listsController.selection',
+      
+        canEditContent: YES,
+
+        contentValueKey: 'name'
+      }),
+    
+      bottomRightView: SC.ListView.design({
+        contentBinding: 'Twitter.usersController.arrangedObjects',
+
+        contentValueKey: 'screen_name'
+      })
+    })
   })
+>>>>>>> Stashed changes
 });
 

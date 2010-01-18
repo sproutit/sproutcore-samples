@@ -26,5 +26,15 @@ Twitter.listsController = SC.ArrayController.create(
     lists = Twitter.store.find(query);
     
     this.set('content', lists);
+  },
+  
+  createNewList: function() {
+    var list = Twitter.store.createRecord(Twitter.List, {
+      name: 'Untitled list'
+    });
+  },
+  
+  commitRecords: function() {
+    Twitter.store.commitRecords();
   }
 }) ;

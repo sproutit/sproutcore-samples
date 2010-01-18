@@ -128,11 +128,41 @@ Twitter.TweetDataSource = SC.DataSource.extend(
   },
   
   createRecord: function(store, storeKey) {
+    console.log('createRecord');
     
+    debugger;
     // TODO: Add handlers to submit new records to the data source.
     // call store.dataSourceDidComplete(storeKey) when done.
-    
+    if (store.recordTypeFor(storeKey) === Twitter.List) {
+      var url = '1/%@/lists.json',
+          username = Twitter.loginController.get('username'),
+          auth = Twitter.loginController.get('authData'),
+          dataHash = store.readDataHash(storeKey);
+          
+      url = url.fmt(username);
+      console.log(url);
+      console.log(username);
+      
+      SC.Request.postUrl(url, 'name='+dataHash.name)
+                .notify(this, 'didCreateList', store, storeKey)
+                .header('Authorization', auth)
+                .header('Content-Type', 'application/x-www-form-urlencoded')
+                .send();
+      
+      return YES;
+    }
     return NO ; // return YES if you handled the storeKey
+  },
+  
+  didCreateList: function(response, store, storeKey) {
+    if (SC.ok(response)) {
+      var data = response.get('body');
+      console.log(data);
+      debugger;
+      store.dataSourceDidComplete(storeKey, data, data.id);
+    } else {
+      store.dataSourceDidError(storeKey);
+    }
   },
   
   updateRecord: function(store, storeKey) {
