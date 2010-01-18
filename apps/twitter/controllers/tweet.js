@@ -29,6 +29,7 @@ Twitter.tweetController = SC.ArrayController.create(
   
   invokeQuery: function(){
     var q=this.get('query');
+    Twitter.mainPage.mainPane.tabView.set('nowShowing', "Twitter.searchPage.mainView");
     if(q.length===0 || q.length%2 !== 0) return;
     var twitterQuery = SC.Query.remote(Twitter.Tweet, {query: q});
     var tweets = Twitter.store.find(twitterQuery);
