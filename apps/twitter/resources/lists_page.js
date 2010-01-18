@@ -6,7 +6,13 @@
 
 Twitter.listsPage = SC.Page.create({
   
-  mainView: SC.View.design({})
-  
+  mainView: SC.SplitView.design({
+      defaultThickness: 0.4,
+      
+      topLeftView: SC.ListView.design({
+        contentBinding: 'Twitter.listsController.arrangedObjects',
+        contentValueKey: 'name'
+      })
+    })
 });
 

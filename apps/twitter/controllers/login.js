@@ -2,7 +2,7 @@
 // Project:   Twitter.loginController
 // Copyright: ©2010 My Company, Inc.
 // ==========================================================================
-/*globals Twitter */
+/*globals Twitter Base64*/
 
 /** @class
 
@@ -15,8 +15,8 @@
 Twitter.loginController = SC.Object.create(
 /** @scope Twitter.loginController.prototype */ {
   
-  username:'',
-  password:'',
+  username: '',
+  password: '',
 
   openDialog: function() {
      var pane = SC.SheetPane.create({
@@ -59,17 +59,23 @@ Twitter.loginController = SC.Object.create(
      this.set('sheetPane', pane);
    },
    
+   credentialsDidChange: function() {
+     Twitter.listsController.reload();
+   }.observes('username', 'password'),
    
    login:function(){
      var username = this.getPath('sheetPane.contentView.userTextField.value');
+     this.beginPropertyChanges();
      this.set('username', username);
      var password = this.getPath('sheetPane.contentView.passwordTextField.value');
      this.set('password', password);
+     this.endPropertyChanges();
      var auth = Base64.encode(username+":"+password);
      SC.Request.getUrl('account/verify_credentials.json').json()
-         .notify(this, 'loginSuccess')
-         .header('Authorization', "Basic "+auth)
-         .send();
+          .notify(this, 'loginSuccess')
+          .header('Authorization', "Basic "+auth)
+          .send();
+     this.loginSuccess();
    },
    
    loginSuccess:function(response){
@@ -80,7 +86,14 @@ Twitter.loginController = SC.Object.create(
    
    cancel: function(){
      this.get('sheetPane').remove();
-   }
+   },
+   
+   authData: function() {
+    var username = this.get('username'),
+        password = this.get('password');
+        
+     return "Basic "+Base64.encode(username+":"+password);
+   }.property('username', 'password').cacheable()
 
 }) ;
 

@@ -2,7 +2,7 @@
 // Project:   Twitter.TweetDataSource
 // Copyright: ©2010 My Company, Inc.
 // ==========================================================================
-/*globals Twitter */
+/*globals Twitter Base64*/
 
 /** @class
 
@@ -23,8 +23,23 @@ Twitter.TweetDataSource = SC.DataSource.extend(
   // QUERY SUPPORT
   // 
 
-
   fetch: function(store, query, params) {
+    var recordType = query.get('recordType');
+
+    // We need to query different APIs depending on the
+    // type of the record
+    if (recordType === Twitter.Tweet) {
+      return this.fetchTweets(store, query, params);
+    } else if (recordType === Twitter.List){
+      return this.fetchLists(store, query, params);
+    }
+    
+    // We weren't able to handle this request because
+    // it was a record type we don't know about.
+    return NO;
+  },
+  
+  fetchTweets: function(store, query, params) {
     var range;
     this.set('recentQuery', query);
     if(this.storeKeyArraySparse===null){
@@ -41,19 +56,53 @@ Twitter.TweetDataSource = SC.DataSource.extend(
       .notify(this, 'didFetchTweets', store, query, {range: range})
       .send();
     return YES;
+  },
+  
+  fetchLists: function(store, query, params) {
+    var url = '1/%@/lists.json',
+        username = query.get('username'),
+        auth = Twitter.loginController.get('authData');
 
+        
+    var req = SC.Request.getUrl(url.fmt(username)).json()
+                        .notify(this, 'didFetchLists', store, query)
+                        .header('Authorization', auth)
+                        .send();
+    
+    return YES;
   },
 
   // ..........................................................
   // RECORD SUPPORT
   // 
   
-  retrieveRecord: function(store, storeKey) {
-    
+  retrieveRecord: function(store, storeKey, id) {
+    if (store.recordTypeFor(storeKey) === Twitter.ListMembership) {
+      console.log("Getting membership for "+id);
+      return this.retrieveList(store, storeKey, id);
+    }
     // TODO: Add handlers to retrieve an individual record's contents
     // call store.dataSourceDidComplete(storeKey) when done.
     
     return NO ; // return YES if you handled the storeKey
+  },
+  
+  retrieveList: function(store, storeKey, id) {
+    var url = '1/%@/%@/members.json',
+        username = Twitter.loginController.get('username');
+    
+    url = url.fmt(username, id);
+    var auth = Twitter.loginController.get('authData');
+    
+    SC.Request.getUrl(url).json()
+              .notify(this, 'didRetrieveList', store, storeKey)
+              .header('Authorization', auth)
+              .send();
+  },
+  
+  didRetrieveList: function(response, store, storeKey) {
+    debugger;
+    store.dataSourceDidComplete(storeKey, response.get('body').list);
   },
   
   createRecord: function(store, storeKey) {
@@ -94,6 +143,18 @@ Twitter.TweetDataSource = SC.DataSource.extend(
       store.loadQueryResults(query, this.storeKeyArraySparse);
     } 
     else store.dataSourceDidErrorQuery(query, response);
+  },
+  
+  didFetchLists: function(response, store, query, params) {
+    if (SC.ok(response)) {
+      var data = response.get('body').lists;
+      data.forEach(function(list) {
+        list.membership = list.id;
+      });
+      store.loadRecords(Twitter.List, data);
+    } else {
+      store.dataSourceDidErrorQuery(query);
+    }
   },
   
   sparseArrayDidRequestLength: function(sparseArray) {
