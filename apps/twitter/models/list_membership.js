@@ -13,7 +13,7 @@
 */
 Twitter.ListMembership = SC.Record.extend(
 /** @scope Twitter.ListMembership.prototype */ {
-
-  // TODO: Add your own code here.
-
+  users: SC.Record.toMany('Twitter.User'),
+  
+  screenName: SC.Record.attr(String, { key: 'screen_name' })
 }) ;
