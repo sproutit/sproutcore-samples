@@ -52,9 +52,16 @@ Twitter.TweetDataSource = SC.DataSource.extend(
     }else {
       range=params.range;
     }
-    SC.Request.getUrl('search.json?rpp='+this.pageSize+'&page='+((range.start/range.length)+1)+'&q='+query.query).json()
-      .notify(this, 'didFetchTweets', store, query, {range: range})
-      .send();
+    
+    if(query.userID){
+      SC.Request.getUrl('search.json?rpp='+this.pageSize+'&page='+((range.start/range.length)+1)+'&q=from:'+query.userID).json()
+        .notify(this, 'didFetchTweets', store, query, {range: range})
+        .send();      
+    }else{
+      SC.Request.getUrl('search.json?rpp='+this.pageSize+'&page='+((range.start/range.length)+1)+'&q='+query.query).json()
+        .notify(this, 'didFetchTweets', store, query, {range: range})
+        .send();
+    }
     return YES;
   },
   

@@ -26,7 +26,9 @@ Twitter.main = function main() {
   // ex: Twitter.contactsController.set('content',Twitter.contacts);
   //var tweets = Twitter.store.find(Twitter.Tweet);
   //Twitter.tweetController.set('content', tweets);
-
+  var users = Twitter.store2.find(Twitter.User);
+  Twitter.membershipController.set('content', users);
+  
 } ;
 
 function main() { Twitter.main(); }
