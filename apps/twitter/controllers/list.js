@@ -13,4 +13,7 @@
 Twitter.listController = SC.ObjectController.create(
 /** @scope Twitter.listController.prototype */ {
   contentBinding: 'Twitter.listsController*selection.firstObject'
+  
+  
+
 }) ;

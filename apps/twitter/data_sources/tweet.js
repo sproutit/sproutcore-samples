@@ -84,7 +84,7 @@ Twitter.TweetDataSource = SC.DataSource.extend(
   // 
   
   retrieveRecord: function(store, storeKey, id) {
-    debugger;
+  
     if (store.recordTypeFor(storeKey) === Twitter.ListMembership) {
       console.log("Getting membership for "+id);
       return this.retrieveList(store, storeKey, id);
@@ -121,7 +121,6 @@ Twitter.TweetDataSource = SC.DataSource.extend(
         store.pushRetrieve(Twitter.User, id, users[idx], id);
         users[idx] = users[idx].id;
       }
-      debugger;
       store.dataSourceDidComplete(storeKey, response.get('body'));
     } else {
       store.dataSourceDidError(storeKey);

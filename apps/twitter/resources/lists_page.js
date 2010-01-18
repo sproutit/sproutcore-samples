@@ -52,8 +52,10 @@ Twitter.listsPage = SC.Page.create({
             hasContentIcon: YES,
             rowHeight: 60,
               contentBinding: 'Twitter.usersController.arrangedObjects',
+              selectionBinding: 'Twitter.usersController.selection',
 
-              contentValueKey: 'screen_name'
+              contentValueKey: 'screenName',
+              contentIconKey: 'profileImage'
           })
         }),
 
