@@ -103,4 +103,6 @@ proxy '/statuses', :to => 'twitter.com'
 
 proxy '/search', :to =>'search.twitter.com'
 
+proxy '/1', :to => 'twitter.com'
+
 proxy '/account', :to =>'twitter.com'
