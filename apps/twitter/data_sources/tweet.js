@@ -158,8 +158,8 @@ Twitter.TweetDataSource = SC.DataSource.extend(
       data = response.get('body').results;
       currentStart = (response.get('body').page-1) * response.get('body').results_per_page;
       storeKeys = store.loadRecords(Twitter.Tweet, data);
-      if(data.length<this.pageSize) this.storeKeyArraySparse.provideLength(currentStart+this.pageSize);
-      this.storeKeyArraySparse.provideLength(currentStart+this.pageSize+10);
+      if(data.length<this.pageSize) this.storeKeyArraySparse.provideLength(currentStart+data.length);
+      else this.storeKeyArraySparse.provideLength(currentStart+this.pageSize+5);
       this.storeKeyArraySparse.provideObjectsInRange(params.range, storeKeys) ;
       this.storeKeyArraySparse.rangeRequestCompleted(currentStart) ;
       store.loadQueryResults(query, this.storeKeyArraySparse);
