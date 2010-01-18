@@ -19,7 +19,7 @@ Twitter.listsPage = SC.Page.create({
     saveRecords: SC.ButtonView.design({
       layout: { bottom: 3, height: 28, width: 80, left: 86 },
       title: 'Commit Records',
-      target: 'Twitter.store',
+      target: 'Twitter.listsController',
       action: 'commitRecords'
     }),
     
