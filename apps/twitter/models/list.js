@@ -19,5 +19,5 @@ Twitter.List = SC.Record.extend(
   name: SC.Record.attr(String),
   fullName: SC.Record.attr(String, { key: "full_name" }),
 
-  membership: SC.Record.toOne('Twitter.ListMembership')
+  membership: SC.Record.toOne('Twitter.ListMembership', { isMaster: NO })
 }) ;

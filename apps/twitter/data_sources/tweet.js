@@ -84,10 +84,11 @@ Twitter.TweetDataSource = SC.DataSource.extend(
   // 
   
   retrieveRecord: function(store, storeKey, id) {
-  
-    if (store.recordTypeFor(storeKey) === Twitter.ListMembership) {
-      console.log("Getting membership for "+id);
+    var recordType = store.recordTypeFor(storeKey);
+    if (recordType === Twitter.ListMembership) {
       return this.retrieveList(store, storeKey, id);
+    } else if (recordType === Twitter.User) {
+      return this.retrieveUser(store, storeKey, id);
     }
     // TODO: Add handlers to retrieve an individual record's contents
     // call store.dataSourceDidComplete(storeKey) when done.
@@ -110,6 +111,20 @@ Twitter.TweetDataSource = SC.DataSource.extend(
     return YES;
   },
   
+  retrieveUser: function(store, storeKey, id) {
+    var url = '/users/show/%@.json';
+    
+    url = url.fmt(id);
+    var auth = Twitter.loginController.get('authData');
+    
+    SC.Request.getUrl(url).json()
+              .notify(this, 'didRetrieveUser', store, storeKey)
+              .header('Authorization', auth)
+              .send();
+              
+    return YES;
+  },
+  
   didRetrieveList: function(response, store, storeKey) {
     var idx, len, id;
     
@@ -117,9 +132,9 @@ Twitter.TweetDataSource = SC.DataSource.extend(
       var users = response.get('body').users;
       len = users.length;
       for (idx = 0; idx < len; idx++) {
-        id = Twitter.User.storeKeyFor(users[idx].id);
+        id = Twitter.User.storeKeyFor(users[idx].screen_name);
         store.pushRetrieve(Twitter.User, id, users[idx], id);
-        users[idx] = users[idx].id;
+        users[idx] = users[idx].screen_name;
       }
       store.dataSourceDidComplete(storeKey, response.get('body'));
     } else {
@@ -127,12 +142,18 @@ Twitter.TweetDataSource = SC.DataSource.extend(
     }
   },
   
-  createRecord: function(store, storeKey) {
-    console.log('createRecord');
+  didRetrieveUser: function(response, store, storeKey) {
+    var idx, len, id;
     
-    debugger;
-    // TODO: Add handlers to submit new records to the data source.
-    // call store.dataSourceDidComplete(storeKey) when done.
+    if (SC.ok(response)) {
+      var user = response.get('body');
+      store.dataSourceDidComplete(storeKey, user);
+    } else {
+      store.dataSourceDidError(storeKey);
+    }
+  },
+  
+  createRecord: function(store, storeKey) {
     if (store.recordTypeFor(storeKey) === Twitter.List) {
       var url = '1/%@/lists.json',
           username = Twitter.loginController.get('username'),
@@ -140,8 +161,6 @@ Twitter.TweetDataSource = SC.DataSource.extend(
           dataHash = store.readDataHash(storeKey);
           
       url = url.fmt(username);
-      console.log(url);
-      console.log(username);
       
       SC.Request.postUrl(url, 'name='+dataHash.name)
                 .notify(this, 'didCreateList', store, storeKey)
@@ -156,9 +175,7 @@ Twitter.TweetDataSource = SC.DataSource.extend(
   
   didCreateList: function(response, store, storeKey) {
     if (SC.ok(response)) {
-      var data = response.get('body');
-      console.log(data);
-      debugger;
+      var data = JSON.parse(response.get('body'));
       store.dataSourceDidComplete(storeKey, data, data.id);
     } else {
       store.dataSourceDidError(storeKey);
@@ -166,11 +183,34 @@ Twitter.TweetDataSource = SC.DataSource.extend(
   },
   
   updateRecord: function(store, storeKey) {
+    var recordType = store.recordTypeFor(storeKey);
+    console.log('Attempt to update '+recordType.toString());
+    if (recordType === Twitter.List) {
+      var url = '1/%@/lists/%@.json',
+          username = Twitter.loginController.get('username'),
+          auth = Twitter.loginController.get('authData'),
+          dataHash = store.readDataHash(storeKey);
+      url = url.fmt(username, dataHash.slug);
+      
+      SC.Request.postUrl(url, 'name='+dataHash.name)
+                .notify(this, 'didUpdateList', store, storeKey)
+                .header('Authorization', auth)
+                .header('Content-Type', 'application/x-www-form-urlencoded')
+                .send();
+      
+      return YES;
+    }
     
-    // TODO: Add handlers to submit modified record to the data source
-    // call store.dataSourceDidComplete(storeKey) when done.
-
-    return NO ; // return YES if you handled the storeKey
+    return NO;
+  },
+  
+  didUpdateList: function(response, store, storeKey) {
+    if (SC.ok(response)) {
+      var data = JSON.parse(response.get('body'));
+      store.dataSourceDidComplete(storeKey, data, data.id);
+    } else {
+      store.dataSourceDidError(storeKey);
+    }
   },
   
   destroyRecord: function(store, storeKey) {

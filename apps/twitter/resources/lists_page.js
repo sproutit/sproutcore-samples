@@ -7,7 +7,7 @@
 Twitter.listsPage = SC.Page.create({
   
   mainView: SC.View.design({
-    childViews: ['splitView','saveRecords', 'addListButton'],
+    childViews: ['splitView','addListButton', 'newUserButton'],
     
     addListButton: SC.ButtonView.design({
       layout: { bottom: 3, height: 28, width: 80, left: 3 },
@@ -16,11 +16,11 @@ Twitter.listsPage = SC.Page.create({
       action: 'createNewList'
     }),
     
-    saveRecords: SC.ButtonView.design({
+    newUserButton: SC.ButtonView.design({
       layout: { bottom: 3, height: 28, width: 80, left: 86 },
-      title: 'Commit Records',
-      target: 'Twitter.listsController',
-      action: 'commitRecords'
+      title: 'Add User',
+      target: 'Twitter.listController',
+      action: 'showUserPane'
     }),
     
     splitView: SC.SplitView.design({
@@ -95,6 +95,39 @@ Twitter.listsPage = SC.Page.create({
         })
       })
    })
+  }),
+  
+  addUserPane: SC.SheetPane.design({
+    layout: { width: 400, height: 100, centerX: 0 },
+
+    contentView: SC.View.design({
+      childViews: 'label textField removeButton saveButton'.w(),
+
+      label: SC.LabelView.design({
+        layout: { left: 17, top: 17, height: 20, width: 100 },
+        value: 'New user'
+      }),
+
+      textField: SC.TextFieldView.design({
+        layout: { left: 117, top: 17, height: 20 },
+        valueBinding: 'Twitter.listController.newUserName'
+      }),
+      
+      removeButton: SC.ButtonView.design({
+        layout: { width: 100, height: 28, bottom: 17, right: 134 },
+        title: 'Cancel',
+        target: 'Twitter.listController',
+        action: 'removePane'
+      }),
+      
+      saveButton: SC.ButtonView.design({
+        layout: { width: 100, height: 28, bottom: 17, right: 17 },
+        isDefault: YES,
+        title: 'Save',
+        target: 'Twitter.listController',
+        action: 'saveNewUser'
+      })
+    })
   })
 });
 

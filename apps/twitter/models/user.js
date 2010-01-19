@@ -13,7 +13,7 @@
 */
 Twitter.User = SC.Record.extend(
 /** @scope Twitter.User.prototype */ {
-  primaryKey: "id",
+  primaryKey: "screen_name",
 
   name: SC.Record.attr(String),
   
