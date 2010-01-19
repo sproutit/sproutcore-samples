@@ -44,7 +44,8 @@ Twitter.loginController = SC.Object.create(
            layout: { width: 80, bottom: 20, height: 24, centerX: 50 },
            title: "Login",
            action: "login",
-           target: "Twitter.loginController"
+           target: "Twitter.loginController",
+           isDefault: YES
          }),
          
          cancelButtonView: SC.ButtonView.extend({
