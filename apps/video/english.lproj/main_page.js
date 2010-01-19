@@ -21,7 +21,7 @@ VideoApp.mainPage = SC.Page.design({
       layout: { centerX: 0, centerY: 0, width: 640, height: 480 },
       
       canvasView: SC.VideoView.design({
-        layout: { top: 0, left: 0, width: 640, height: 480 },
+        layout: { top: 0, left: 0, width: 640, height: 350 },
         canPlayCB : VideoApp.appController.canPlay,
         classNames: 'reflector',
         src: 'http://tinyvid.tv/vfe/big_buck_bunny.mp4'
@@ -33,15 +33,15 @@ VideoApp.mainPage = SC.Page.design({
         classNames: 'controllers',
         playButton: SC.ButtonView.design({
           title: '',
-          titleMinWidth: 25,
+          titleMinWidth: 35,
           icon: 'play',
-          layout: { top: 0, left: 5, width: 30},
+          layout: { top: 0, left: 5, width: 37},
           action: "playPause",
           target: "VideoApp.appController"
         }),
 
         progressView: SC.SliderExtended.design({
-          layout: { top: 2, left: 40, width: 340},
+          layout: { top: 2, left: 42, width: 335},
           value:0,
           valueBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.currentTime" ,
           minimum: 0,
@@ -78,8 +78,8 @@ VideoApp.mainPage = SC.Page.design({
         theaterButton: SC.ButtonView.design({
           title: '',
           icon: 'theater',
-          titleMinWidth: 30,
-          layout: { top: 0, right: 5, width: 30},
+          titleMinWidth: 35,
+          layout: { top: 0, right: 5, width: 35},
           action: "theatherMode",
           target: "VideoApp.appController"
         })

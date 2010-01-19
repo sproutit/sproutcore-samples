@@ -25,14 +25,14 @@
 
 .play
 {
-  background: transparent static_url('buttons.gif') no-repeat -3px 3px ;
+  background: transparent static_url('buttons.gif') no-repeat 0px 3px ;
   height: 20px;
-  width: 19px;
+  width: 22px;
 }
 
 .theater
 {
-  background: transparent static_url('buttons.gif') no-repeat -22px 3px ;
+  background: transparent static_url('buttons.gif') no-repeat -20px 3px ;
   height: 20px;
   width: 18px;
 }
