@@ -14,79 +14,35 @@
 
 Twitter.loginController = SC.Object.create(
 /** @scope Twitter.loginController.prototype */ {
-  
   username: '',
   password: '',
 
-  openDialog: function() {
-     var pane = SC.SheetPane.create({
-       layout: { width: 400, height: 150, centerX: 0 },
-       contentView: SC.View.extend({
-         layout: { top: 0, left: 0, bottom: 0, right: 0 },
-         childViews: 'userTextField passwordTextField buttonView cancelButtonView'.w(),
+  loggedIn: NO,
 
-         userTextField: SC.TextFieldView.extend({
-           layout: { centerY: -40, height: 24, centerX: 0, width: 300 },
-           textAlign: SC.ALIGN_CENTER,
-           controlSize: SC.LARGE_CONTROL_SIZE,
-           hint: "USERNAME"
-         }),
-
-         passwordTextField: SC.TextFieldView.extend({
-            layout: { centerY: 0, height: 24, centerX: 0, width: 300 },
-            textAlign: SC.ALIGN_CENTER,
-            controlSize: SC.LARGE_CONTROL_SIZE,
-            isPassword: YES,
-            hint: "PASSWORD"
-          }),
-
-         buttonView: SC.ButtonView.extend({
-           layout: { width: 80, bottom: 20, height: 24, centerX: 50 },
-           title: "Login",
-           action: "login",
-           target: "Twitter.loginController",
-           isDefault: YES
-         }),
-         
-         cancelButtonView: SC.ButtonView.extend({
-            layout: { width: 80, bottom: 20, height: 24, centerX: -50 },
-            title: "Cancel",
-            action: "cancel",
-            target: "Twitter.loginController"
-          })
-       })
-     });
-     pane.append();
-     this.set('sheetPane', pane);
-   },
    
-   credentialsDidChange: function() {
-     Twitter.listsController.reload();
-   }.observes('username', 'password'),
-   
-   login:function(){
-     var username = this.getPath('sheetPane.contentView.userTextField.value');
-     this.beginPropertyChanges();
-     this.set('username', username);
-     var password = this.getPath('sheetPane.contentView.passwordTextField.value');
-     this.set('password', password);
-     this.endPropertyChanges();
-     var auth = Base64.encode(username+":"+password);
+  login:function(){
+     var username = this.get('username'),
+         password = this.get('password'),
+         auth = this.get('authData');
+
      SC.Request.getUrl('account/verify_credentials.json').json()
-          .notify(this, 'loginSuccess')
-          .header('Authorization', "Basic "+auth)
-          .send();
-     this.loginSuccess();
+               .notify(this, 'loginSuccess')
+               .header('Authorization', auth)
+               .send();
    },
    
    loginSuccess:function(response){
-     if (SC.ok(response)) this.get('sheetPane').remove();
-     else alert('Try again, username or password incorrect');
+     if (SC.ok(response)) {
+       Twitter.listsPage.get('loginPane').remove();
+       Twitter.sendAction('userLoggedIn');
+     } else {
+       alert('Try again, username or password incorrect');
+     }
    },
    
    
    cancel: function(){
-     this.get('sheetPane').remove();
+     Twitter.listsPage.get('loginPane').remove();
    },
    
    authData: function() {

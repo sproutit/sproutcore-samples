@@ -5,26 +5,40 @@
 /*globals Twitter */
 
 Twitter.listsPage = SC.Page.create({
-  
+
   mainView: SC.View.design({
-    childViews: ['splitView','addListButton', 'newUserButton'],
-    
+    childViews: ['splitView','addListButton', 'newUserButton', 'instructions'],
+
+    instructions: SC.View.design({
+      classNames: 'loading'.w(),
+      childViews: 'instructions'.w(),
+      isVisibleBinding: SC.Binding.not('Twitter.loginController.loggedIn'),
+
+      instructions: SC.LabelView.design({
+        layout: { height: 28, centerY: 0 },
+        textAlign: SC.ALIGN_CENTER,
+
+        value: 'Login to view lists'
+      })
+    }),
+
     addListButton: SC.ButtonView.design({
       layout: { bottom: 3, height: 28, width: 80, left: 3 },
       title: 'New List',
-      target: 'Twitter.listsController',
+      target: 'Twitter.firstResponder',
       action: 'createNewList'
     }),
-    
+
     newUserButton: SC.ButtonView.design({
       layout: { bottom: 3, height: 28, width: 80, left: 86 },
       title: 'Add User',
       target: 'Twitter.listController',
       action: 'showUserPane'
     }),
-    
+
     splitView: SC.SplitView.design({
       layout: { bottom: 30, top: 20 },
+      isVisibleBinding: 'Twitter.loginController.loggedIn',
      layoutDirection: SC.LAYOUT_HORIZONTAL,
      defaultThickness: 0.3,
      autoresizeBehavior: SC.RESIZE_BOTTOM_RIGHT,
@@ -36,16 +50,32 @@ Twitter.listsPage = SC.Page.create({
        layout: { top: 0, bottom: 0, left: 0, right: 0 },
        backgroundColor: 'white',
 
-       contentView: SC.ListView.design({   
-         classNames: ['lists'],
-         canEditContent: YES,
-         hasContentIcon: YES,
-         rowHeight: 60,
-           contentBinding: 'Twitter.listsController.arrangedObjects',
-           selectionBinding: 'Twitter.listsController.selection',
+       contentView: SC.View.design({
+         childViews: 'listView loadingView'.w(),
 
-           contentValueKey: 'name'
-         
+         listView: SC.ScrollView.design({
+           contentView: SC.ListView.design({
+             classNames: ['lists'],
+             canEditContent: YES,
+             hasContentIcon: YES,
+             rowHeight: 60,
+             contentBinding: 'Twitter.listsController.arrangedObjects',
+             selectionBinding: 'Twitter.listsController.selection',
+             contentValueKey: 'name'
+            })
+        }),
+
+         loadingView: SC.View.design({
+           classNames: 'loading',
+           childViews: 'loadingLabel'.w(),
+           isVisibleBinding: 'Twitter.listsController.isLoading',
+
+           loadingLabel: SC.LabelView.design({
+             layout: { height: 28, centerY: 0 },
+             textAlign: SC.ALIGN_CENTER,
+             value: 'Loading…'
+           })
+         })
        })
      }),
 
@@ -64,15 +94,31 @@ Twitter.listsPage = SC.Page.create({
           layout: { top: 0, bottom: 0, left: 0, right: 0 },
           backgroundColor: 'white',
 
-          contentView: SC.ListView.design({   
-            classNames: ['users'],
-            hasContentIcon: YES,
-            rowHeight: 60,
+          contentView: SC.View.design({
+            childViews: 'listView loadingView'.w(),
+
+            listView: SC.ListView.design({
+              classNames: ['users'],
+              hasContentIcon: YES,
+              rowHeight: 60,
               contentBinding: 'Twitter.usersController.arrangedObjects',
               selectionBinding: 'Twitter.usersController.selection',
 
               contentValueKey: 'screenName',
               contentIconKey: 'profileImage'
+            }),
+
+            loadingView: SC.View.design({
+              classNames: 'loading',
+              childViews: 'loadingLabel'.w(),
+              isVisibleBinding: 'Twitter.listMembershipController.isLoading',
+
+              loadingLabel: SC.LabelView.design({
+                layout: { height: 28, centerY: 0 },
+                textAlign: SC.ALIGN_CENTER,
+                value: 'Loading…'
+              })
+            })
           })
         }),
 
@@ -83,20 +129,20 @@ Twitter.listsPage = SC.Page.create({
           layout: { top: 0, bottom: 0, left: 0, right: 0 },
           backgroundColor: 'white',
 
-          contentView: SC.ListView.design({   
+          contentView: SC.ListView.design({
             classNames: ['tweets'],
             hasContentIcon: YES,
             rowHeight: 60,
             contentBinding: 'Twitter.userTweetsController.arrangedObjects',
             selectionBinding: 'Twitter.userTweetsController.selection',
-            contentValueKey: "text",     
+            contentValueKey: "text",
             contentIconKey: 'profileImage'
           })
         })
       })
    })
   }),
-  
+
   addUserPane: SC.SheetPane.design({
     layout: { width: 400, height: 100, centerX: 0 },
 
@@ -112,14 +158,14 @@ Twitter.listsPage = SC.Page.create({
         layout: { left: 117, top: 17, height: 20 },
         valueBinding: 'Twitter.listController.newUserName'
       }),
-      
+
       removeButton: SC.ButtonView.design({
         layout: { width: 100, height: 28, bottom: 17, right: 134 },
         title: 'Cancel',
         target: 'Twitter.listController',
         action: 'removePane'
       }),
-      
+
       saveButton: SC.ButtonView.design({
         layout: { width: 100, height: 28, bottom: 17, right: 17 },
         isDefault: YES,
@@ -128,6 +174,46 @@ Twitter.listsPage = SC.Page.create({
         action: 'saveNewUser'
       })
     })
-  })
+  }),
+
+  loginPane: SC.SheetPane.design({
+     layout: { width: 400, height: 150, centerX: 0 },
+     contentView: SC.View.extend({
+       layout: { top: 0, left: 0, bottom: 0, right: 0 },
+       childViews: 'userTextField passwordTextField buttonView cancelButtonView'.w(),
+
+       userTextField: SC.TextFieldView.extend({
+         layout: { centerY: -40, height: 24, centerX: 0, width: 300 },
+         textAlign: SC.ALIGN_CENTER,
+         controlSize: SC.LARGE_CONTROL_SIZE,
+         hint: "USERNAME",
+         valueBinding: 'Twitter.loginController.username'
+       }),
+
+       passwordTextField: SC.TextFieldView.extend({
+          layout: { centerY: 0, height: 24, centerX: 0, width: 300 },
+          textAlign: SC.ALIGN_CENTER,
+          controlSize: SC.LARGE_CONTROL_SIZE,
+          isPassword: YES,
+          hint: "PASSWORD",
+          valueBinding: 'Twitter.loginController.password'
+        }),
+
+       buttonView: SC.ButtonView.extend({
+         layout: { width: 80, bottom: 20, height: 24, centerX: 50 },
+         title: "Login",
+         action: "login",
+         target: "Twitter.loginController",
+         isDefault: YES
+       }),
+
+       cancelButtonView: SC.ButtonView.extend({
+          layout: { width: 80, bottom: 20, height: 24, centerX: -50 },
+          title: "Cancel",
+          action: "cancel",
+          target: "Twitter.loginController"
+        })
+     })
+   })
 });
 
