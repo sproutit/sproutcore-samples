@@ -12,23 +12,6 @@
 // See comments for some pointers on what to do next.
 //
 Twitter.main = function main() {
-
-  // Step 1: Instantiate Your Views
-  // The default code here will make the mainPane for your application visible
-  // on screen.  If you app gets any level of complexity, you will probably 
-  // create multiple pages and panes.  
-  Twitter.getPath('mainPage.mainPane').append() ;
-
-  // Step 2. Set the content property on your primary controller.
-  // This will make your app come alive!
-
-  // TODO: Set the content property on your primary controller
-  // ex: Twitter.contactsController.set('content',Twitter.contacts);
-  //var tweets = Twitter.store.find(Twitter.Tweet);
-  //Twitter.tweetController.set('content', tweets);
-  // var users = Twitter.store2.find(Twitter.User);
-  //   Twitter.membershipController.set('content', users);
-  //   
 } ;
 
 function main() { Twitter.main(); }
