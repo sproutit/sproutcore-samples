@@ -12,5 +12,11 @@
 */
 Twitter.listMembershipController = SC.ObjectController.create(
 /** @scope Twitter.listMembershipController.prototype */ {
-  contentBinding: 'Twitter.listController.membership'
+  contentBinding: 'Twitter.listController.membership',
+
+  isLoading: NO,
+
+  statusDidChange: function() {
+    Twitter.sendAction('listMembershipStatusDidChange');
+  }.observes('status')
 }) ;
