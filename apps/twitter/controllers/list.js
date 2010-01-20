@@ -36,29 +36,22 @@ Twitter.listController = SC.ObjectController.create(
     pane.remove();
     
     if (user.get('status') & SC.Record.READY) {
-      console.log('User was already in memory');
       this.addUserToSelectedList(user);
     } else {
       this.set('loadingUser', user);
-      console.log('Adding an observer to the user');
       user.addObserver('status', this, this.userStatusDidChange);
     }
   },
   
   userStatusDidChange: function() {
-    console.log('Status did change');
     var user = this.get('loadingUser');
     
     if (user.get('status') & SC.Record.READY) {
-      console.log('Record is ready');
       this.addUserToSelectedList(user);
-    } else {
-      console.log(user.get('status'));
     }
   },
   
   addUserToSelectedList: function(user) {
-    console.log('Adding user to list');
     var list = this.get('content'),
         users = list.getPath('membership.users');
         
