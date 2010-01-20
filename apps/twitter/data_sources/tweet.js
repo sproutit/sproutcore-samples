@@ -67,9 +67,8 @@ Twitter.TweetDataSource = SC.DataSource.extend(
   
   fetchLists: function(store, query, params) {
     var url = '1/%@/lists.json',
-        username = query.get('username'),
+        username = Twitter.loginController.get('username'),
         auth = Twitter.loginController.get('authData');
-
         
     var req = SC.Request.getUrl(url.fmt(username)).json()
                         .notify(this, 'didFetchLists', store, query)
@@ -244,6 +243,7 @@ Twitter.TweetDataSource = SC.DataSource.extend(
         list.membership = list.id;
       });
       store.loadRecords(Twitter.List, data);
+      store.dataSourceDidFetchQuery(query);
     } else {
       store.dataSourceDidErrorQuery(query);
     }
