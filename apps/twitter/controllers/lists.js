@@ -12,29 +12,26 @@
 */
 Twitter.listsController = SC.ArrayController.create(
 /** @scope Twitter.listsController.prototype */ {
+
+  isLoading: NO,
+
   reload: function() {
-    var query, lists;
-    console.log('reload');
-    query = this._query;
-    if (!query) {
-      this._query = query = SC.Query.local('Twitter.List', {
-        username: Twitter.loginController.get('username'),
-        password: Twitter.loginController.get('password')
-      });
-    }
-    
-    lists = Twitter.store.find(query);
-    
+    var lists;
+    lists = Twitter.store.find('Twitter.List');
     this.set('content', lists);
   },
-  
-  createNewList: function() {
-    var list = Twitter.store.createRecord(Twitter.List, {
-      name: 'Untitled list'
-    });
-  },
-  
+
   commitRecords: function() {
     Twitter.store.commitRecords();
-  }
+  },
+
+  statusDidChange: function() {
+    Twitter.sendAction('listsStatusDidChange');
+  }.observes('status'),
+
+  selectionDidChange: function() {
+    this.invokeLast( function() {
+      Twitter.sendAction('listsSelectionDidChange');
+    });
+  }.observes('selection')
 }) ;
