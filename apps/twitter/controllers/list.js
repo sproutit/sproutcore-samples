@@ -12,14 +12,13 @@
 */
 Twitter.listController = SC.ObjectController.create(
 /** @scope Twitter.listController.prototype */ {
-  contentBinding: 'Twitter.listsController*selection.firstObject',
-  
+  contentBinding: SC.Binding.from('Twitter.listsController.selection').single(),
+
   newUserName: '',
   loadingUser: null,
 
   showUserPane: function() {
     var pane = Twitter.getPath('listsPage.addUserPane');
-    
     this.set('newUserName', '');
     pane.append();
   },
