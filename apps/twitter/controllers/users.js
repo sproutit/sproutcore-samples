@@ -15,7 +15,6 @@ Twitter.usersController = SC.ArrayController.create(
   contentBinding: 'Twitter.listMembershipController.users',
   
   selectionChanged: function() {
-    console.log('selection');
     var user = this.get('selection').firstObject();
     var screenName = user.get('screenName');
     var twitterQuery = SC.Query.remote(Twitter.Tweet, {userID: screenName});
