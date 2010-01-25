@@ -1,0 +1,22 @@
+.login-pane {
+  -webkit-border-radius: 6px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4C74A9), to(#254981));
+  background-color: #254981;
+  -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.6);
+}
+
+.sc-pane.login-pane > .sc-view {
+  background-color: transparent;
+}
+
+.sc-pane.login-pane .sc-label-view {
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: rgb(169, 195, 228);
+  text-shadow: rgb(17, 42, 73) 0px -1px 0px;
+  -webkit-text-stroke: 0.5px transparent;
+}
+
+.sc-pane.login-pane .error-message {
+  font-size: 12px;
+}

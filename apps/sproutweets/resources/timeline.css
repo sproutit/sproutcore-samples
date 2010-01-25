@@ -1,0 +1,42 @@
+.sc-theme .sc-list-view.timeline-view {
+  background-color: transparent;
+}
+
+.tweet-list-item {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(250,250,255,0.8)), to(rgba(240,240,255,0.7)));
+  border-bottom: 1px solid #999;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.6);
+}
+
+.tweet-list-item.at-you {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(250,250,100,0.8)), to(rgba(240,240,80,0.7)));
+    border-bottom: 1px solid #A9AA31;
+}
+
+.tweet-list-item.retweet {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(240,160,250,0.8)), to(rgba(230,140,230,0.7)));
+    border-bottom: 1px solid #9E5DA9;
+}
+
+.tweet-list-item img {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: rgba(0,0,0,0.6) 0px 0px 4px;
+}
+
+.tweet-list-item .text {
+  position: absolute;
+  left: 70px;
+  font-size: 14px;
+  color: black;
+  letter-spacing: 0.2px;
+/*  -webkit-text-stroke: 0.5px transparent;*/
+/*  text-shadow: rgba(0,0,0,0.6) 0px 0px 4px;*/
+}

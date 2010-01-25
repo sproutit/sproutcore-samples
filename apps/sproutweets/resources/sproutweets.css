@@ -1,0 +1,58 @@
+.sc-theme .sc-pane.sc-main {
+  background-color: #798390;
+  background-image: sc_static('images/main_bg');
+  font-family: Helvetica, Arial, sans-serif !important;
+}
+
+.sc-button-view label {
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  color: rgb(169, 195, 228) !important;
+  text-shadow: rgb(17, 42, 73) 0px -1px 0px;
+  -webkit-text-stroke: 0.5px transparent;
+}
+
+.sc-label-view {
+  font-family: Helvetica, Arial, sans-serif !important;
+}
+
+.status-view {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#43484E), color-stop(0.1,#4D5258), color-stop(0.9, #393E46), to(#30333A));
+  background-color: #697283;
+  border-bottom: 1px solid #2B2B2B;
+}
+
+.status-view .profile-image {
+  -webkit-border-radius: 8px;
+  -webkit-box-shadow: rgba(0,0,0,0.6) 0px 0px 4px;
+}
+
+.status-view .username {
+  font-size: 42px;
+  line-height: 42px;
+  color: white;
+  text-shadow: rgba(0,0,0,0.6) 0px 0px 4px;
+  -webkit-text-stroke: 0.5px transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.status-view .count {
+  font-size: 30px;
+  color: white;
+  line-height: 30px;
+  text-shadow: rgba(0,0,0,0.6) 0px 0px 4px;
+}
+
+.status-view .label {
+  color: rgb(169, 195, 228);
+  text-shadow: rgba(0,0,0,0.6) 0px 0px 4px;
+}
+
+.loading-label {
+  font-size: 30px;
+  line-height: 30px;
+  color: white;
+  text-shadow: rgb(17, 42, 73) 0px -1px 1px;
+  -webkit-text-stroke: 0.5px transparent;
+}
