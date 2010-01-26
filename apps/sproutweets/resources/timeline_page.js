@@ -23,6 +23,7 @@ Sproutweets.timelinePage = SC.Page.design({
 
           var image = user.get('profileImage');
           context.push('<img src="%@">'.fmt(image));
+          context.push('<div class="screen-name">%@</div>'.fmt(user.get('screenName')));
           context.push('<div class="text">'+content.get('text')+'</div>');
 
           if (content.get('in_reply_to_user_id') === Sproutweets.userController.get('id')) {
