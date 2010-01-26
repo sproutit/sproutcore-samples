@@ -28,6 +28,8 @@ Sproutweets.userController = SC.ObjectController.create(
   
   formatWithCommas: function(str) {
     var n, ret = [];
+    if (!str) return '';
+
     n = str.toString();
     
     if (n.length < 4) return n;
