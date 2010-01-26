@@ -14,6 +14,7 @@
 Twitter.Tweet = SC.Record.extend(
 /** @scope Twitter.Tweet.prototype */ {
   primaryKey: 'id',
-  
-  text: SC.Record.attr(String)
+
+  text: SC.Record.attr(String),
+  user: SC.Record.toOne('Twitter.User')
 }) ;
