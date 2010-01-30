@@ -12,18 +12,32 @@ Sproutweets.timelinePage = SC.Page.design({
 
       contentBinding: 'Sproutweets.timelineController.arrangedObjects',
 
-      rowHeight: 60,
+      rowHeight: 120,
       rowSpacing: 10,
       exampleView: SC.ListItemView.extend({
         classNames: ['tweet-list-item'],
 
         render: function(context, firstTime) {
           var content = this.get('content'),
-              user = content.get('user');
+              user = content.get('user'),
+              out;
 
           var image = user.get('profileImage');
-          context.push('<img src="%@">'.fmt(image));
-          context.push('<div class="screen-name">%@</div>'.fmt(user.get('screenName')));
+
+          if (content.get('isRetweet')) {
+            context.push('<div class="profile-image">');
+            context.push('<img src="%@">'.fmt(image));
+            context.push('</div>');
+            out = "%@ <span class='rt-label'>retweeted</span> %@";
+            out = out.fmt(user.get('screenName'), content.get('retweetScreenName'));
+            context.push('<div class="screen-name">%@ </div>'.fmt(out));
+          } else {
+            context.push('<div class="profile-image">');
+            context.push('<img src="%@">'.fmt(image));
+            context.push('</div>');
+            context.push('<div class="screen-name">%@</div>'.fmt(user.get('screenName')));
+          }
+
           context.push('<div class="text">'+content.get('text')+'</div>');
 
           if (content.get('in_reply_to_user_id') === Sproutweets.userController.get('id')) {

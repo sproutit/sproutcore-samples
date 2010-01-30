@@ -16,5 +16,25 @@ Twitter.Tweet = SC.Record.extend(
   primaryKey: 'id',
 
   text: SC.Record.attr(String),
-  user: SC.Record.toOne('Twitter.User')
+  user: SC.Record.toOne('Twitter.User'),
+
+  text: function() {
+    var text;
+
+    if (this.get('isRetweet')) {
+      text = this.readAttribute('retweeted_status').text;
+    } else {
+      text = this.readAttribute('text');
+    }
+
+    return text;
+  }.property().cacheable(),
+
+  retweetScreenName: function() {
+    return this.readAttribute('retweeted_status').user.screen_name;
+  }.property().cacheable(),
+
+  isRetweet: function() {
+    return !!this.readAttribute('retweeted_status');
+  }.property().cacheable()
 }) ;
