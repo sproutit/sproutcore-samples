@@ -34,7 +34,11 @@ Sproutweets.timelinePage = SC.Page.design({
             context.addClass('retweet');
           }
         }
-      })
+      }),
+
+      contentIndexesInRect: function() {
+        return SC.IndexSet.create(0,this.get('length'));
+      }
     })
   }),
 
