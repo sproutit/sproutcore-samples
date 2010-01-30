@@ -18,14 +18,10 @@ Sproutweets.START = SC.Responder.create(
     loginPane.append();
   },
   
-  willLoseFirstResponder: function() {
-    //Called when this state loses first responder
-  },
-  
   login: function() {
     var username = Sproutweets.loginController.get('username'),
         password = Sproutweets.loginController.get('password');
-        
+
     Twitter.login(username, password, this, 'loginResponseReceived');
     Sproutweets.loginController.set('loggingIn', YES);
   },
