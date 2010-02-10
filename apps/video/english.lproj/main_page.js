@@ -4,8 +4,10 @@
 // ==========================================================================
 /*globals VideoApp */
 
-sc_require('views/video');
-sc_require('views/sliderExtended');
+sc_require('views/controls');
+sc_require('views/videoProperties');
+
+VideoApp.videoURL = sc_static('video.m4v');
 
 // This page describes the main user interface for your application.  
 VideoApp.mainPage = SC.Page.design({
@@ -14,92 +16,89 @@ VideoApp.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page 
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'videoPlayer sproutcore credits'.w(),
-        
-    videoPlayer: SC.View.design({
-      childViews: 'canvasView controllersView'.w(),
-      layout: { centerX: 0, centerY: 0, width: 640, height: 480 },
-      
-      canvasView: SC.VideoView.design({
-        layout: { top: 0, left: 0, width: 640, height: 350 },
-        canPlayCB : VideoApp.appController.canPlay,
-        classNames: 'reflector',
-        src: 'http://tinyvid.tv/vfe/big_buck_bunny.mp4'
-          //'http://tinyvid.tv/vfe/big_buck_bunny.ogv')
-      }),
-      controllersView: SC.View.design({
-        layout: { bottom:0, left: 0, width: 640, height: 30 },
-        childViews: 'playButton progressView timeView minusLabelView volumeView plusLabelView theaterButton'.w(),
-        classNames: 'controllers',
-        playButton: SC.ButtonView.design({
-          title: '',
-          titleMinWidth: 35,
-          icon: 'play',
-          layout: { top: 0, left: 5, width: 37},
-          action: "playPause",
-          target: "VideoApp.appController"
-        }),
+    childViews: 'playerContainer sproutcore credits'.w(),
+    
+    playerContainer: SC.View.design({
+      childViews: 'videoPlayer1 propertiesView1 videoPlayer2 propertiesView2 videoPlayer3 propertiesView3'.w(),
+      layout: { centerX: 0, top: 0, height: 0.95, width: 0.95},
+       
+      videoPlayer1: SC.View.design({
+        childViews: 'canvasView controlsView'.w(),
+        classNames: 'videoWrapper',
+        layout: { left: 0, top: 0, width: 0.3, height: 0.4 },
 
-        progressView: SC.SliderExtended.design({
-          layout: { top: 2, left: 42, width: 335},
-          value:0,
-          valueBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.currentTime" ,
-          minimum: 0,
-          maximumBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.duration",
-          onMouseDown:VideoApp.appController.pause,
-          onMouseUp:VideoApp.appController.play
-          
+        canvasView: SC.VideoView.design({
+          layout: { top: 0, left: 0, right: 0, height: 270 },
+          classNames: 'reflector',
+          value: VideoApp.videoURL
         }),
-        
-        timeView: SC.LabelView.design({
-          layout: { top: 2, left: 380, width: 85, height:20},
-          classNames: 'time',
-          textAlign: SC.ALIGN_CENTER,
-          valueBinding: 'VideoApp.mainPage.mainPane.videoPlayer.canvasView.time'
-        }),
-        minusLabelView: SC.LabelView.design({
-          layout: { top: 0, left: 470, width: 25},
-          value: '',
-          icon: 'minus'
-        }),
-        volumeView: SC.SliderExtended.design({
-          layout: { top: 2, left: 485, width: 100},
-          value:0,
-          valueBinding: "VideoApp.mainPage.mainPane.videoPlayer.canvasView.volume" ,
-          minimum: 0,
-          maximum: 1,
-          step: 0.01
-        }),
-        plusLabelView: SC.LabelView.design({
-          layout: { top: 0, left: 580, width: 25},
-          value: '',
-          icon: 'plus'
-        }),
-        theaterButton: SC.ButtonView.design({
-          title: '',
-          icon: 'theater',
-          titleMinWidth: 35,
-          layout: { top: 0, right: 5, width: 35},
-          action: "theatherMode",
-          target: "VideoApp.appController"
+        controlsView: VideoApp.ControlsView.design({
+          layout: { bottom:0, left: 0, right: 0, height: 60 },
+          targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer1.canvasView'
         })
-      })  
+        
+      }),
+      propertiesView1: VideoApp.VideoProperties.design({
+        layout: { bottom:0, left: 0, width: 0.3, height: 0.5 },
+        videoViewBinding: 'VideoApp.mainPage.mainPane.playerContainer.videoPlayer1.canvasView'
+      }),
+      videoPlayer2: SC.View.design({
+        childViews: 'canvasView controlsView'.w(),
+        classNames: 'videoWrapper',
+        layout: { centerX: 0, top: 0, width: 0.3, height: 0.4 },
+        
+        canvasView: SC.VideoView.design({
+          degradeList: ['quicktime', 'flash'],
+          layout: { top: 0, left: 0, right: 0, height: 270 },
+          classNames: 'reflector',
+          value: VideoApp.videoURL
+        }),
+        controlsView: VideoApp.ControlsView.design({
+          layout: { bottom:0, left: 0, right: 0, height: 60 },
+          targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer2.canvasView'
+        })
+        
+      }),
+      propertiesView2: VideoApp.VideoProperties.design({
+        layout: { bottom:0, centerX: 0, width: 0.3, height: 0.5 },
+        videoViewBinding: 'VideoApp.mainPage.mainPane.playerContainer.videoPlayer2.canvasView'
+      }),
+      videoPlayer3: SC.View.design({
+        childViews: 'canvasView controlsView'.w(),
+        classNames: 'videoWrapper',
+        layout: { right: 0, top: 0, width: 0.3, height: 0.4 },
+        
+        canvasView: SC.VideoView.design({
+          degradeList: ['flash'],
+          layout: { top: 0, left: 0, right: 0, height: 270 },
+          classNames: 'reflector',
+          value: VideoApp.videoURL
+        }),
+        controlsView: VideoApp.ControlsView.design({
+          layout: { bottom:0, left: 0, right: 0, height: 60 },
+          targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer3.canvasView'
+        })
+        
+      }),
+      propertiesView3: VideoApp.VideoProperties.design({
+        layout: { bottom:0, right: 0, width: 0.3, height: 0.5 },
+        videoViewBinding: 'VideoApp.mainPage.mainPane.playerContainer.videoPlayer3.canvasView'
+      })
+      
     }),
     sproutcore: SC.LabelView.design({
-        value: 'Sproutcore video',
-        classNames: 'sproutfont',
-         textAlign: SC.ALIGN_RIGHT,
-        layout: { top: 0, right: 0, width: 300, height: 30 }
-      }),
+      value: 'Sproutcore video',
+      classNames: 'sproutfont',
+      textAlign: SC.ALIGN_RIGHT,
+      layout: { top: 0, right: 0, width: 300, height: 30 }
+    }),
       
-      credits: SC.LabelView.design({
-        tag: 'a',
-        classNames: 'credits',
-          value: '(c) copyright Blender Foundation | www.bigbuckbunny.org',
-           textAlign: SC.ALIGN_RIGHT,
-          layout: { bottom: 0, right: 0, width: 500, height: 20 }
-        })
-    
-    
+    credits: SC.LabelView.design({
+      tag: 'a',
+      classNames: 'credits',
+      value: '(c) copyright Blender Foundation | www.bigbuckbunny.org',
+      textAlign: SC.ALIGN_RIGHT,
+      layout: { bottom: 0, right: 0, width: 500, height: 20 }
+    })
   })
 });

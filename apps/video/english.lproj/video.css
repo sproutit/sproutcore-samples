@@ -1,7 +1,9 @@
+
 @font-face {
 	font-family: Silkscreen;
 	src: url('slkscre.ttf');
 }
+
 
 .sc-theme .sc-pane.sc-main.theather_mode {
   background: black;
@@ -66,4 +68,17 @@
 
 .sc-theme .sc-pane.sc-main {
 	background-image: none !important;
+}
+
+.theather_mode .videoWrapper
+{
+  overflow: visible !important;
+}
+.theather_mode .reflector
+{ 
+  background: black;
+  -webkit-box-reflect: below 1px -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0.5, transparent), to(rgba(255, 255, 255, 0.496094))) 0 0 0 0 stretch stretch;
+}
+.properties {
+  text-shadow: black 0.1em 0.1em 0.2em;
 }

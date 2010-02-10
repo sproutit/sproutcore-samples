@@ -24,7 +24,11 @@ VideoApp.main = function main() {
 
   // TODO: Set the content property on your primary controller
   // ex: .contactsController.set('content',.contacts);
-
+  // VideoApp.appController.set('videoPlayer1', VideoApp.mainPage.mainPane.playerContainer.videoPlayer1.canvasView);
+  // VideoApp.appController.set('videoPlayer2', VideoApp.mainPage.mainPane.playerContainer.videoPlayer2);
+  // VideoApp.appController.set('videoPlayer3', VideoApp.mainPage.mainPane.playerContainer.videoPlayer3);
+  // debugger;
+  // VideoApp.appController.magic();
 } ;
 
 function main() { VideoApp.main(); }

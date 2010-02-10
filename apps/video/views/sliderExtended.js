@@ -1,11 +1,16 @@
 // ==========================================================================
-// Project:   SproutCore - JavaScript Application Framework
-// Copyright: ©2006-2009 Sprout Systems, Inc. and contributors.
-//            Portions ©2008-2009 Apple Inc. All rights reserved.
-// License:   Licened under MIT license (see license.js)
+// Project:   Video.SliderExtended
+// Copyright: ©2010 My Company, Inc.
 // ==========================================================================
+/*globals VideoApp */
 
-SC.SliderExtended = SC.SliderView.extend({
+/** @class
+
+  (Document Your View Here)
+
+  @extends SC.View
+*/
+VideoApp.SliderExtended = SC.SliderView.extend({
   
   onMouseDown:null,
   onMouseUp:null,
@@ -24,3 +29,4 @@ SC.SliderExtended = SC.SliderView.extend({
    }
    
 });
+
