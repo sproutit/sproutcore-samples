@@ -12,21 +12,19 @@
 */
 VideoApp.SliderExtended = SC.SliderView.extend({
   
-  onMouseDown:null,
-  onMouseUp:null,
+  videoView: null,
 
   mouseDown: function(evt) {
-     var md=this.get('onMouseDown');
-     if(md) md();
-    
-     return sc_super();
-   },
-
-   mouseUp: function(evt) {
-     var mu=this.get('onMouseUp');
-     if(mu) mu();
+    var video=this.get('videoView');
+    if(video) video.stop();
     return sc_super();
-   }
+  },
+
+  mouseUp: function(evt) {
+    var video=this.get('videoView');
+    if(video) video.play();
+    return sc_super();
+  }
    
 });
 

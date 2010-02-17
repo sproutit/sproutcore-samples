@@ -7,7 +7,7 @@
 sc_require('views/controls');
 sc_require('views/videoProperties');
 
-VideoApp.videoURL = sc_static('video.m4v');
+VideoApp.videoURL = 'http://mirror.cessen.com/blender.org/peach/trailer/trailer_iphone.m4v';
 
 // This page describes the main user interface for your application.  
 VideoApp.mainPage = SC.Page.design({
@@ -19,7 +19,7 @@ VideoApp.mainPage = SC.Page.design({
     childViews: 'playerContainer sproutcore credits'.w(),
     
     playerContainer: SC.View.design({
-      childViews: 'videoPlayer1 propertiesView1 videoPlayer2 propertiesView2 videoPlayer3 propertiesView3'.w(),
+      childViews: 'videoPlayer1 propertiesView1 videoPlayer3 propertiesView3'.w(),
       layout: { centerX: 0, top: 0, height: 0.95, width: 0.95},
        
       videoPlayer1: SC.View.design({
@@ -28,12 +28,13 @@ VideoApp.mainPage = SC.Page.design({
         layout: { left: 0, top: 0, width: 0.3, height: 0.4 },
 
         canvasView: SC.VideoView.design({
-          layout: { top: 0, left: 0, right: 0, height: 270 },
+          layout: { top: 0, left: 0, right: 0, bottom: 20 },
+          degradeList: ['video'],
           classNames: 'reflector',
           value: VideoApp.videoURL
         }),
         controlsView: VideoApp.ControlsView.design({
-          layout: { bottom:0, left: 0, right: 0, height: 60 },
+          layout: { bottom:0, left: 0, right: 0, height: 20 },
           targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer1.canvasView'
         })
         
@@ -49,12 +50,12 @@ VideoApp.mainPage = SC.Page.design({
         
         canvasView: SC.VideoView.design({
           degradeList: ['quicktime', 'flash'],
-          layout: { top: 0, left: 0, right: 0, height: 270 },
+          layout: { top: 0, left: 0, right: 0, bottom: 20 },
           classNames: 'reflector',
           value: VideoApp.videoURL
         }),
         controlsView: VideoApp.ControlsView.design({
-          layout: { bottom:0, left: 0, right: 0, height: 60 },
+          layout: { bottom:0, left: 0, right: 0, height: 20 },
           targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer2.canvasView'
         })
         
@@ -70,12 +71,12 @@ VideoApp.mainPage = SC.Page.design({
         
         canvasView: SC.VideoView.design({
           degradeList: ['flash'],
-          layout: { top: 0, left: 0, right: 0, height: 270 },
+          layout: { top: 0, left: 0, right: 0, bottom: 20 },
           classNames: 'reflector',
           value: VideoApp.videoURL
         }),
         controlsView: VideoApp.ControlsView.design({
-          layout: { bottom:0, left: 0, right: 0, height: 60 },
+          layout: { bottom:0, left: 0, right: 0, height: 20 },
           targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer3.canvasView'
         })
         
