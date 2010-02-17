@@ -98,13 +98,6 @@ config :table_view,
 config :sproutweets,
   :required => ['twitter', 'sproutcore/animation']
 
-
-
-config :sproutweets,
-  :required => ['twitter', 'sproutcore/animation']
-
-
-
 # Setup extra services to proxy.  This is used only in dev mode so you can
 # talk to backend services.
 
