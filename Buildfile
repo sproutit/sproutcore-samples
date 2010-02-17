@@ -91,6 +91,10 @@ config :iphone_demo,
   :theme    => 'sproutcore/iphone_theme',
   :layout   => 'sproutcore/mobile:lib/index.rhtml'
 
+# table_view demo requires the sproutcore/table framework
+config :table_view,
+  :required => ['sproutcore', 'sproutcore/table']
+  
 # Setup extra services to proxy.  This is used only in dev mode so you can
 # talk to backend services.
 
