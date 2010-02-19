@@ -1,6 +1,12 @@
 config :bundle_test,
   :required => [:sproutcore, 'bundle_test/static'],
-  :dynamic_required => ['bundle_test/dynamic']
+  :dynamic_required => ['bundle_test/dynamic'],
+  :use_modules => true
 
-config :static, :required => []
-config :dynamic, :required => []
+config :static, 
+  :required => [],
+  :use_modules => true
+  
+config :dynamic, 
+  :required => [],
+  :use_modules => true

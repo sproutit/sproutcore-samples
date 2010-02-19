@@ -4,6 +4,9 @@
 // ==========================================================================
 /*globals BundleTest */
 
+"import package sproutcore";
+"export BundleTest";
+
 /** @namespace
   
   A sample app to demonstrate bundle functionality in Abbot.

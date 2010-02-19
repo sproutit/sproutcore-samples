@@ -4,6 +4,9 @@
 // ==========================================================================
 /*globals BundleTest */
 
+"import package sproutcore";
+"import core";
+
 // This page describes the main user interface for your application.
 BundleTest.mainPage = SC.Page.design({
   
