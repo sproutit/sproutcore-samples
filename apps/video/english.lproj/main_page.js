@@ -33,7 +33,7 @@ VideoApp.mainPage = SC.Page.design({
           classNames: 'reflector',
           value: VideoApp.videoURL
         }),
-        controlsView: VideoApp.ControlsView.design({
+        controlsView: SC.MediaControlsView.design({
           layout: { bottom:0, left: 0, right: 0, height: 20 },
           targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer1.canvasView'
         })
@@ -54,7 +54,7 @@ VideoApp.mainPage = SC.Page.design({
           classNames: 'reflector',
           value: VideoApp.videoURL
         }),
-        controlsView: VideoApp.ControlsView.design({
+        controlsView: SC.MediaControlsView.design({
           layout: { bottom:0, left: 0, right: 0, height: 20 },
           targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer2.canvasView'
         })
@@ -75,7 +75,7 @@ VideoApp.mainPage = SC.Page.design({
           classNames: 'reflector',
           value: VideoApp.videoURL
         }),
-        controlsView: VideoApp.ControlsView.design({
+        controlsView: SC.MediaControlsView.design({
           layout: { bottom:0, left: 0, right: 0, height: 20 },
           targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer3.canvasView'
         })
