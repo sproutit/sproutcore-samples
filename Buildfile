@@ -101,6 +101,10 @@ config :sproutweets,
 config :video,
   :required => ['sproutcore', 'sproutcore/media']
 
+config :audio,
+  :required => ['sproutcore', 'sproutcore/media']
+
+
 # Setup extra services to proxy.  This is used only in dev mode so you can
 # talk to backend services.
 

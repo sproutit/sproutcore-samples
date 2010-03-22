@@ -48,29 +48,12 @@
   text-shadow: black 0.1em 0.1em 0.2em;
 }
 
-.controllers{
+.sc-media-controls{
   background: black;
-  opacity:0.8;
+  opacity:0;
+  -webkit-transition: opacity 1s ease-in-out;
 }
 
-.sc-theme .sc-slider-view .sc-inner{
-  background:white;
-  height:2px;
-  top:9px;
-}
-
-.sc-theme .sc-slider-view .sc-inner .sc-leftcap{
-  background:white;
-}
-
-.sc-theme .sc-slider-view .sc-inner .sc-rightcap{
-  background:white;
-}
-
-.sc-theme .sc-slider-view .sc-handle{
-  background:white;
-  height: 10px;
-  width:10px;
-  top:-4px;
-  margin-left:-3px;
+.videoWrapper:hover .sc-media-controls{
+  opacity: 0.7;
 }

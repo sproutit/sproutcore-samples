@@ -16,70 +16,62 @@ VideoApp.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page 
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'playerContainer sproutcore credits'.w(),
+    childViews: 'playerContainer sproutcore credits playAll'.w(),
+    
+    playAll: SC.ButtonView.design({
+      layout: { centerX: 0, top: 0.40, height: 24, width: 200},
+      title: 'Play All',
+      target:'VideoApp.appController',
+      action:'playAll'
+    }),
     
     playerContainer: SC.View.design({
-      childViews: 'videoPlayer1 propertiesView1 videoPlayer3 propertiesView3'.w(),
+      childViews: 'videoPlayer1 propertiesView1 videoPlayer2 propertiesView2 videoPlayer3 propertiesView3'.w(),
       layout: { centerX: 0, top: 0, height: 0.95, width: 0.95},
        
       videoPlayer1: SC.View.design({
-        childViews: 'canvasView controlsView'.w(),
+        childViews: 'canvasView'.w(),
         classNames: 'videoWrapper',
         layout: { left: 0, top: 0, width: 0.3, height: 0.4 },
 
         canvasView: SC.VideoView.design({
-          layout: { top: 0, left: 0, right: 0, bottom: 20 },
-          degradeList: ['video'],
+          layout: { top: 0, left: 0, right: 0, bottom: 0 },
+          degradeList: ['html5'],
           classNames: 'reflector',
           value: VideoApp.videoURL
-        }),
-        controlsView: SC.MediaControlsView.design({
-          layout: { bottom:0, left: 0, right: 0, height: 20 },
-          targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer1.canvasView'
-        })
-        
+        })        
       }),
       propertiesView1: VideoApp.VideoProperties.design({
         layout: { bottom:0, left: 0, width: 0.3, height: 0.5 },
         videoViewBinding: 'VideoApp.mainPage.mainPane.playerContainer.videoPlayer1.canvasView'
       }),
       videoPlayer2: SC.View.design({
-        childViews: 'canvasView controlsView'.w(),
+        childViews: 'canvasView'.w(),
         classNames: 'videoWrapper',
         layout: { centerX: 0, top: 0, width: 0.3, height: 0.4 },
         
         canvasView: SC.VideoView.design({
           degradeList: ['quicktime', 'flash'],
-          layout: { top: 0, left: 0, right: 0, bottom: 20 },
+          layout: { top: 0, left: 0, right: 0, bottom: 0 },
           classNames: 'reflector',
           value: VideoApp.videoURL
-        }),
-        controlsView: SC.MediaControlsView.design({
-          layout: { bottom:0, left: 0, right: 0, height: 20 },
-          targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer2.canvasView'
         })
-        
       }),
       propertiesView2: VideoApp.VideoProperties.design({
         layout: { bottom:0, centerX: 0, width: 0.3, height: 0.5 },
         videoViewBinding: 'VideoApp.mainPage.mainPane.playerContainer.videoPlayer2.canvasView'
       }),
       videoPlayer3: SC.View.design({
-        childViews: 'canvasView controlsView'.w(),
+        childViews: 'canvasView'.w(),
         classNames: 'videoWrapper',
         layout: { right: 0, top: 0, width: 0.3, height: 0.4 },
         
         canvasView: SC.VideoView.design({
           degradeList: ['flash'],
-          layout: { top: 0, left: 0, right: 0, bottom: 20 },
+          layout: { top: 0, left: 0, right: 0, bottom: 0 },
           classNames: 'reflector',
           value: VideoApp.videoURL
-        }),
-        controlsView: SC.MediaControlsView.design({
-          layout: { bottom:0, left: 0, right: 0, height: 20 },
-          targetBinding:'VideoApp.mainPage.mainPane.playerContainer.videoPlayer3.canvasView'
         })
-        
       }),
       propertiesView3: VideoApp.VideoProperties.design({
         layout: { bottom:0, right: 0, width: 0.3, height: 0.5 },
