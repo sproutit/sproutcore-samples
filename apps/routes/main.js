@@ -16,7 +16,5 @@ Routes.main = function main() {
 };
 
 function main() {
-  console.log('MAIN START');
   Routes.main();
-  console.log('MAIN END');
 }
