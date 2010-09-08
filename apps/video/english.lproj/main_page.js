@@ -5,7 +5,7 @@
 /*globals VideoApp */
 
 sc_require('views/controls');
-sc_require('views/videoProperties');
+sc_require('views/video_properties');
 
 VideoApp.videoURL = 'http://mirror.cessen.com/blender.org/peach/trailer/trailer_iphone.m4v';
 
