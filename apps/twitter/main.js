@@ -12,6 +12,7 @@
 // See comments for some pointers on what to do next.
 //
 Twitter.main = function main() {
+  Twitter.getPath('mainPage.mainPane').append() ; 
 } ;
 
 function main() { Twitter.main(); }

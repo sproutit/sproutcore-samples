@@ -18,10 +18,9 @@ Twitter.mainPage = SC.Page.design({
       layout: { top: 0, left: 0, right: 0, height: 70 },
       childViews: 'twitterLogo searchField loginButton'.w(),
 
-      twitterLogo: SC.ImageView.design({
+      twitterLogo: SC.LabelView.design({
         layout: { centerY: 0, height: 55, left: 20, width: 225 },
-        value: 'http://a1.twimg.com/a/1257878623/images/logo.png',
-        useImageCache: NO
+        value: 'Twitter',
       }),
       searchField: SC.TextFieldView.design({
         layout: { centerY: 0, height: 25, left: 270, width: 300 },
