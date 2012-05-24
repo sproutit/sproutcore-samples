@@ -16,7 +16,6 @@ Audio.audioController = SC.ArrayController.create(
     audioURL: 'http://www.joshwoodward.com/mp3/JoshWoodward-IllBeRightBehindYouJosephine.mp3',
     
     audioURLObserver: function(){
-      debugger;
       var url = this.get('selection').firstObject().get('url');
       if(url) this.set('audioURL', url);
     }.observes('selection')

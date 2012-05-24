@@ -16,8 +16,15 @@ Audio.mainPage = SC.Page.design({
     
     container: SC.View.design({
       layout: { centerX: 0, centerY: 0, width: 1024, height: 480 },
-      childViews: 'list html5container qtcontainer flashcontainer'.w(),
+      childViews: 'warning html5container'.w(),
         
+      warning: SC.LabelView.design({
+        layout: { top: 0, centerX: 0, width: 400, height: 30 },
+        value: "WARNING: This only works in HTML5 capable browsers."
+      }),
+
+    // Currently unnecessary
+    /*
       list: SC.ScrollView.design({
         layout: { top: 0, left: 0, width: 256, bottom: 0 },
         contentView: SC.ListView.design({
@@ -28,10 +35,12 @@ Audio.mainPage = SC.Page.design({
           rowHeight: 32
         })
       }),
+    */
+
       html5container: SC.View.design({
         layout: { top: 100, left: 256, width: 256, bottom: 100 },
         childViews: 'audioPlayer audioProperties'.w(),
-        audioPlayer:SC.AudioView.design({
+        audioPlayer:SC.AudioPlayerView.design({
           degradeList: ['html5'],
           layout: { top: 0, centerX:0, width: 200, height: 20},
           valueBinding: 'Audio.audioController.audioURL'
@@ -41,11 +50,14 @@ Audio.mainPage = SC.Page.design({
           layout: { top: 40, bottom:0, left: 0, right: 0},
           audioViewBinding: 'Audio.mainPage.mainPane.container.html5container.audioPlayer'
         })
-      }),
+      })
+
+    // These don't work right now
+    /*
       qtcontainer: SC.View.design({
         layout: { top: 100, left:512, width: 256, bottom: 100 },
         childViews: 'audioPlayer audioProperties'.w(),
-        audioPlayer:SC.AudioView.design({
+        audioPlayer:SC.AudioPlayerView.design({
           degradeList: ['quicktime'],
           layout: { top: 0, centerX:0, width: 200, height: 20},
           valueBinding: 'Audio.audioController.audioURL'
@@ -59,7 +71,7 @@ Audio.mainPage = SC.Page.design({
       flashcontainer: SC.View.design({
         layout: { top: 100, left: 768, width: 256, bottom: 100 },
         childViews: 'audioPlayer audioProperties'.w(),
-        audioPlayer:SC.AudioView.design({
+        audioPlayer:SC.AudioPlayerView.design({
           degradeList: ['flash'],
           layout: { top: 0, centerX:0, width: 200, height: 20},
           valueBinding: 'Audio.audioController.audioURL'
@@ -70,7 +82,7 @@ Audio.mainPage = SC.Page.design({
           audioViewBinding: 'Audio.mainPage.mainPane.container.flashcontainer.audioPlayer'
         })
       })
-      
+    */
     })
 
   })
